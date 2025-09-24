@@ -1,0 +1,511 @@
+﻿{% liquid
+  assign bg_image = section.settings.background_image
+  assign overlay_color = section.settings.overlay_color
+  assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0
+  assign overlay_gradient = section.settings.overlay_gradient
+  assign show_payment_icons = section.settings.show_payment_icons
+  assign show_policy_links = section.settings.show_policy_links
+%}
+
+<footer class="aurora-footer color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
+  <div class="aurora-footer__hero" style="{% if bg_image != blank %}background-image: url({{ bg_image | image_url: width: 2400 }});{% endif %}">
+    <div
+      class="aurora-footer__overlay{% if overlay_gradient %} aurora-footer__overlay--gradient{% endif %}"
+      style="--overlay-color: {{ overlay_color }}; --overlay-opacity: {{ overlay_opacity }};"
+    ></div>
+    <div class="aurora-footer__container">
+      <div class="aurora-footer__lead">
+        {% if section.settings.heading != blank %}
+          <h2 class="aurora-footer__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="aurora-footer__subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+        {% if section.settings.button_label != blank %}
+          <a
+            class="aurora-footer__cta"
+            {% if section.settings.button_link != blank %}
+              href="{{ section.settings.button_link }}"
+            {% else %}
+              role="link"
+              aria-disabled="true"
+            {% endif %}
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="aurora-footer__columns">
+        {% for block in section.blocks %}
+          {% if block.type == 'column' %}
+            <div class="aurora-footer__column" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}
+                <p class="aurora-footer__column-heading">{{ block.settings.heading }}</p>
+              {% endif %}
+              {% if block.settings.menu != blank %}
+                <ul class="aurora-footer__links">
+                  {% for link in block.settings.menu.links %}
+                    <li>
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="aurora-footer__utility">
+    <div class="aurora-footer__meta">
+      <div class="aurora-footer__brand">
+        {% if section.settings.logo != blank %}
+          {{ section.settings.logo | image_url: width: 200 | image_tag: class: 'aurora-footer__logo', loading: 'lazy' }}
+        {% else %}
+          <span class="aurora-footer__brand-name">{{ shop.name }}</span>
+        {% endif %}
+      </div>
+      <div class="aurora-footer__legal">
+        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'general.all_rights_reserved' | t }}</span>
+        {% if show_policy_links %}
+          <ul class="aurora-footer__policy-links">
+            {% for policy in shop.policies %}
+              {% if policy.url != blank %}
+                <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+    <div class="aurora-footer__extras">
+      {% assign social_links_exist = false %}
+      {% for block in section.blocks %}
+        {% if block.type == 'social_link' %}
+          {% assign social_links_exist = true %}
+        {% endif %}
+      {% endfor %}
+      {% if social_links_exist %}
+        <div class="aurora-footer__social">
+          {% for block in section.blocks %}
+            {% if block.type == 'social_link' %}
+              <a
+                class="aurora-footer__social-link"
+                {% if block.settings.url != blank %}
+                  href="{{ block.settings.url }}"
+                  target="_blank"
+                  rel="noopener"
+                {% else %}
+                  role="link"
+                  aria-disabled="true"
+                {% endif %}
+                aria-label="{{ block.settings.label }}"
+              >
+                {% render 'icon-or-image', icon: block.settings.icon, width: 20 %}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if show_payment_icons and shop.enabled_payment_types != blank %}
+        <div class="aurora-footer__payments">
+          {% for type in shop.enabled_payment_types %}
+            {{ type | payment_type_svg_tag: class: 'aurora-footer__payment-icon' }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+{% stylesheet %}
+  .aurora-footer {
+    position: relative;
+    color: #ffffff;
+    background-color: #111111;
+    overflow: hidden;
+  }
+
+  .aurora-footer a {
+    color: inherit;
+  }
+
+  .aurora-footer__hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .aurora-footer__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 0.65);
+  }
+
+  .aurora-footer__overlay--gradient {
+    background: linear-gradient(120deg, rgb(0 0 0 / 0.75) 0%, rgb(0 0 0 / 0.5) 45%, rgb(0 0 0 / 0.85) 100%);
+  }
+
+  .aurora-footer__overlay {
+    background-color: color-mix(in srgb, var(--overlay-color, #000000) calc(var(--overlay-opacity, 0.65) * 100%), transparent);
+  }
+
+  .aurora-footer__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 4rem);
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem);
+
+    @media (min-width: 1024px) {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: start;
+    }
+  }
+
+  .aurora-footer__lead {
+    display: grid;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .aurora-footer__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    line-height: 1.1;
+  }
+
+  .aurora-footer__subheading {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgb(255 255 255 / 0.85);
+    max-width: 52ch;
+  }
+
+  .aurora-footer__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+    min-height: 52px;
+    padding-inline: 2.25rem;
+    font-family: var(--font-body--family);
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: #795838;
+    color: #ffffff;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .aurora-footer__cta:hover,
+  .aurora-footer__cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 0.4);
+  }
+
+  .aurora-footer__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .aurora-footer__column-heading {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading--family);
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .aurora-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .aurora-footer__links a {
+    text-decoration: none;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: rgb(255 255 255 / 0.7);
+    transition: color 0.2s ease;
+  }
+
+  .aurora-footer__links a:hover,
+  .aurora-footer__links a:focus-visible {
+    color: #ffffff;
+  }
+
+  .aurora-footer__utility {
+    display: grid;
+    gap: 2rem;
+    padding: clamp(2rem, 4vw, 2.75rem) clamp(1.5rem, 6vw, 5rem) clamp(2.5rem, 5vw, 3.5rem);
+    background: linear-gradient(180deg, rgb(0 0 0 / 0.85) 0%, rgb(0 0 0 / 1) 100%);
+  }
+
+  .aurora-footer__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .aurora-footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .aurora-footer__logo {
+    max-height: 32px;
+    width: auto;
+  }
+
+  .aurora-footer__brand-name {
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .aurora-footer__legal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--font-body--family);
+    font-size: 0.85rem;
+    color: rgb(255 255 255 / 0.65);
+  }
+
+  .aurora-footer__policy-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .aurora-footer__policy-links a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .aurora-footer__policy-links a:hover,
+  .aurora-footer__policy-links a:focus-visible {
+    color: #ffffff;
+  }
+
+  .aurora-footer__extras {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .aurora-footer__social {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .aurora-footer__social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgb(255 255 255 / 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .aurora-footer__social-link:hover,
+  .aurora-footer__social-link:focus-visible {
+    transform: translateY(-2px);
+    background-color: rgb(255 255 255 / 0.15);
+    border-color: rgb(255 255 255 / 0.4);
+  }
+
+  .aurora-footer__payments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .aurora-footer__payment-icon {
+    height: 28px;
+    width: auto;
+    filter: brightness(1.2);
+  }
+
+  @media (max-width: 767px) {
+    .aurora-footer__hero {
+      text-align: left;
+    }
+
+    .aurora-footer__columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Aurora footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_gradient",
+      "label": "Use gradient overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000",
+      "alpha": true
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 65
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Plant-based nutrition to help the planet thrive"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "All Aurora Café productos son 100% veganos y hechos para sorprender cada mañana."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Ver compromisos"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy_links",
+      "label": "Show policy links",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Link column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Food"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "social_link",
+      "name": "Social link",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "facebook", "label": "Facebook" },
+            { "value": "instagram", "label": "Instagram" },
+            { "value": "youtube", "label": "YouTube" },
+            { "value": "tiktok", "label": "TikTok" },
+            { "value": "linkedin", "label": "LinkedIn" },
+            { "value": "twitter", "label": "X / Twitter" }
+          ],
+          "default": "instagram"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Accessible label",
+          "default": "Instagram"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Aurora footer",
+      "blocks": [
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "social_link" },
+        { "type": "social_link" },
+        { "type": "social_link" }
+      ]
+    }
+  ]
+}
+{% endschema %}

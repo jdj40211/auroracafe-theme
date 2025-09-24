@@ -1,0 +1,474 @@
+﻿{% liquid
+  assign heading = section.settings.heading
+  assign subheading = section.settings.subheading
+%}
+
+<div class="section section--page-width product-showcase color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
+  <div class="product-showcase__header">
+    {% if heading != blank %}
+      <h2 class="product-showcase__heading">{{ heading }}</h2>
+    {% endif %}
+    {% if subheading != blank %}
+      <p class="product-showcase__subheading">{{ subheading }}</p>
+    {% endif %}
+  </div>
+  <div class="product-showcase__grid">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      <article class="product-showcase__card" {{ block.shopify_attributes }}>
+        {% if product != blank and product.featured_media %}
+          <a href="{{ product.url }}" class="product-showcase__media" aria-label="{{ product.title }}">
+            {{
+              product.featured_media
+              | image_url: width: 1200
+              | image_tag:
+                class: 'product-showcase__image',
+                widths: '400, 600, 800, 1000, 1200',
+                sizes: '(min-width: 990px) 28vw, 100vw',
+                loading: 'lazy'
+            }}
+          </a>
+        {% else %}
+          <div class="product-showcase__media product-showcase__media--placeholder">
+            {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder' }}
+          </div>
+        {% endif %}
+        <div class="product-showcase__content">
+          {% if product != blank %}
+            <h3 class="product-showcase__title">
+              <a href="{{ product.url }}">{{ product.title }}</a>
+            </h3>
+            {% assign subtitle = block.settings.subtitle_text %}
+            {% if block.settings.subtitle_metafield != blank %}
+              {% assign parts = block.settings.subtitle_metafield | split: '.' %}
+              {% if parts.size == 2 and product.metafields[parts[0]][parts[1]] != blank %}
+                {% assign subtitle = product.metafields[parts[0]][parts[1]].value | default: product.metafields[parts[0]][parts[1]] %}
+              {% endif %}
+            {% endif %}
+            {% if subtitle != blank %}
+              <p class="product-showcase__subtitle">{{ subtitle }}</p>
+            {% endif %}
+          {% else %}
+            <h3 class="product-showcase__title">{{ block.settings.fallback_title }}</h3>
+            {% if block.settings.subtitle_text != blank %}
+              <p class="product-showcase__subtitle">{{ block.settings.subtitle_text }}</p>
+            {% endif %}
+          {% endif %}
+
+          {% assign features_icon = block.settings.feature_icon %}
+          {% assign feature_list = '' %}
+          <ul class="product-showcase__features">
+            {% for i in (1..3) %}
+              {% capture text_key %}feature_text_{{ i }}{% endcapture %}
+              {% capture meta_key %}feature_metafield_{{ i }}{% endcapture %}
+              {% assign feature_text = block.settings[text_key] %}
+              {% assign metafield_handle = block.settings[meta_key] %}
+              {% if product != blank and metafield_handle != blank %}
+                {% assign meta_parts = metafield_handle | split: '.' %}
+                {% if meta_parts.size == 2 and product.metafields[meta_parts[0]][meta_parts[1]] != blank %}
+                  {% assign feature_text = product.metafields[meta_parts[0]][meta_parts[1]].value | default: product.metafields[meta_parts[0]][meta_parts[1]] %}
+                {% endif %}
+              {% endif %}
+              {% if feature_text != blank %}
+                <li class="product-showcase__feature">
+                  {% if features_icon != 'none' %}
+                    <span class="product-showcase__feature-icon">
+                      {% render 'icon-or-image', icon: features_icon, width: 20 %}
+                    </span>
+                  {% endif %}
+                  <span class="product-showcase__feature-text">{{ feature_text }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          {% if product != blank %}
+            <p class="product-showcase__price">
+              {% if product.price_min != product.price_max %}
+                Desde {{ product.price_min | money }}
+              {% else %}
+                Desde {{ product.price | money }}
+              {% endif %}
+              {% if product.unit_price_measurement %}
+                <span class="product-showcase__unit-price"> / {{ product.unit_price | money }} {{ product.unit_price_measurement.reference_value }}{{ product.unit_price_measurement.reference_unit }}</span>
+              {% endif %}
+            </p>
+          {% else %}
+            <p class="product-showcase__price">Desde .00</p>
+          {% endif %}
+
+          <div class="product-showcase__actions">
+            <a
+              class="product-showcase__cta"
+              {% if product != blank %}
+                href="{{ product.url }}"
+              {% else %}
+                role="link"
+                aria-disabled="true"
+              {% endif %}
+            >
+              Ver producto
+            </a>
+            {% if product != blank and product.available %}
+              {% assign quick_variant = product.selected_or_first_available_variant %}
+              <form method="post" action="/cart/add" class="product-showcase__cart-form" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{ quick_variant.id }}">
+                <button type="submit" class="product-showcase__cart-button" aria-label="Agregar {{ product.title }} al carrito">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation" aria-hidden="true">
+                    <path fill="currentColor" d="M7.5 20a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm9 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM3 2h2.18a1 1 0 0 1 .97.757L6.9 5H21a1 1 0 0 1 .98 1.198l-1.5 7.5A1 1 0 0 1 19.5 14H8.06l-.36 1.447A1 1 0 0 1 6.73 16H4a1 1 0 0 1 0-2h1.18l1.64-6.447L5.62 3H3a1 1 0 0 1 0-2Zm5.47 7-1.05 4H18.6l1.2-6H7.53Z"/>
+                  </svg>
+                </button>
+              </form>
+            {% else %}
+              <button type="button" class="product-showcase__cart-button product-showcase__cart-button--disabled" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation" aria-hidden="true">
+                  <path fill="currentColor" d="M7.5 20a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm9 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM3 2h2.18a1 1 0 0 1 .97.757L6.9 5H21a1 1 0 0 1 .98 1.198l-1.5 7.5A1 1 0 0 1 19.5 14H8.06l-.36 1.447A1 1 0 0 1 6.73 16H4a1 1 0 0 1 0-2h1.18l1.64-6.447L5.62 3H3a1 1 0 0 1 0-2Zm5.47 7-1.05 4H18.6l1.2-6H7.53Z"/>
+                </svg>
+              </button>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .product-showcase {
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .product-showcase__header {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .product-showcase__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .product-showcase__subheading {
+    margin: 0;
+    max-width: 60ch;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .product-showcase__grid {
+    display: grid;
+    gap: clamp(2rem, 3vw, 2.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .product-showcase__card {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .product-showcase__media {
+    display: block;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .product-showcase__media--placeholder {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .product-showcase__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .product-showcase__content {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .product-showcase__title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.35;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .product-showcase__title a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-showcase__title a:hover,
+  .product-showcase__title a:focus-visible {
+    text-decoration: underline;
+  }
+
+  .product-showcase__subtitle {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .product-showcase__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .product-showcase__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-family: var(--font-body--family);
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .product-showcase__feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(121, 88, 56, 0.1);
+    color: #795838;
+    flex-shrink: 0;
+  }
+
+  .product-showcase__price {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .product-showcase__unit-price {
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .product-showcase__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .product-showcase__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 1.5rem;
+    font-family: var(--font-body--family);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #795838;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .product-showcase__cta:hover,
+  .product-showcase__cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(121, 88, 56, 0.25);
+  }
+
+  .product-showcase__cart-form {
+    margin: 0;
+  }
+
+  .product-showcase__cart-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    color: #795838;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .product-showcase__cart-button:hover,
+  .product-showcase__cart-button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .product-showcase__cart-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .product-showcase__cart-button--disabled {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.35);
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: none;
+    transform: none;
+  }
+
+  @media (max-width: 749px) {
+    .product-showcase__heading {
+      font-size: clamp(2rem, 8vw, 2.25rem);
+    }
+
+    .product-showcase__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .product-showcase__actions {
+      justify-content: flex-start;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Product showcase",
+  "class": "section product-showcase-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Conoce Nuestros Productos"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Seleccionamos los favoritos de Aurora Café para comenzar tu día." 
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        { "value": "scheme-1", "label": "Scheme 1" },
+        { "value": "scheme-2", "label": "Scheme 2" },
+        { "value": "scheme-3", "label": "Scheme 3" },
+        { "value": "scheme-4", "label": "Scheme 4" },
+        { "value": "scheme-5", "label": "Scheme 5" },
+        { "value": "scheme-6", "label": "Scheme 6" }
+      ],
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "fallback_title",
+          "label": "Fallback title",
+          "default": "Producto destacado"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_metafield",
+          "label": "Subtitle metafield (namespace.key)",
+          "info": "Ejemplo: custom.subtitulo"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_text",
+          "label": "Subtitle fallback",
+          "default": "Tu nueva bebida favorita."
+        },
+        {
+          "type": "select",
+          "id": "feature_icon",
+          "label": "Features icon",
+          "options": [
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "coffee", "label": "Coffee" },
+            { "value": "sparkles", "label": "Sparkles" },
+            { "value": "badge_check", "label": "Check" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "price_tag"
+        },
+        {
+          "type": "text",
+          "id": "feature_metafield_1",
+          "label": "Feature 1 metafield"
+        },
+        {
+          "type": "text",
+          "id": "feature_text_1",
+          "label": "Feature 1 fallback",
+          "default": "Ahorra y disfruta ingredientes frescos."
+        },
+        {
+          "type": "text",
+          "id": "feature_metafield_2",
+          "label": "Feature 2 metafield"
+        },
+        {
+          "type": "text",
+          "id": "feature_text_2",
+          "label": "Feature 2 fallback",
+          "default": "42 vitaminas, minerales y nutrientes."
+        },
+        {
+          "type": "text",
+          "id": "feature_metafield_3",
+          "label": "Feature 3 metafield"
+        },
+        {
+          "type": "text",
+          "id": "feature_text_3",
+          "label": "Feature 3 fallback",
+          "default": "Listo para servir en menos de un minuto."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Product showcase",
+      "category": "Custom",
+      "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ]
+}
+{% endschema %}

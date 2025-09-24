@@ -1,0 +1,349 @@
+﻿{% liquid
+  assign heading_prefix = section.settings.heading_prefix
+  assign heading_emphasis = section.settings.heading_emphasis
+  assign subheading = section.settings.subheading
+  assign button_label = section.settings.button_label
+  assign button_link = section.settings.button_link
+  assign image = section.settings.media_image
+%}
+
+<div class="section section--page-width capsules-section color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
+  <div class="capsules-section__container">
+    <div class="capsules-section__intro">
+      <div class="capsules-section__text">
+        {% if heading_prefix != blank or heading_emphasis != blank %}
+          <h2 class="capsules-section__heading">
+            {% if heading_prefix != blank %}
+              {{ heading_prefix }}{% if heading_emphasis != blank %}&nbsp;{% endif %}
+            {% endif %}
+            {% if heading_emphasis != blank %}
+              <span class="capsules-section__heading-emphasis">{{ heading_emphasis }}</span>
+            {% endif %}
+          </h2>
+        {% endif %}
+        {% if subheading != blank %}
+          <p class="capsules-section__subheading">{{ subheading }}</p>
+        {% endif %}
+        {% if button_label != blank %}
+          <a
+            class="capsules-section__cta"
+            {% if button_link != blank %}
+              href="{{ button_link }}"
+            {% else %}
+              role="link"
+              aria-disabled="true"
+            {% endif %}
+          >
+            {{ button_label }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="capsules-section__media">
+        {% if image != blank %}
+          {{
+            image
+            | image_url: width: 1200
+            | image_tag:
+              class: 'capsules-section__media-image',
+              widths: '400, 600, 800, 1000, 1200',
+              sizes: '(min-width: 900px) 40vw, 100vw',
+              loading: 'lazy'
+          }}
+        {% else %}
+          <div class="capsules-section__media-placeholder" role="img" aria-label="{{ 'sections.capsules.media_placeholder' | t | default: 'Espacio reservado para video' }}"></div>
+        {% endif %}
+        <div class="capsules-section__play-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="presentation">
+            <circle cx="32" cy="32" r="32" fill="currentColor" opacity="0.6" />
+            <polygon points="26,20 26,44 46,32" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    {% if section.blocks.size > 0 %}
+      <div class="capsules-section__features">
+        {% for block in section.blocks %}
+          <div class="capsules-section__feature" {{ block.shopify_attributes }}>
+            {% if block.settings.custom_icon != blank or block.settings.icon != 'none' %}
+              <div class="capsules-section__feature-icon">
+                {% render 'icon-or-image', icon: block.settings.icon, image_upload: block.settings.custom_icon, width: 40 %}
+              </div>
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h3 class="capsules-section__feature-title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p class="capsules-section__feature-text">{{ block.settings.text }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .capsules-section {
+    position: relative;
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .capsules-section__container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .capsules-section__intro {
+    display: grid;
+    gap: clamp(2rem, 4vw, 3rem);
+
+    @media screen and (min-width: 900px) {
+      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+    }
+  }
+
+  .capsules-section__text {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .capsules-section__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .capsules-section__heading-emphasis {
+    font-style: italic;
+  }
+
+  .capsules-section__subheading {
+    margin: 0;
+    max-width: 50ch;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .capsules-section__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding-inline: clamp(1.75rem, 4vw, 2.5rem);
+    font-family: var(--font-body--family);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #795838;
+    border-radius: var(--radius-md, 12px);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .capsules-section__cta:hover,
+  .capsules-section__cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(121, 88, 56, 0.25);
+  }
+
+  .capsules-section__media {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .capsules-section__media-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .capsules-section__media-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
+  }
+
+  .capsules-section__play-icon {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #000000;
+  }
+
+  .capsules-section__play-icon svg {
+    width: clamp(64px, 10vw, 88px);
+    height: clamp(64px, 10vw, 88px);
+  }
+
+  .capsules-section__features {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .capsules-section__feature {
+    text-align: center;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .capsules-section__feature-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    margin-inline: auto;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: rgba(0, 0, 0, 0.75);
+    background-color: #ffffff;
+  }
+
+  .capsules-section__feature-icon svg,
+  .capsules-section__feature-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .capsules-section__feature-title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 1rem;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .capsules-section__feature-text {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb));
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Capsules replacement",
+  "class": "section capsules-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "Heading prefix",
+      "default": "Olvídate de las cápsulas: Así se ve"
+    },
+    {
+      "type": "text",
+      "id": "heading_emphasis",
+      "label": "Heading emphasis",
+      "default": "el futuro del café en casa."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Descubre por qué miles están cambiando su cafetera de cápsulas por la libertad de un café hecho a tu gusto."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Ver Productos"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "media_image",
+      "label": "Media image",
+      "info": "Usa una imagen representativa del video."
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        { "value": "scheme-1", "label": "Scheme 1" },
+        { "value": "scheme-2", "label": "Scheme 2" },
+        { "value": "scheme-3", "label": "Scheme 3" },
+        { "value": "scheme-4", "label": "Scheme 4" },
+        { "value": "scheme-5", "label": "Scheme 5" },
+        { "value": "scheme-6", "label": "Scheme 6" }
+      ],
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "price_tag", "label": "Price tag" },
+            { "value": "piggy_bank", "label": "Piggy bank" },
+            { "value": "coffee", "label": "Coffee" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "chat_bubble", "label": "Chat" },
+            { "value": "badge_check", "label": "Check badge" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "price_tag"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Ahorro a largo plazo"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "Usa café en grano estándar y olvídate de las cápsulas costosas."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Capsules replacement",
+      "category": "Custom",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,335 @@
+{% liquid
+  assign heading = section.settings.heading
+  assign subheading = section.settings.subheading
+%}
+
+<div class="section section--page-width beverage-carousel color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}" data-beverage-carousel>
+  <div class="beverage-carousel__header">
+    <div class="beverage-carousel__intro">
+      {% if heading != blank %}
+        <h2 class="beverage-carousel__heading">{{ heading }}</h2>
+      {% endif %}
+      {% if subheading != blank %}
+        <p class="beverage-carousel__subheading">{{ subheading }}</p>
+      {% endif %}
+    </div>
+    <div class="beverage-carousel__controls">
+      <button type="button" class="beverage-carousel__arrow beverage-carousel__arrow--prev" data-prev aria-label="Ver anteriores">
+        <span class="beverage-carousel__arrow-icon" aria-hidden="true">&#8592;</span>
+      </button>
+      <button type="button" class="beverage-carousel__arrow beverage-carousel__arrow--next" data-next aria-label="Ver siguientes">
+        <span class="beverage-carousel__arrow-icon" aria-hidden="true">&#8594;</span>
+      </button>
+    </div>
+  </div>
+  <div class="beverage-carousel__viewport" data-viewport>
+    <ul class="beverage-carousel__track" data-track>
+      {% for block in section.blocks %}
+        <li class="beverage-carousel__item" {{ block.shopify_attributes }}>
+          <div class="beverage-carousel__image-wrapper">
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 600
+                | image_tag:
+                  class: 'beverage-carousel__image',
+                  widths: '200, 300, 400, 600',
+                  sizes: '200px',
+                  loading: 'lazy'
+              }}
+            {% else %}
+              <div class="beverage-carousel__image beverage-carousel__image--placeholder" role="img" aria-label="{{ block.settings.title | default: 'Bebida' }}"></div>
+            {% endif %}
+          </div>
+          {% if block.settings.title != blank %}
+            <h3 class="beverage-carousel__title">{{ block.settings.title }}</h3>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <p class="beverage-carousel__description">{{ block.settings.description }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .beverage-carousel {
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .beverage-carousel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .beverage-carousel__intro {
+    max-width: 52ch;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .beverage-carousel__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .beverage-carousel__subheading {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .beverage-carousel__controls {
+    display: inline-flex;
+    gap: 0.75rem;
+  }
+
+  .beverage-carousel__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #795838;
+    color: #ffffff;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .beverage-carousel__arrow.is-disabled {
+    background-color: transparent;
+    border-color: rgba(121, 88, 56, 0.35);
+    color: rgba(121, 88, 56, 0.5);
+    cursor: default;
+    transform: none;
+  }
+
+  .beverage-carousel__arrow:not(.is-disabled):hover,
+  .beverage-carousel__arrow:not(.is-disabled):focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .beverage-carousel__viewport {
+    overflow: hidden;
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+
+  .beverage-carousel__track {
+    scrollbar-width: none;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(220px, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+  }
+
+  .beverage-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .beverage-carousel__item {
+    scroll-snap-align: center;
+    display: grid;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .beverage-carousel__image-wrapper {
+    width: 100%;
+    max-width: 220px;
+    height: 262px;
+    margin-inline: auto;
+    border-radius: 220px;
+    overflow: hidden;
+  }
+
+  .beverage-carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .beverage-carousel__image--placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
+  }
+
+  .beverage-carousel__title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .beverage-carousel__description {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  @media (max-width: 749px) {
+    .beverage-carousel__header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .beverage-carousel__controls {
+      align-self: flex-end;
+    }
+
+    .beverage-carousel__heading {
+      font-size: clamp(2rem, 8vw, 2.25rem);
+    }
+
+    .beverage-carousel__track {
+    scrollbar-width: none;
+
+      grid-auto-columns: minmax(220px, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+<script>
+  (function() {
+    const initCarousel = (root) => {
+      if (!root) return;
+      const track = root.querySelector('[data-track]');
+      const prevBtn = root.querySelector('[data-prev]');
+      const nextBtn = root.querySelector('[data-next]');
+      if (!track || !prevBtn || !nextBtn) return;
+
+      const updateControls = () => {
+        const scrollLeft = track.scrollLeft;
+        const maxScroll = track.scrollWidth - track.clientWidth - 1;
+        if (scrollLeft <= 1) {
+          prevBtn.classList.add('is-disabled');
+        } else {
+          prevBtn.classList.remove('is-disabled');
+        }
+        if (scrollLeft >= maxScroll) {
+          nextBtn.classList.add('is-disabled');
+        } else {
+          nextBtn.classList.remove('is-disabled');
+        }
+      };
+
+      const scrollByAmount = () => {
+        const item = track.querySelector('.beverage-carousel__item');
+        const itemWidth = item ? item.getBoundingClientRect().width : track.clientWidth;
+        return itemWidth + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 24);
+      };
+
+      prevBtn.addEventListener('click', () => {
+        if (prevBtn.classList.contains('is-disabled')) return;
+        track.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (nextBtn.classList.contains('is-disabled')) return;
+        track.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
+      });
+
+      let rafId;
+      const onScroll = () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateControls);
+      };
+
+      track.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', updateControls);
+      updateControls();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-beverage-carousel]').forEach(initCarousel);
+    });
+
+    document.addEventListener('shopify:section:load', (event) => {
+      const section = event.target.querySelector('[data-beverage-carousel]');
+      if (section) initCarousel(section);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Beverage carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Crea tu bebida favorita con un solo toque"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Disfruta de la libertad de crear la bebida que se te antoje, justo como la quieres, con el panel táctil intuitivo"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "beverage",
+      "name": "Beverage",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Espresso"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descripción",
+          "default": "Comparte la intensidad perfecta de tu espresso favorito."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Beverage carousel",
+      "blocks": [
+        { "type": "beverage" },
+        { "type": "beverage" },
+        { "type": "beverage" },
+        { "type": "beverage" },
+        { "type": "beverage" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+

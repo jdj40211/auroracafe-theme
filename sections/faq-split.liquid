@@ -1,0 +1,289 @@
+﻿<div class="section section--page-width faq-section color-{{ section.settings.color_scheme }}" data-faq-section>
+  <div class="faq-section__grid">
+    <div class="faq-section__intro">
+      {% if section.settings.heading != blank %}
+        <h2 class="faq-section__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="faq-section__description">{{ section.settings.description }}</p>
+      {% endif %}
+      {% if section.settings.button_label != blank %}
+        <a
+          class="faq-section__cta"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link"
+            aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+    <div class="faq-section__accordion" data-faq-accordion>
+      {% for block in section.blocks %}
+        <article class="faq-item" data-faq-item {{ block.shopify_attributes }}>
+          <button class="faq-item__trigger" type="button" data-faq-trigger>
+            <span class="faq-item__question">{{ block.settings.question }}</span>
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__panel" data-faq-panel>
+            <div class="faq-item__answer">
+              {{ block.settings.answer | newline_to_br }}
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .faq-section {
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  .faq-section__grid {
+    display: grid;
+    gap: clamp(2rem, 4vw, 4rem);
+
+    @media (min-width: 900px) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+
+  .faq-section__intro {
+    display: grid;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    max-width: 480px;
+  }
+
+  .faq-section__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .faq-section__description {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .faq-section__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding-inline: 2rem;
+    font-family: var(--font-body--family);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #795838;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-section__cta:hover,
+  .faq-section__cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(121, 88, 56, 0.25);
+  }
+
+  .faq-section__accordion {
+    display: grid;
+    gap: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item__trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .faq-item__question {
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: rgb(var(--color-foreground-heading-rgb));
+    text-align: left;
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item__panel {
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+  }
+
+  .faq-item.is-open .faq-item__panel {
+    opacity: 1;
+  }
+
+  .faq-item__answer {
+    padding-top: clamp(0.75rem, 2vw, 1rem);
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .faq-item.is-open .faq-item__icon {
+    transform: rotate(45deg);
+  }
+{% endstylesheet %}
+
+<script>
+  (function() {
+    const SPRING_DURATION = 600;
+    const SPRING_EASE = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+
+    const initFaq = (root) => {
+      if (!root) return;
+      const items = root.querySelectorAll('[data-faq-item]');
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-faq-trigger]');
+        const panel = item.querySelector('[data-faq-panel]');
+        const icon = item.querySelector('.faq-item__icon');
+        if (!trigger || !panel) return;
+
+        const setState = (open) => {
+          if (open) {
+            const contentHeight = panel.scrollHeight;
+            panel.style.transition = height ms , opacity ms ease;
+            panel.style.height = contentHeight + 'px';
+            panel.style.opacity = '1';
+            item.classList.add('is-open');
+          } else {
+            panel.style.transition = height ms , opacity ms ease;
+            panel.style.height = '1px';
+            panel.style.opacity = '0';
+            item.classList.remove('is-open');
+          }
+        };
+
+        const isOpen = () => item.classList.contains('is-open');
+
+        trigger.addEventListener('click', () => {
+          const open = !isOpen();
+          setState(open);
+        });
+
+        panel.addEventListener('transitionend', (event) => {
+          if (event.propertyName === 'height' && !isOpen()) {
+            panel.style.height = '1px';
+          }
+        });
+
+        // Initialize collapsed state
+        panel.style.height = '1px';
+        panel.style.opacity = '0';
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-faq-section]').forEach(initFaq);
+    });
+
+    document.addEventListener('shopify:section:load', (event) => {
+      const faqSection = event.target.querySelector('[data-faq-section]');
+      if (faqSection) initFaq(faqSection);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ split",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "¿Tienes preguntas? Tenemos respuestas"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Encuentra aquí las dudas más comunes. Si no ves la tuya, escríbenos y con gusto te ayudaremos a elegir la Aurora perfecta para ti."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto del botón",
+      "default": "Comprar ahora"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del botón"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Pregunta",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Pregunta",
+          "default": "¿Vale la pena la inversión?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Respuesta",
+          "default": "Sí. Dejarás de gastar en cápsulas y café de la calle."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "FAQ split",
+      "blocks": [
+        { "type": "question" },
+        { "type": "question" },
+        { "type": "question" }
+      ]
+    }
+  ]
+}
+{% endschema %}
