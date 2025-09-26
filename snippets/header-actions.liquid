@@ -7,23 +7,58 @@
 <header-actions
   {{- block.shopify_attributes -}}
 >
-  {% if shop.customer_accounts_enabled %}
-    {% render 'account-popover' %}
-    {% render 'account-drawer' %}
-  {% endif %}
-
-  {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
-    {% render 'cart-drawer' %}
-  {% else %}
+  {% liquid
+    assign quiz_label = section.settings.quiz_button_label | default: 'Toma el quiz'
+    assign quiz_link = section.settings.quiz_button_link | default: '/pages/quiz'
+    assign question_link = section.settings.question_link | default: '/pages/faq'
+    if quiz_link == blank
+      assign quiz_link = '#'
+    endif
+    if question_link == blank
+      assign question_link = '/pages/faq'
+    endif
+  %}
+  <a
+    href="{{ quiz_link }}"
+    class="header-actions__quiz button button--quiz"
+  >
+    {{ quiz_label }}
+  </a>
+  <span class="header-actions__divider" aria-hidden="true"></span>
+  <div class="header-actions__icon-stack">
     <a
-      href="{{ routes.cart_url }}"
-      class="header-actions__action action__cart"
-      aria-label="{{ 'accessibility.cart' | t }} {{ 'accessibility.cart_count' | t }}: {{ cart.item_count }}"
+      href="{{ question_link }}"
+      class="header-actions__icon-link header-actions__icon-link--question"
+      aria-label="Preguntas frecuentes"
     >
-      {% render 'cart-icon-component' %}
+      <svg viewBox="0 0 256 256" focusable="false" aria-hidden="true">
+        <path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z" />
+      </svg>
     </a>
-  {% endif %}
+    {% if shop.customer_accounts_enabled %}
+      <div class="header-actions__icon-link header-actions__icon-link--account">
+        {% render 'account-popover' %}
+      </div>
+    {% endif %}
+    {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
+      <div class="header-actions__icon-link header-actions__icon-link--cart">
+        {% render 'cart-drawer' %}
+      </div>
+    {% else %}
+      <a
+        href="{{ routes.cart_url }}"
+        class="header-actions__icon-link header-actions__icon-link--cart"
+        aria-label="{{ 'accessibility.cart' | t }} {{ 'accessibility.cart_count' | t }}: {{ cart.item_count }}"
+      >
+        {% render 'cart-icon-component' %}
+      </a>
+    {% endif %}
+  </div>
 </header-actions>
+{% if shop.customer_accounts_enabled %}
+  {% render 'account-drawer' %}
+{% endif %}
+
 
 {% stylesheet %}
   .cart-drawer {
@@ -192,10 +227,102 @@
 
   header-actions {
     display: flex;
+    align-items: center;
+    gap: var(--gap-md);
+  }
 
-    @media screen and (max-width: 749px) {
+  .header-actions__quiz {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding-inline: 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    background-color: #795838;
+    color: #ffffff;
+    transition: background-color var(--animation-speed) var(--animation-easing), color var(--animation-speed) var(--animation-easing);
+  }
+
+  .header-actions__quiz:hover {
+    background-color: #60452d;
+  }
+
+  .header-actions__divider {
+    width: 1px;
+    height: 34px;
+    margin-inline: 24px 20px;
+    background-color: rgb(var(--color-foreground-rgb) / 0.15);
+  }
+
+  .header-actions__icon-stack {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .header-actions__icon-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-foreground);
+    background-color: transparent;
+    transition: background-color var(--animation-speed) var(--animation-easing), color var(--animation-speed) var(--animation-easing);
+  }
+
+  .header-actions__icon-link:focus-visible,
+  .header-actions__icon-link:hover {
+    background-color: rgb(var(--color-foreground-rgb) / 0.08);
+    color: var(--color-foreground);
+  }
+
+  .header-actions__icon-link svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .header-actions__icon-link--account anchored-popover-component,
+  .header-actions__icon-link--account .account-button,
+  .header-actions__icon-link--cart cart-drawer-component,
+  .header-actions__icon-link--cart .header-actions__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header-actions__icon-link--cart .header-actions__action {
+    border-radius: 50%;
+  }
+
+  @media screen and (max-width: 749px) {
+    header-actions {
       justify-self: flex-end;
     }
+    .header-actions__divider {
+      display: none;
+    }
+  }
+
+  .header[transparent] .header-actions__quiz {
+    background-color: rgb(var(--color-background-rgb) / 0.85);
+    color: var(--color-foreground);
+  }
+
+  .header[transparent] .header-actions__divider {
+    background-color: rgb(var(--color-foreground-rgb) / 0.3);
+  }
+
+  .header[transparent] .header-actions__icon-link:hover,
+  .header[transparent] .header-actions__icon-link:focus-visible {
+    background-color: rgb(var(--color-background-rgb) / 0.2);
   }
 
   .header__column--right header-actions {

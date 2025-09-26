@@ -7,84 +7,84 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
-    "type":  "footer",
-    "name":  "Footer",
-    "sections":  {
-                     "footer":  {
-                                    "type":  "footer-aurora",
-                                    "blocks":  {
-                                                   "column_1":  {
-                                                                    "type":  "column",
-                                                                    "settings":  {
-                                                                                     "heading":  "Tienda",
-                                                                                     "menu":  ""
-                                                                                 }
-                                                                },
-                                                   "column_2":  {
-                                                                    "type":  "column",
-                                                                    "settings":  {
-                                                                                     "heading":  "Soporte",
-                                                                                     "menu":  ""
-                                                                                 }
-                                                                },
-                                                   "column_3":  {
-                                                                    "type":  "column",
-                                                                    "settings":  {
-                                                                                     "heading":  "Recursos",
-                                                                                     "menu":  ""
-                                                                                 }
-                                                                },
-                                                   "social_1":  {
-                                                                    "type":  "social_link",
-                                                                    "settings":  {
-                                                                                     "icon":  "instagram",
-                                                                                     "label":  "Instagram",
-                                                                                     "url":  ""
-                                                                                 }
-                                                                },
-                                                   "social_2":  {
-                                                                    "type":  "social_link",
-                                                                    "settings":  {
-                                                                                     "icon":  "tiktok",
-                                                                                     "label":  "TikTok",
-                                                                                     "url":  ""
-                                                                                 }
-                                                                },
-                                                   "social_3":  {
-                                                                    "type":  "social_link",
-                                                                    "settings":  {
-                                                                                     "icon":  "linkedin",
-                                                                                     "label":  "LinkedIn",
-                                                                                     "url":  ""
-                                                                                 }
-                                                                }
-                                               },
-                                    "block_order":  [
-                                                        "column_1",
-                                                        "column_2",
-                                                        "column_3",
-                                                        "social_1",
-                                                        "social_2",
-                                                        "social_3"
-                                                    ],
-                                    "settings":  {
-                                                     "background_image":  "",
-                                                     "overlay_gradient":  true,
-                                                     "overlay_color":  "#000000",
-                                                     "overlay_opacity":  70,
-                                                     "heading":  "Plant-based nutrition to help the planet thrive",
-                                                     "subheading":  "All Aurora Café productos son 100% veganos, diseñados para un consumo consciente.",
-                                                     "button_label":  "Ver compromisos",
-                                                     "button_link":  "",
-                                                     "logo":  "",
-                                                     "show_payment_icons":  true,
-                                                     "show_policy_links":  true
-                                                 },
-                                    "name":  "Aurora Footer"
-                                }
-                 },
-    "order":  [
-                  "footer"
-              ]
-}
+{
+    "type":  "footer",
+    "name":  "Footer",
+    "sections":  {
+                     "footer":  {
+                                    "type":  "footer-aurora",
+                                    "blocks":  {
+                                                   "column_1":  {
+                                                                    "type":  "column",
+                                                                    "settings":  {
+                                                                                     "heading":  "Tienda",
+                                                                                     "menu":  ""
+                                                                                 }
+                                                                },
+                                                   "column_2":  {
+                                                                    "type":  "column",
+                                                                    "settings":  {
+                                                                                     "heading":  "Soporte",
+                                                                                     "menu":  ""
+                                                                                 }
+                                                                },
+                                                   "column_3":  {
+                                                                    "type":  "column",
+                                                                    "settings":  {
+                                                                                     "heading":  "Recursos",
+                                                                                     "menu":  ""
+                                                                                 }
+                                                                },
+                                                   "social_1":  {
+                                                                    "type":  "social_link",
+                                                                    "settings":  {
+                                                                                     "icon":  "instagram",
+                                                                                     "label":  "Instagram",
+                                                                                     "url":  ""
+                                                                                 }
+                                                                },
+                                                   "social_2":  {
+                                                                    "type":  "social_link",
+                                                                    "settings":  {
+                                                                                     "icon":  "tiktok",
+                                                                                     "label":  "TikTok",
+                                                                                     "url":  ""
+                                                                                 }
+                                                                },
+                                                   "social_3":  {
+                                                                    "type":  "social_link",
+                                                                    "settings":  {
+                                                                                     "icon":  "linkedin",
+                                                                                     "label":  "LinkedIn",
+                                                                                     "url":  ""
+                                                                                 }
+                                                                }
+                                               },
+                                    "block_order":  [
+                                                        "column_1",
+                                                        "column_2",
+                                                        "column_3",
+                                                        "social_1",
+                                                        "social_2",
+                                                        "social_3"
+                                                    ],
+                                    "settings":  {
+                                                     "background_image":  "",
+                                                     "overlay_gradient":  true,
+                                                     "overlay_color":  "#000000",
+                                                     "overlay_opacity":  70,
+                                                     "heading":  "Plant-based nutrition to help the planet thrive",
+                                                     "subheading":  "All Aurora CafÃ© productos son 100% veganos, diseÃ±ados para un consumo consciente.",
+                                                     "button_label":  "Ver compromisos",
+                                                     "button_link":  "",
+                                                     "logo":  "",
+                                                     "show_payment_icons":  true,
+                                                     "show_policy_links":  true
+                                                 },
+                                    "name":  "Aurora Footer"
+                                }
+                 },
+    "order":  [
+                  "footer"
+              ]
+}

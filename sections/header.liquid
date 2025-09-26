@@ -155,6 +155,7 @@
   endif
 
   assign class = 'header'
+  assign class = class | append: ' header--aurora'
 
   if transparent_color_scheme
     assign class = class | append: ' ' | append: transparent_color_scheme
@@ -881,6 +882,26 @@
       ],
       "default": "top",
       "visible_if": "{{ section.settings.show_country or section.settings.show_language }}"
+    },
+    {
+      "type": "header",
+      "content": "Quiz button"
+    },
+    {
+      "type": "text",
+      "id": "quiz_button_label",
+      "label": "Quiz button label",
+      "default": "Toma el quiz"
+    },
+    {
+      "type": "url",
+      "id": "quiz_button_link",
+      "label": "Quiz button link"
+    },
+    {
+      "type": "url",
+      "id": "question_link",
+      "label": "Question icon link"
     },
     {
       "type": "header",

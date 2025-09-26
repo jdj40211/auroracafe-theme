@@ -1,921 +1,767 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
  */
 {
-    "sections":  {
-                     "hero_jVaWmY":  {
-                                         "type":  "hero",
-                                         "blocks":  {
-                                                        "group_content":  {
-                                                                              "type":  "group",
-                                                                              "name":  "t:names.group",
-                                                                              "settings":  {
-                                                                                               "content_direction":  "column",
-                                                                                               "vertical_on_mobile":  true,
-                                                                                               "horizontal_alignment":  "flex-start",
-                                                                                               "vertical_alignment":  "center",
-                                                                                               "align_baseline":  false,
-                                                                                               "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                               "vertical_alignment_flex_direction_column":  "center",
-                                                                                               "gap":  28,
-                                                                                               "width":  "fill",
-                                                                                               "custom_width":  100,
-                                                                                               "width_mobile":  "fill",
-                                                                                               "custom_width_mobile":  100,
-                                                                                               "height":  "fit",
-                                                                                               "custom_height":  100,
-                                                                                               "inherit_color_scheme":  true,
-                                                                                               "color_scheme":  "",
-                                                                                               "background_media":  "none",
-                                                                                               "video_position":  "cover",
-                                                                                               "background_image_position":  "cover",
-                                                                                               "border":  "none",
-                                                                                               "border_width":  1,
-                                                                                               "border_opacity":  100,
-                                                                                               "border_radius":  0,
-                                                                                               "padding-block-start":  0,
-                                                                                               "padding-block-end":  0,
-                                                                                               "padding-inline-start":  0,
-                                                                                               "padding-inline-end":  0
-                                                                                           },
-                                                                              "blocks":  {
-                                                                                             "trust_badge":  {
-                                                                                                                 "type":  "custom-liquid",
-                                                                                                                 "name":  "t:names.custom_liquid",
-                                                                                                                 "settings":  {
-                                                                                                                                  "custom_liquid":  "\u003cdiv class=\"hero-aurora__trust\"\u003e\n  \u003cspan class=\"hero-aurora__stars\" aria-hidden=\"true\"\u003e\u0026#9733;\u0026#9733;\u0026#9733;\u0026#9733;\u0026#9733;\u003c/span\u003e\n  \u003cspan class=\"hero-aurora__trust-text\"\u003eConfiados por +2000 clientes satisfechos\u003c/span\u003e\n\u003c/div\u003e"
-                                                                                                                              }
-                                                                                                             },
-                                                                                             "heading_primary":  {
-                                                                                                                     "type":  "text",
-                                                                                                                     "name":  "t:names.heading",
-                                                                                                                     "settings":  {
-                                                                                                                                      "text":  "\u003ch1\u003eCafÈ de calidad profesional, en tu hogar o negocio, \u003cem\u003econ solo un botÛn.\u003c/em\u003e\u003c/h1\u003e",
-                                                                                                                                      "width":  "100%",
-                                                                                                                                      "max_width":  "none",
-                                                                                                                                      "alignment":  "left",
-                                                                                                                                      "type_preset":  "h1",
-                                                                                                                                      "font":  "var(--font-heading--family)",
-                                                                                                                                      "font_size":  "",
-                                                                                                                                      "line_height":  "normal",
-                                                                                                                                      "letter_spacing":  "normal",
-                                                                                                                                      "case":  "none",
-                                                                                                                                      "wrap":  "pretty",
-                                                                                                                                      "color":  "var(--color-foreground-heading)",
-                                                                                                                                      "background":  false,
-                                                                                                                                      "background_color":  "#00000026",
-                                                                                                                                      "corner_radius":  0,
-                                                                                                                                      "padding-block-start":  0,
-                                                                                                                                      "padding-block-end":  0,
-                                                                                                                                      "padding-inline-start":  0,
-                                                                                                                                      "padding-inline-end":  0
-                                                                                                                                  }
-                                                                                                                 },
-                                                                                             "body_copy":  {
-                                                                                                               "type":  "text",
-                                                                                                               "name":  "t:names.text",
-                                                                                                               "settings":  {
-                                                                                                                                "text":  "\u003cp\u003eCafeteras autom·ticas que no necesitan c·psulas, se autolimpian y preparan hasta 20 tipos de cafÈ en minutos. Disfruta bebidas perfectas, con envÌo gratuito y soporte tÈcnico garantizado.\u003c/p\u003e",
-                                                                                                                                "width":  "100%",
-                                                                                                                                "max_width":  "none",
-                                                                                                                                "alignment":  "left",
-                                                                                                                                "type_preset":  "paragraph",
-                                                                                                                                "font":  "var(--font-body--family)",
-                                                                                                                                "font_size":  "",
-                                                                                                                                "line_height":  "normal",
-                                                                                                                                "letter_spacing":  "normal",
-                                                                                                                                "case":  "none",
-                                                                                                                                "wrap":  "pretty",
-                                                                                                                                "color":  "var(--color-foreground)",
-                                                                                                                                "background":  false,
-                                                                                                                                "background_color":  "#00000026",
-                                                                                                                                "corner_radius":  0,
-                                                                                                                                "padding-block-start":  0,
-                                                                                                                                "padding-block-end":  0,
-                                                                                                                                "padding-inline-start":  0,
-                                                                                                                                "padding-inline-end":  0
-                                                                                                                            }
-                                                                                                           },
-                                                                                             "group_buttons":  {
-                                                                                                                   "type":  "group",
-                                                                                                                   "name":  "t:names.group",
-                                                                                                                   "settings":  {
-                                                                                                                                    "content_direction":  "row",
-                                                                                                                                    "vertical_on_mobile":  true,
-                                                                                                                                    "horizontal_alignment":  "flex-start",
-                                                                                                                                    "vertical_alignment":  "center",
-                                                                                                                                    "align_baseline":  true,
-                                                                                                                                    "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                                    "vertical_alignment_flex_direction_column":  "flex-start",
-                                                                                                                                    "gap":  16,
-                                                                                                                                    "width":  "fill",
-                                                                                                                                    "custom_width":  100,
-                                                                                                                                    "width_mobile":  "fill",
-                                                                                                                                    "custom_width_mobile":  100,
-                                                                                                                                    "height":  "fit",
-                                                                                                                                    "custom_height":  100,
-                                                                                                                                    "inherit_color_scheme":  true,
-                                                                                                                                    "color_scheme":  "",
-                                                                                                                                    "background_media":  "none",
-                                                                                                                                    "video_position":  "cover",
-                                                                                                                                    "background_image_position":  "cover",
-                                                                                                                                    "border":  "none",
-                                                                                                                                    "border_width":  1,
-                                                                                                                                    "border_opacity":  100,
-                                                                                                                                    "border_radius":  0,
-                                                                                                                                    "padding-block-start":  0,
-                                                                                                                                    "padding-block-end":  0,
-                                                                                                                                    "padding-inline-start":  0,
-                                                                                                                                    "padding-inline-end":  0
-                                                                                                                                },
-                                                                                                                   "blocks":  {
-                                                                                                                                  "button_primary":  {
-                                                                                                                                                         "type":  "button",
-                                                                                                                                                         "name":  "t:names.button",
-                                                                                                                                                         "settings":  {
-                                                                                                                                                                          "label":  "Ver Productos",
-                                                                                                                                                                          "link":  "shopify://collections/all",
-                                                                                                                                                                          "open_in_new_tab":  false,
-                                                                                                                                                                          "style_class":  "button",
-                                                                                                                                                                          "width":  "fit-content",
-                                                                                                                                                                          "custom_width":  100,
-                                                                                                                                                                          "width_mobile":  "custom",
-                                                                                                                                                                          "custom_width_mobile":  100
-                                                                                                                                                                      }
-                                                                                                                                                     },
-                                                                                                                                  "button_secondary":  {
-                                                                                                                                                           "type":  "button",
-                                                                                                                                                           "name":  "t:names.button",
-                                                                                                                                                           "settings":  {
-                                                                                                                                                                            "label":  "Quiz De Tu M·quina Ideal",
-                                                                                                                                                                            "link":  "",
-                                                                                                                                                                            "open_in_new_tab":  false,
-                                                                                                                                                                            "style_class":  "button-secondary",
-                                                                                                                                                                            "width":  "fit-content",
-                                                                                                                                                                            "custom_width":  100,
-                                                                                                                                                                            "width_mobile":  "custom",
-                                                                                                                                                                            "custom_width_mobile":  100
-                                                                                                                                                                        }
-                                                                                                                                                       }
-                                                                                                                              },
-                                                                                                                   "block_order":  [
-                                                                                                                                       "button_primary",
-                                                                                                                                       "button_secondary"
-                                                                                                                                   ]
-                                                                                                               },
-                                                                                             "group_features":  {
-                                                                                                                    "type":  "group",
-                                                                                                                    "name":  "t:names.group",
-                                                                                                                    "settings":  {
-                                                                                                                                     "content_direction":  "row",
-                                                                                                                                     "vertical_on_mobile":  true,
-                                                                                                                                     "horizontal_alignment":  "flex-start",
-                                                                                                                                     "vertical_alignment":  "center",
-                                                                                                                                     "align_baseline":  false,
-                                                                                                                                     "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                                     "vertical_alignment_flex_direction_column":  "flex-start",
-                                                                                                                                     "gap":  20,
-                                                                                                                                     "width":  "fill",
-                                                                                                                                     "custom_width":  100,
-                                                                                                                                     "width_mobile":  "fill",
-                                                                                                                                     "custom_width_mobile":  100,
-                                                                                                                                     "height":  "fit",
-                                                                                                                                     "custom_height":  100,
-                                                                                                                                     "inherit_color_scheme":  true,
-                                                                                                                                     "color_scheme":  "",
-                                                                                                                                     "background_media":  "none",
-                                                                                                                                     "video_position":  "cover",
-                                                                                                                                     "background_image_position":  "cover",
-                                                                                                                                     "border":  "none",
-                                                                                                                                     "border_width":  1,
-                                                                                                                                     "border_opacity":  100,
-                                                                                                                                     "border_radius":  0,
-                                                                                                                                     "padding-block-start":  0,
-                                                                                                                                     "padding-block-end":  0,
-                                                                                                                                     "padding-inline-start":  0,
-                                                                                                                                     "padding-inline-end":  0
-                                                                                                                                 },
-                                                                                                                    "blocks":  {
-                                                                                                                                   "feature_1":  {
-                                                                                                                                                     "type":  "group",
-                                                                                                                                                     "name":  "t:names.group",
-                                                                                                                                                     "settings":  {
-                                                                                                                                                                      "content_direction":  "row",
-                                                                                                                                                                      "vertical_on_mobile":  false,
-                                                                                                                                                                      "horizontal_alignment":  "flex-start",
-                                                                                                                                                                      "vertical_alignment":  "center",
-                                                                                                                                                                      "align_baseline":  false,
-                                                                                                                                                                      "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                                                                      "vertical_alignment_flex_direction_column":  "center",
-                                                                                                                                                                      "gap":  12,
-                                                                                                                                                                      "width":  "fit-content",
-                                                                                                                                                                      "custom_width":  100,
-                                                                                                                                                                      "width_mobile":  "fill",
-                                                                                                                                                                      "custom_width_mobile":  100,
-                                                                                                                                                                      "height":  "fit",
-                                                                                                                                                                      "custom_height":  100,
-                                                                                                                                                                      "inherit_color_scheme":  true,
-                                                                                                                                                                      "color_scheme":  "",
-                                                                                                                                                                      "background_media":  "none",
-                                                                                                                                                                      "video_position":  "cover",
-                                                                                                                                                                      "background_image_position":  "cover",
-                                                                                                                                                                      "border":  "none",
-                                                                                                                                                                      "border_width":  1,
-                                                                                                                                                                      "border_opacity":  100,
-                                                                                                                                                                      "border_radius":  0,
-                                                                                                                                                                      "padding-block-start":  0,
-                                                                                                                                                                      "padding-block-end":  0,
-                                                                                                                                                                      "padding-inline-start":  0,
-                                                                                                                                                                      "padding-inline-end":  0
-                                                                                                                                                                  },
-                                                                                                                                                     "blocks":  {
-                                                                                                                                                                    "feature_1_icon":  {
-                                                                                                                                                                                           "type":  "icon",
-                                                                                                                                                                                           "name":  "t:names.icon",
-                                                                                                                                                                                           "settings":  {
-                                                                                                                                                                                                            "icon":  "check_box",
-                                                                                                                                                                                                            "image_upload":  "",
-                                                                                                                                                                                                            "width":  28,
-                                                                                                                                                                                                            "link":  "",
-                                                                                                                                                                                                            "open_in_new_tab":  false
-                                                                                                                                                                                                        }
-                                                                                                                                                                                       },
-                                                                                                                                                                    "feature_1_text":  {
-                                                                                                                                                                                           "type":  "text",
-                                                                                                                                                                                           "name":  "t:names.text",
-                                                                                                                                                                                           "settings":  {
-                                                                                                                                                                                                            "text":  "\u003cp\u003eGarantÌa de satisfacciÛn\u003c/p\u003e",
-                                                                                                                                                                                                            "width":  "fit-content",
-                                                                                                                                                                                                            "max_width":  "none",
-                                                                                                                                                                                                            "alignment":  "left",
-                                                                                                                                                                                                            "type_preset":  "paragraph",
-                                                                                                                                                                                                            "font":  "var(--font-body--family)",
-                                                                                                                                                                                                            "font_size":  "",
-                                                                                                                                                                                                            "line_height":  "normal",
-                                                                                                                                                                                                            "letter_spacing":  "normal",
-                                                                                                                                                                                                            "case":  "none",
-                                                                                                                                                                                                            "wrap":  "pretty",
-                                                                                                                                                                                                            "color":  "var(--color-foreground)",
-                                                                                                                                                                                                            "background":  false,
-                                                                                                                                                                                                            "background_color":  "#00000026",
-                                                                                                                                                                                                            "corner_radius":  0,
-                                                                                                                                                                                                            "padding-block-start":  0,
-                                                                                                                                                                                                            "padding-block-end":  0,
-                                                                                                                                                                                                            "padding-inline-start":  0,
-                                                                                                                                                                                                            "padding-inline-end":  0
-                                                                                                                                                                                                        }
-                                                                                                                                                                                       }
-                                                                                                                                                                },
-                                                                                                                                                     "block_order":  [
-                                                                                                                                                                         "feature_1_icon",
-                                                                                                                                                                         "feature_1_text"
-                                                                                                                                                                     ]
-                                                                                                                                                 },
-                                                                                                                                   "feature_2":  {
-                                                                                                                                                     "type":  "group",
-                                                                                                                                                     "name":  "t:names.group",
-                                                                                                                                                     "settings":  {
-                                                                                                                                                                      "content_direction":  "row",
-                                                                                                                                                                      "vertical_on_mobile":  false,
-                                                                                                                                                                      "horizontal_alignment":  "flex-start",
-                                                                                                                                                                      "vertical_alignment":  "center",
-                                                                                                                                                                      "align_baseline":  false,
-                                                                                                                                                                      "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                                                                      "vertical_alignment_flex_direction_column":  "center",
-                                                                                                                                                                      "gap":  12,
-                                                                                                                                                                      "width":  "fit-content",
-                                                                                                                                                                      "custom_width":  100,
-                                                                                                                                                                      "width_mobile":  "fill",
-                                                                                                                                                                      "custom_width_mobile":  100,
-                                                                                                                                                                      "height":  "fit",
-                                                                                                                                                                      "custom_height":  100,
-                                                                                                                                                                      "inherit_color_scheme":  true,
-                                                                                                                                                                      "color_scheme":  "",
-                                                                                                                                                                      "background_media":  "none",
-                                                                                                                                                                      "video_position":  "cover",
-                                                                                                                                                                      "background_image_position":  "cover",
-                                                                                                                                                                      "border":  "none",
-                                                                                                                                                                      "border_width":  1,
-                                                                                                                                                                      "border_opacity":  100,
-                                                                                                                                                                      "border_radius":  0,
-                                                                                                                                                                      "padding-block-start":  0,
-                                                                                                                                                                      "padding-block-end":  0,
-                                                                                                                                                                      "padding-inline-start":  0,
-                                                                                                                                                                      "padding-inline-end":  0
-                                                                                                                                                                  },
-                                                                                                                                                     "blocks":  {
-                                                                                                                                                                    "feature_2_icon":  {
-                                                                                                                                                                                           "type":  "icon",
-                                                                                                                                                                                           "name":  "t:names.icon",
-                                                                                                                                                                                           "settings":  {
-                                                                                                                                                                                                            "icon":  "truck",
-                                                                                                                                                                                                            "image_upload":  "",
-                                                                                                                                                                                                            "width":  28,
-                                                                                                                                                                                                            "link":  "",
-                                                                                                                                                                                                            "open_in_new_tab":  false
-                                                                                                                                                                                                        }
-                                                                                                                                                                                       },
-                                                                                                                                                                    "feature_2_text":  {
-                                                                                                                                                                                           "type":  "text",
-                                                                                                                                                                                           "name":  "t:names.text",
-                                                                                                                                                                                           "settings":  {
-                                                                                                                                                                                                            "text":  "\u003cp\u003eEnvÌo gratis\u003c/p\u003e",
-                                                                                                                                                                                                            "width":  "fit-content",
-                                                                                                                                                                                                            "max_width":  "none",
-                                                                                                                                                                                                            "alignment":  "left",
-                                                                                                                                                                                                            "type_preset":  "paragraph",
-                                                                                                                                                                                                            "font":  "var(--font-body--family)",
-                                                                                                                                                                                                            "font_size":  "",
-                                                                                                                                                                                                            "line_height":  "normal",
-                                                                                                                                                                                                            "letter_spacing":  "normal",
-                                                                                                                                                                                                            "case":  "none",
-                                                                                                                                                                                                            "wrap":  "pretty",
-                                                                                                                                                                                                            "color":  "var(--color-foreground)",
-                                                                                                                                                                                                            "background":  false,
-                                                                                                                                                                                                            "background_color":  "#00000026",
-                                                                                                                                                                                                            "corner_radius":  0,
-                                                                                                                                                                                                            "padding-block-start":  0,
-                                                                                                                                                                                                            "padding-block-end":  0,
-                                                                                                                                                                                                            "padding-inline-start":  0,
-                                                                                                                                                                                                            "padding-inline-end":  0
-                                                                                                                                                                                                        }
-                                                                                                                                                                                       }
-                                                                                                                                                                },
-                                                                                                                                                     "block_order":  [
-                                                                                                                                                                         "feature_2_icon",
-                                                                                                                                                                         "feature_2_text"
-                                                                                                                                                                     ]
-                                                                                                                                                 }
-                                                                                                                               },
-                                                                                                                    "block_order":  [
-                                                                                                                                        "feature_1",
-                                                                                                                                        "feature_2"
-                                                                                                                                    ]
-                                                                                                                }
-                                                                                         },
-                                                                              "block_order":  [
-                                                                                                  "trust_badge",
-                                                                                                  "heading_primary",
-                                                                                                  "body_copy",
-                                                                                                  "group_buttons",
-                                                                                                  "group_features"
-                                                                                              ]
-                                                                          }
-                                                    },
-                                         "block_order":  [
-                                                             "group_content"
-                                                         ],
-                                         "name":  "t:names.hero",
-                                         "settings":  {
-                                                          "media_type_1":  "image",
-                                                          "image_1":  "shopify://shop_images/aurora-hero-desktop.jpg",
-                                                          "media_type_2":  "image",
-                                                          "image_2":  null,
-                                                          "open_in_new_tab":  false,
-                                                          "content_direction":  "column",
-                                                          "vertical_on_mobile":  true,
-                                                          "horizontal_alignment":  "flex-start",
-                                                          "vertical_alignment":  "center",
-                                                          "align_baseline":  false,
-                                                          "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                          "vertical_alignment_flex_direction_column":  "center",
-                                                          "gap":  32,
-                                                          "section_width":  "page-width",
-                                                          "section_height":  "full-screen",
-                                                          "section_height_custom":  100,
-                                                          "color_scheme":  "scheme-6",
-                                                          "toggle_overlay":  false,
-                                                          "overlay_color":  "#14100cCC",
-                                                          "overlay_style":  "solid",
-                                                          "gradient_direction":  "to bottom",
-                                                          "blurred_reflection":  false,
-                                                          "reflection_opacity":  60,
-                                                          "padding-block-start":  32,
-                                                          "padding-block-end":  40
-                                                      }
-                                     },
-                     "product_list_fa6P9H":  {
-                                                 "type":  "product-list",
-                                                 "blocks":  {
-                                                                "static-header":  {
-                                                                                      "type":  "_product-list-content",
-                                                                                      "name":  "t:names.header",
-                                                                                      "static":  true,
-                                                                                      "settings":  {
-                                                                                                       "content_direction":  "row",
-                                                                                                       "vertical_on_mobile":  false,
-                                                                                                       "horizontal_alignment":  "space-between",
-                                                                                                       "vertical_alignment":  "flex-end",
-                                                                                                       "align_baseline":  true,
-                                                                                                       "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                       "vertical_alignment_flex_direction_column":  "center",
-                                                                                                       "gap":  12,
-                                                                                                       "width":  "fill",
-                                                                                                       "custom_width":  100,
-                                                                                                       "width_mobile":  "fill",
-                                                                                                       "custom_width_mobile":  100,
-                                                                                                       "height":  "fit",
-                                                                                                       "custom_height":  100,
-                                                                                                       "inherit_color_scheme":  true,
-                                                                                                       "color_scheme":  "",
-                                                                                                       "background_media":  "none",
-                                                                                                       "video_position":  "cover",
-                                                                                                       "background_image_position":  "cover",
-                                                                                                       "border":  "none",
-                                                                                                       "border_width":  1,
-                                                                                                       "border_opacity":  100,
-                                                                                                       "border_radius":  0,
-                                                                                                       "padding-block-start":  0,
-                                                                                                       "padding-block-end":  0,
-                                                                                                       "padding-inline-start":  0,
-                                                                                                       "padding-inline-end":  0
-                                                                                                   },
-                                                                                      "blocks":  {
-                                                                                                     "product_list_text_YFtzcL":  {
-                                                                                                                                      "type":  "_product-list-text",
-                                                                                                                                      "name":  "t:names.collection_title",
-                                                                                                                                      "settings":  {
-                                                                                                                                                       "text":  "\u003ch3\u003e{{ closest.collection.title }}\u003c/h3\u003e",
-                                                                                                                                                       "width":  "fit-content",
-                                                                                                                                                       "max_width":  "normal",
-                                                                                                                                                       "alignment":  "left",
-                                                                                                                                                       "type_preset":  "h4",
-                                                                                                                                                       "font":  "var(--font-body--family)",
-                                                                                                                                                       "font_size":  "",
-                                                                                                                                                       "line_height":  "normal",
-                                                                                                                                                       "letter_spacing":  "normal",
-                                                                                                                                                       "case":  "none",
-                                                                                                                                                       "wrap":  "pretty",
-                                                                                                                                                       "color":  "var(--color-foreground)",
-                                                                                                                                                       "background":  false,
-                                                                                                                                                       "background_color":  "#00000026",
-                                                                                                                                                       "corner_radius":  0,
-                                                                                                                                                       "padding-block-start":  0,
-                                                                                                                                                       "padding-block-end":  0,
-                                                                                                                                                       "padding-inline-start":  0,
-                                                                                                                                                       "padding-inline-end":  0
-                                                                                                                                                   },
-                                                                                                                                      "blocks":  {
-
-                                                                                                                                                 }
-                                                                                                                                  },
-                                                                                                     "product_list_button_MWeP9V":  {
-                                                                                                                                        "type":  "_product-list-button",
-                                                                                                                                        "name":  "t:names.product_list_button",
-                                                                                                                                        "settings":  {
-                                                                                                                                                         "label":  "View all",
-                                                                                                                                                         "open_in_new_tab":  false,
-                                                                                                                                                         "style_class":  "link",
-                                                                                                                                                         "width":  "fit-content",
-                                                                                                                                                         "custom_width":  100,
-                                                                                                                                                         "width_mobile":  "fit-content",
-                                                                                                                                                         "custom_width_mobile":  100
-                                                                                                                                                     },
-                                                                                                                                        "blocks":  {
-
-                                                                                                                                                   }
-                                                                                                                                    }
-                                                                                                 },
-                                                                                      "block_order":  [
-                                                                                                          "product_list_text_YFtzcL",
-                                                                                                          "product_list_button_MWeP9V"
-                                                                                                      ]
-                                                                                  },
-                                                                "static-product-card":  {
-                                                                                            "type":  "_product-card",
-                                                                                            "name":  "t:names.product_card",
-                                                                                            "static":  true,
-                                                                                            "settings":  {
-                                                                                                             "product_card_gap":  4,
-                                                                                                             "inherit_color_scheme":  true,
-                                                                                                             "color_scheme":  "",
-                                                                                                             "border":  "none",
-                                                                                                             "border_width":  1,
-                                                                                                             "border_opacity":  100,
-                                                                                                             "border_radius":  0,
-                                                                                                             "padding-block-start":  0,
-                                                                                                             "padding-block-end":  0,
-                                                                                                             "padding-inline-start":  0,
-                                                                                                             "padding-inline-end":  0
-                                                                                                         },
-                                                                                            "blocks":  {
-                                                                                                           "product_card_gallery_677WP3":  {
-                                                                                                                                               "type":  "_product-card-gallery",
-                                                                                                                                               "name":  "t:names.product_card_media",
-                                                                                                                                               "settings":  {
-                                                                                                                                                                "image_ratio":  "adapt",
-                                                                                                                                                                "border":  "none",
-                                                                                                                                                                "border_width":  1,
-                                                                                                                                                                "border_opacity":  100,
-                                                                                                                                                                "border_radius":  0,
-                                                                                                                                                                "padding-block-start":  0,
-                                                                                                                                                                "padding-block-end":  0,
-                                                                                                                                                                "padding-inline-start":  0,
-                                                                                                                                                                "padding-inline-end":  0
-                                                                                                                                                            },
-                                                                                                                                               "blocks":  {
-
-                                                                                                                                                          }
-                                                                                                                                           },
-                                                                                                           "product_title_YXxMTj":  {
-                                                                                                                                        "type":  "product-title",
-                                                                                                                                        "name":  "t:names.product_title",
-                                                                                                                                        "settings":  {
-                                                                                                                                                         "width":  "100%",
-                                                                                                                                                         "max_width":  "normal",
-                                                                                                                                                         "alignment":  "left",
-                                                                                                                                                         "type_preset":  "rte",
-                                                                                                                                                         "font":  "var(--font-body--family)",
-                                                                                                                                                         "font_size":  "1rem",
-                                                                                                                                                         "line_height":  "normal",
-                                                                                                                                                         "letter_spacing":  "normal",
-                                                                                                                                                         "case":  "none",
-                                                                                                                                                         "wrap":  "pretty",
-                                                                                                                                                         "color":  "var(--color-foreground)",
-                                                                                                                                                         "background":  false,
-                                                                                                                                                         "background_color":  "#00000026",
-                                                                                                                                                         "corner_radius":  0,
-                                                                                                                                                         "padding-block-start":  4,
-                                                                                                                                                         "padding-block-end":  0,
-                                                                                                                                                         "padding-inline-start":  0,
-                                                                                                                                                         "padding-inline-end":  0
-                                                                                                                                                     },
-                                                                                                                                        "blocks":  {
-
-                                                                                                                                                   }
-                                                                                                                                    },
-                                                                                                           "price_JQzVV4":  {
-                                                                                                                                "type":  "price",
-                                                                                                                                "name":  "t:names.product_price",
-                                                                                                                                "settings":  {
-                                                                                                                                                 "show_sale_price_first":  true,
-                                                                                                                                                 "show_installments":  false,
-                                                                                                                                                 "show_tax_info":  false,
-                                                                                                                                                 "type_preset":  "h6",
-                                                                                                                                                 "width":  "100%",
-                                                                                                                                                 "alignment":  "left",
-                                                                                                                                                 "font":  "var(--font-body--family)",
-                                                                                                                                                 "font_size":  "1rem",
-                                                                                                                                                 "line_height":  "normal",
-                                                                                                                                                 "letter_spacing":  "normal",
-                                                                                                                                                 "case":  "none",
-                                                                                                                                                 "color":  "var(--color-foreground)",
-                                                                                                                                                 "padding-block-start":  0,
-                                                                                                                                                 "padding-block-end":  0,
-                                                                                                                                                 "padding-inline-start":  0,
-                                                                                                                                                 "padding-inline-end":  0
-                                                                                                                                             },
-                                                                                                                                "blocks":  {
-
-                                                                                                                                           }
-                                                                                                                            }
-                                                                                                       },
-                                                                                            "block_order":  [
-                                                                                                                "product_card_gallery_677WP3",
-                                                                                                                "product_title_YXxMTj",
-                                                                                                                "price_JQzVV4"
-                                                                                                            ]
-                                                                                        }
-                                                            },
-                                                 "name":  "Featured collection",
-                                                 "settings":  {
-                                                                  "collection":  "all",
-                                                                  "layout_type":  "grid",
-                                                                  "carousel_on_mobile":  false,
-                                                                  "max_products":  8,
-                                                                  "columns":  4,
-                                                                  "mobile_columns":  "2",
-                                                                  "mobile_card_size":  "60cqw",
-                                                                  "columns_gap":  8,
-                                                                  "rows_gap":  24,
-                                                                  "icons_style":  "arrow",
-                                                                  "icons_shape":  "none",
-                                                                  "section_width":  "page-width",
-                                                                  "horizontal_alignment":  "flex-start",
-                                                                  "gap":  28,
-                                                                  "color_scheme":  "scheme-1",
-                                                                  "padding-block-start":  48,
-                                                                  "padding-block-end":  48
-                                                              }
-                                             },
-                     "capsules_benefits_Aurora":  {
-                                                      "type":  "capsules-benefits",
-                                                      "blocks":  {
-                                                                     "feature_1":  {
-                                                                                       "type":  "feature",
-                                                                                       "settings":  {
-                                                                                                        "icon":  "price_tag",
-                                                                                                        "custom_icon":  null,
-                                                                                                        "title":  "Ahorro a largo plazo",
-                                                                                                        "text":  "Usa cafÈ en grano est·ndar y olvÌdate de las c·psulas costosas."
-                                                                                                    }
-                                                                                   },
-                                                                     "feature_2":  {
-                                                                                       "type":  "feature",
-                                                                                       "settings":  {
-                                                                                                        "icon":  "piggy_bank",
-                                                                                                        "custom_icon":  null,
-                                                                                                        "title":  "Sabor autÈntico",
-                                                                                                        "text":  "Disfruta el aroma del cafÈ reciÈn molido en cada taza."
-                                                                                                    }
-                                                                                   },
-                                                                     "feature_3":  {
-                                                                                       "type":  "feature",
-                                                                                       "settings":  {
-                                                                                                        "icon":  "coffee",
-                                                                                                        "custom_icon":  null,
-                                                                                                        "title":  "Personaliza cada bebida",
-                                                                                                        "text":  "Ajusta intensidad, temperatura y espumado seg˙n tu preferencia."
-                                                                                                    }
-                                                                                   },
-                                                                     "feature_4":  {
-                                                                                       "type":  "feature",
-                                                                                       "settings":  {
-                                                                                                        "icon":  "badge_check",
-                                                                                                        "custom_icon":  null,
-                                                                                                        "title":  "Calidad garantizada",
-                                                                                                        "text":  "Componentes duraderos y soporte experto cuando lo necesites."
-                                                                                                    }
-                                                                                   }
-                                                                 },
-                                                      "block_order":  [
-                                                                          "feature_1",
-                                                                          "feature_2",
-                                                                          "feature_3",
-                                                                          "feature_4"
-                                                                      ],
-                                                      "settings":  {
-                                                                       "heading_prefix":  "OlvÌdate de las c·psulas: AsÌ se ve",
-                                                                       "heading_emphasis":  "el futuro del cafÈ en casa.",
-                                                                       "subheading":  "Descubre por quÈ miles est·n cambiando su cafetera de c·psulas por la libertad de un cafÈ hecho a tu gusto.",
-                                                                       "button_label":  "Ver Productos",
-                                                                       "button_link":  "shopify://collections/all",
-                                                                       "media_image":  "",
-                                                                       "color_scheme":  "scheme-1"
-                                                                   }
-                                                  },
-                     "product_showcase_Aurora":  {
-                                                     "type":  "product-showcase",
-                                                     "blocks":  {
-                                                                    "product_1":  {
-                                                                                      "type":  "product",
-                                                                                      "settings":  {
-                                                                                                       "product":  "",
-                                                                                                       "fallback_title":  "Producto destacado",
-                                                                                                       "subtitle_metafield":  "",
-                                                                                                       "subtitle_text":  "Tu nueva bebida favorita.",
-                                                                                                       "feature_icon":  "price_tag",
-                                                                                                       "feature_metafield_1":  "",
-                                                                                                       "feature_text_1":  "Ahorra y disfruta ingredientes frescos.",
-                                                                                                       "feature_metafield_2":  "",
-                                                                                                       "feature_text_2":  "42 vitaminas, minerales y nutrientes.",
-                                                                                                       "feature_metafield_3":  "",
-                                                                                                       "feature_text_3":  "Listo para servir en menos de un minuto."
-                                                                                                   }
-                                                                                  },
-                                                                    "product_2":  {
-                                                                                      "type":  "product",
-                                                                                      "settings":  {
-                                                                                                       "product":  "",
-                                                                                                       "fallback_title":  "Producto destacado",
-                                                                                                       "subtitle_metafield":  "",
-                                                                                                       "subtitle_text":  "Tu nueva bebida favorita.",
-                                                                                                       "feature_icon":  "price_tag",
-                                                                                                       "feature_metafield_1":  "",
-                                                                                                       "feature_text_1":  "Ahorra y disfruta ingredientes frescos.",
-                                                                                                       "feature_metafield_2":  "",
-                                                                                                       "feature_text_2":  "42 vitaminas, minerales y nutrientes.",
-                                                                                                       "feature_metafield_3":  "",
-                                                                                                       "feature_text_3":  "Listo para servir en menos de un minuto."
-                                                                                                   }
-                                                                                  },
-                                                                    "product_3":  {
-                                                                                      "type":  "product",
-                                                                                      "settings":  {
-                                                                                                       "product":  "",
-                                                                                                       "fallback_title":  "Producto destacado",
-                                                                                                       "subtitle_metafield":  "",
-                                                                                                       "subtitle_text":  "Tu nueva bebida favorita.",
-                                                                                                       "feature_icon":  "price_tag",
-                                                                                                       "feature_metafield_1":  "",
-                                                                                                       "feature_text_1":  "Ahorra y disfruta ingredientes frescos.",
-                                                                                                       "feature_metafield_2":  "",
-                                                                                                       "feature_text_2":  "42 vitaminas, minerales y nutrientes.",
-                                                                                                       "feature_metafield_3":  "",
-                                                                                                       "feature_text_3":  "Listo para servir en menos de un minuto."
-                                                                                                   }
-                                                                                  }
-                                                                },
-                                                     "block_order":  [
-                                                                         "product_1",
-                                                                         "product_2",
-                                                                         "product_3"
-                                                                     ],
-                                                     "settings":  {
-                                                                      "heading":  "Conoce Nuestros Productos",
-                                                                      "subheading":  "Seleccionamos los favoritos de Aurora CafÈ para comenzar tu dÌa.",
-                                                                      "color_scheme":  "scheme-1"
-                                                                  }
-                                                 },
-                     "beverage_carousel_Aurora":  {
-                                                      "type":  "beverage-carousel",
-                                                      "blocks":  {
-                                                                     "beverage_1":  {
-                                                                                        "type":  "beverage",
-                                                                                        "settings":  {
-                                                                                                         "image":  "",
-                                                                                                         "title":  "Bebida 1",
-                                                                                                         "description":  "Describe la receta y los matices de sabor que lograr·n."
-                                                                                                     }
-                                                                                    },
-                                                                     "beverage_2":  {
-                                                                                        "type":  "beverage",
-                                                                                        "settings":  {
-                                                                                                         "image":  "",
-                                                                                                         "title":  "Bebida 2",
-                                                                                                         "description":  "Describe la receta y los matices de sabor que lograr·n."
-                                                                                                     }
-                                                                                    },
-                                                                     "beverage_3":  {
-                                                                                        "type":  "beverage",
-                                                                                        "settings":  {
-                                                                                                         "image":  "",
-                                                                                                         "title":  "Bebida 3",
-                                                                                                         "description":  "Describe la receta y los matices de sabor que lograr·n."
-                                                                                                     }
-                                                                                    },
-                                                                     "beverage_4":  {
-                                                                                        "type":  "beverage",
-                                                                                        "settings":  {
-                                                                                                         "image":  "",
-                                                                                                         "title":  "Bebida 4",
-                                                                                                         "description":  "Describe la receta y los matices de sabor que lograr·n."
-                                                                                                     }
-                                                                                    },
-                                                                     "beverage_5":  {
-                                                                                        "type":  "beverage",
-                                                                                        "settings":  {
-                                                                                                         "image":  "",
-                                                                                                         "title":  "Bebida 5",
-                                                                                                         "description":  "Describe la receta y los matices de sabor que lograr·n."
-                                                                                                     }
-                                                                                    },
-                                                                     "beverage_6":  {
-                                                                                        "type":  "beverage",
-                                                                                        "settings":  {
-                                                                                                         "image":  "",
-                                                                                                         "title":  "Bebida 6",
-                                                                                                         "description":  "Describe la receta y los matices de sabor que lograr·n."
-                                                                                                     }
-                                                                                    }
-                                                                 },
-                                                      "block_order":  [
-                                                                          "beverage_1",
-                                                                          "beverage_2",
-                                                                          "beverage_3",
-                                                                          "beverage_4",
-                                                                          "beverage_5",
-                                                                          "beverage_6"
-                                                                      ],
-                                                      "settings":  {
-                                                                       "heading":  "Crea tu bebida favorita con un solo toque",
-                                                                       "subheading":  "Disfruta de la libertad de crear la bebida que se te antoje, justo como la quieres, con el panel t·ctil intuitivo"
-                                                                   }
-                                                  },
-                     "trust_highlights_Aurora":  {
-                                                     "type":  "trust-highlights",
-                                                     "blocks":  {
-                                                                    "highlight_1":  {
-                                                                                        "type":  "highlight",
-                                                                                        "settings":  {
-                                                                                                         "icon":  "truck",
-                                                                                                         "custom_icon":  "",
-                                                                                                         "title":  "Beneficio 1",
-                                                                                                         "text":  "Explica brevemente la ventaja para tus clientes."
-                                                                                                     }
-                                                                                    },
-                                                                    "highlight_2":  {
-                                                                                        "type":  "highlight",
-                                                                                        "settings":  {
-                                                                                                         "icon":  "truck",
-                                                                                                         "custom_icon":  "",
-                                                                                                         "title":  "Beneficio 2",
-                                                                                                         "text":  "Explica brevemente la ventaja para tus clientes."
-                                                                                                     }
-                                                                                    },
-                                                                    "highlight_3":  {
-                                                                                        "type":  "highlight",
-                                                                                        "settings":  {
-                                                                                                         "icon":  "truck",
-                                                                                                         "custom_icon":  "",
-                                                                                                         "title":  "Beneficio 3",
-                                                                                                         "text":  "Explica brevemente la ventaja para tus clientes."
-                                                                                                     }
-                                                                                    },
-                                                                    "highlight_4":  {
-                                                                                        "type":  "highlight",
-                                                                                        "settings":  {
-                                                                                                         "icon":  "truck",
-                                                                                                         "custom_icon":  "",
-                                                                                                         "title":  "Beneficio 4",
-                                                                                                         "text":  "Explica brevemente la ventaja para tus clientes."
-                                                                                                     }
-                                                                                    }
-                                                                },
-                                                     "block_order":  [
-                                                                         "highlight_1",
-                                                                         "highlight_2",
-                                                                         "highlight_3",
-                                                                         "highlight_4"
-                                                                     ],
-                                                     "settings":  {
-                                                                      "heading":  "Confianza y respaldo en cada entrega"
-                                                                  }
-                                                 },
-                     "blog_carousel_Aurora":  {
-                                                  "type":  "blog-carousel",
-                                                  "settings":  {
-                                                                   "heading":  "ArtÌculos del blog",
-                                                                   "blog":  "",
-                                                                   "post_limit":  6
-                                                               }
-                                              },
-                     "faq_split_Aurora":  {
-                                              "type":  "faq-split",
-                                              "blocks":  {
-                                                             "question_1":  {
-                                                                                "type":  "question",
-                                                                                "settings":  {
-                                                                                                 "question":  "øPregunta frecuente ",
-                                                                                                 "answer":  "Responde con claridad cÛmo la m·quina Aurora soluciona esta duda."
-                                                                                             }
-                                                                            },
-                                                             "question_2":  {
-                                                                                "type":  "question",
-                                                                                "settings":  {
-                                                                                                 "question":  "øPregunta frecuente ",
-                                                                                                 "answer":  "Responde con claridad cÛmo la m·quina Aurora soluciona esta duda."
-                                                                                             }
-                                                                            },
-                                                             "question_3":  {
-                                                                                "type":  "question",
-                                                                                "settings":  {
-                                                                                                 "question":  "øPregunta frecuente ",
-                                                                                                 "answer":  "Responde con claridad cÛmo la m·quina Aurora soluciona esta duda."
-                                                                                             }
-                                                                            },
-                                                             "question_4":  {
-                                                                                "type":  "question",
-                                                                                "settings":  {
-                                                                                                 "question":  "øPregunta frecuente ",
-                                                                                                 "answer":  "Responde con claridad cÛmo la m·quina Aurora soluciona esta duda."
-                                                                                             }
-                                                                            },
-                                                             "question_5":  {
-                                                                                "type":  "question",
-                                                                                "settings":  {
-                                                                                                 "question":  "øPregunta frecuente ",
-                                                                                                 "answer":  "Responde con claridad cÛmo la m·quina Aurora soluciona esta duda."
-                                                                                             }
-                                                                            },
-                                                             "question_6":  {
-                                                                                "type":  "question",
-                                                                                "settings":  {
-                                                                                                 "question":  "øPregunta frecuente ",
-                                                                                                 "answer":  "Responde con claridad cÛmo la m·quina Aurora soluciona esta duda."
-                                                                                             }
-                                                                            }
-                                                         },
-                                              "block_order":  [
-                                                                  "question_1",
-                                                                  "question_2",
-                                                                  "question_3",
-                                                                  "question_4",
-                                                                  "question_5",
-                                                                  "question_6"
-                                                              ],
-                                              "settings":  {
-                                                               "heading":  "øTienes preguntas? Tenemos respuestas",
-                                                               "description":  "Encuentra aquÌ las dudas m·s comunes. Si no ves la tuya, escrÌbenos a WhatsApp y con gusto te ayudaremos a elegir la Aurora perfecta para ti.",
-                                                               "button_label":  "Comprar ahora",
-                                                               "button_link":  ""
-                                                           }
-                                          }
-                 },
-    "order":  [
-                  "hero_jVaWmY",
-                  "capsules_benefits_Aurora",
-                  "product_showcase_Aurora",
-                  "beverage_carousel_Aurora",
-                  "trust_highlights_Aurora",
-                  "blog_carousel_Aurora",
-                  "faq_split_Aurora",
-                  "product_list_fa6P9H"
+  "sections": {
+    "hero_jVaWmY": {
+      "type": "hero",
+      "blocks": {
+        "group_content": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 28,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "trust_badge": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<div class=\"hero-aurora__trust\">\n  <span class=\"hero-aurora__stars\" aria-hidden=\"true\">&#9733;&#9733;&#9733;&#9733;&#9733;</span>\n  <span class=\"hero-aurora__trust-text\">Confiados por +2000 clientes satisfechos</span>\n</div>"
+              }
+            },
+            "heading_primary": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h1>Caf√© de calidad profesional, en tu hogar o negocio, <em>con solo un bot√≥n.</em></h1>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "h1",
+                "font": "var(--font-heading--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "body_copy": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Cafeteras autom√°ticas que no necesitan c√°psulas, se autolimpian y preparan hasta 20 tipos de caf√© en minutos. Disfruta bebidas perfectas, con env√≠o gratuito y soporte t√©cnico garantizado.</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "group_buttons": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": true,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 16,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "button_primary": {
+                  "type": "button",
+                  "name": "t:names.button",
+                  "settings": {
+                    "label": "Ver Productos",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "custom",
+                    "custom_width_mobile": 100
+                  }
+                },
+                "button_secondary": {
+                  "type": "button",
+                  "name": "t:names.button",
+                  "settings": {
+                    "label": "Quiz De Tu M√°quina Ideal",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "style_class": "button-secondary",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "custom",
+                    "custom_width_mobile": 100
+                  }
+                }
+              },
+              "block_order": [
+                "button_primary",
+                "button_secondary"
               ]
+            },
+            "group_features": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 20,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "marquee": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "<div class=\"hero-trust-marquee\" data-trust-marquee>\n  <div class=\"hero-trust-marquee__track\">\n    <div class=\"hero-trust-marquee__group\">\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Garant√≠a de satisfacci√≥n</span>\n      </span>\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Env√≠o gratis</span>\n      </span>\n    </div>\n    <div class=\"hero-trust-marquee__group\" aria-hidden=\"true\">\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Garant√≠a de satisfacci√≥n</span>\n      </span>\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Env√≠o gratis</span>\n      </span>\n    </div>\n  </div>\n</div>"
+                  }
+                }
+              },
+              "block_order": [
+                "marquee"
+              ]
+            }
+          },
+          "block_order": [
+            "trust_badge",
+            "heading_primary",
+            "body_copy",
+            "group_buttons",
+            "group_features"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/aurora-hero-desktop.jpg",
+        "media_type_2": "image",
+        "image_2": null,
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "full-screen",
+        "section_height_custom": 100,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": false,
+        "overlay_color": "#14100cCC",
+        "overlay_style": "solid",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 60,
+        "padding-block-start": 32,
+        "padding-block-end": 40
+      }
+    },
+    "product_list_fa6P9H": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "Featured collection",
+      "settings": {
+        "collection": "all",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "capsules_benefits_Aurora": {
+      "type": "capsules-benefits",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "price_tag",
+            "custom_icon": null,
+            "title": "Ahorro a largo plazo",
+            "text": "Usa caf√ö en grano est√ündar y olv√ùdate de las c√üpsulas costosas."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "piggy_bank",
+            "custom_icon": null,
+            "title": "Sabor aut√öntico",
+            "text": "Disfruta el aroma del caf√ö reci√ön molido en cada taza."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "coffee",
+            "custom_icon": null,
+            "title": "Personaliza cada bebida",
+            "text": "Ajusta intensidad, temperatura y espumado seg¬∑n tu preferencia."
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_check",
+            "custom_icon": null,
+            "title": "Calidad garantizada",
+            "text": "Componentes duraderos y soporte experto cuando lo necesites."
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "settings": {
+        "heading_prefix": "Olv√ùdate de las c√üpsulas: As√ù se ve",
+        "heading_emphasis": "el futuro del caf√ö en casa.",
+        "subheading": "Descubre por qu√ö miles est√ün cambiando su cafetera de c√üpsulas por la libertad de un caf√ö hecho a tu gusto.",
+        "button_label": "Ver Productos",
+        "button_link": "shopify://collections/all",
+        "media_image": "",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product_showcase_Aurora": {
+      "type": "product-showcase",
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "fallback_title": "Producto destacado",
+            "subtitle_metafield": "",
+            "subtitle_text": "Tu nueva bebida favorita.",
+            "feature_icon": "price_tag",
+            "feature_metafield_1": "",
+            "feature_text_1": "Ahorra y disfruta ingredientes frescos.",
+            "feature_metafield_2": "",
+            "feature_text_2": "42 vitaminas, minerales y nutrientes.",
+            "feature_metafield_3": "",
+            "feature_text_3": "Listo para servir en menos de un minuto."
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "fallback_title": "Producto destacado",
+            "subtitle_metafield": "",
+            "subtitle_text": "Tu nueva bebida favorita.",
+            "feature_icon": "price_tag",
+            "feature_metafield_1": "",
+            "feature_text_1": "Ahorra y disfruta ingredientes frescos.",
+            "feature_metafield_2": "",
+            "feature_text_2": "42 vitaminas, minerales y nutrientes.",
+            "feature_metafield_3": "",
+            "feature_text_3": "Listo para servir en menos de un minuto."
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "fallback_title": "Producto destacado",
+            "subtitle_metafield": "",
+            "subtitle_text": "Tu nueva bebida favorita.",
+            "feature_icon": "price_tag",
+            "feature_metafield_1": "",
+            "feature_text_1": "Ahorra y disfruta ingredientes frescos.",
+            "feature_metafield_2": "",
+            "feature_text_2": "42 vitaminas, minerales y nutrientes.",
+            "feature_metafield_3": "",
+            "feature_text_3": "Listo para servir en menos de un minuto."
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3"
+      ],
+      "settings": {
+        "heading": "Conoce Nuestros Productos",
+        "subheading": "Seleccionamos los favoritos de Aurora Caf√© para comenzar tu d√≠a.",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "beverage_carousel_Aurora": {
+      "type": "beverage-carousel",
+      "blocks": {
+        "beverage_1": {
+          "type": "beverage_slide",
+          "settings": {
+            "image": "",
+            "title": "Bebida 1",
+            "description": "Describe la receta y los matices de sabor que lograr√°n."
+          }
+        },
+        "beverage_2": {
+          "type": "beverage_slide",
+          "settings": {
+            "image": "",
+            "title": "Bebida 2",
+            "description": "Describe la receta y los matices de sabor que lograr√°n."
+          }
+        },
+        "beverage_3": {
+          "type": "beverage_slide",
+          "settings": {
+            "image": "",
+            "title": "Bebida 3",
+            "description": "Describe la receta y los matices de sabor que lograr√°n."
+          }
+        },
+        "beverage_4": {
+          "type": "beverage_slide",
+          "settings": {
+            "image": "",
+            "title": "Bebida 4",
+            "description": "Describe la receta y los matices de sabor que lograr√°n."
+          }
+        },
+        "beverage_5": {
+          "type": "beverage_slide",
+          "settings": {
+            "image": "",
+            "title": "Bebida 5",
+            "description": "Describe la receta y los matices de sabor que lograr√°n."
+          }
+        },
+        "beverage_6": {
+          "type": "beverage_slide",
+          "settings": {
+            "image": "",
+            "title": "Bebida 6",
+            "description": "Describe la receta y los matices de sabor que lograr√°n."
+          }
+        }
+      },
+      "block_order": [
+        "beverage_1",
+        "beverage_2",
+        "beverage_3",
+        "beverage_4",
+        "beverage_5",
+        "beverage_6"
+      ],
+      "settings": {
+        "heading": "Crea tu bebida favorita con un solo toque",
+        "subheading": "Disfruta de la libertad de crear la bebida que se te antoje, justo como la quieres, con el panel t√üctil intuitivo"
+      }
+    },
+    "trust_highlights_Aurora": {
+      "type": "trust-highlights",
+      "blocks": {
+        "highlight_1": {
+          "type": "highlight",
+          "settings": {
+            "icon": "truck",
+            "custom_icon": "",
+            "title": "Env√≠o gratuito",
+            "text": "Explica brevemente la ventaja para tus clientes."
+          }
+        },
+        "highlight_2": {
+          "type": "highlight",
+          "settings": {
+            "icon": "truck",
+            "custom_icon": "",
+            "title": "Beneficio 2",
+            "text": "Explica brevemente la ventaja para tus clientes."
+          }
+        },
+        "highlight_3": {
+          "type": "highlight",
+          "settings": {
+            "icon": "truck",
+            "custom_icon": "",
+            "title": "Beneficio 3",
+            "text": "Explica brevemente la ventaja para tus clientes."
+          }
+        },
+        "highlight_4": {
+          "type": "highlight",
+          "settings": {
+            "icon": "truck",
+            "custom_icon": "",
+            "title": "Beneficio 4",
+            "text": "Explica brevemente la ventaja para tus clientes."
+          }
+        }
+      },
+      "block_order": [
+        "highlight_1",
+        "highlight_2",
+        "highlight_3",
+        "highlight_4"
+      ],
+      "settings": {
+        "heading": "Conf√≠a en Aurora Caf√©"
+      }
+    },
+    "blog_carousel_Aurora": {
+      "type": "blog-carousel",
+      "settings": {
+        "heading": "Art√ùculos del blog",
+        "blog": "",
+        "post_limit": 6
+      }
+    },
+    "faq_split_Aurora": {
+      "type": "faq-split",
+      "blocks": {
+        "question_1": {
+          "type": "question",
+          "settings": {
+            "question": "¬øPregunta frecuente ",
+            "answer": "Responde con claridad c√≥mo la m√°quina Aurora soluciona esta duda."
+          }
+        },
+        "question_2": {
+          "type": "question",
+          "settings": {
+            "question": "¬øPregunta frecuente ",
+            "answer": "Responde con claridad c√≥mo la m√°quina Aurora soluciona esta duda."
+          }
+        },
+        "question_3": {
+          "type": "question",
+          "settings": {
+            "question": "¬øPregunta frecuente ",
+            "answer": "Responde con claridad c√≥mo la m√°quina Aurora soluciona esta duda."
+          }
+        },
+        "question_4": {
+          "type": "question",
+          "settings": {
+            "question": "¬øPregunta frecuente ",
+            "answer": "Responde con claridad c√≥mo la m√°quina Aurora soluciona esta duda."
+          }
+        },
+        "question_5": {
+          "type": "question",
+          "settings": {
+            "question": "¬øPregunta frecuente ",
+            "answer": "Responde con claridad c√≥mo la m√°quina Aurora soluciona esta duda."
+          }
+        },
+        "question_6": {
+          "type": "question",
+          "settings": {
+            "question": "¬øPregunta frecuente ",
+            "answer": "Responde con claridad c√≥mo la m√°quina Aurora soluciona esta duda."
+          }
+        }
+      },
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5",
+        "question_6"
+      ],
+      "settings": {
+        "heading": "¬øTienes preguntas? Tenemos respuestas",
+        "description": "Encuentra aqu√≠ las dudas m√°s comunes. Si no ves la tuya, escr√≠benos a WhatsApp y con gusto te ayudaremos a elegir la Aurora perfecta para ti.",
+        "button_label": "Comprar ahora",
+        "button_link": ""
+      }
+    }
+  },
+  "order": [
+    "hero_jVaWmY",
+    "capsules_benefits_Aurora",
+    "product_showcase_Aurora",
+    "beverage_carousel_Aurora",
+    "trust_highlights_Aurora",
+    "blog_carousel_Aurora",
+    "faq_split_Aurora",
+    "product_list_fa6P9H"
+  ]
 }

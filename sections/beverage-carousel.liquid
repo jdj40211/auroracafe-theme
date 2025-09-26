@@ -288,12 +288,12 @@
       "type": "text",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Disfruta de la libertad de crear la bebida que se te antoje, justo como la quieres, con el panel táctil intuitivo"
+      "default": "Disfruta de la libertad de crear la bebida que se te antoje, justo como la quieres, con el panel tÃ¡ctil intuitivo"
     }
   ],
   "blocks": [
     {
-      "type": "beverage",
+      "type": "beverage_slide",
       "name": "Beverage",
       "settings": [
         {
@@ -304,13 +304,13 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Título",
+          "label": "TÃ­tulo",
           "default": "Espresso"
         },
         {
           "type": "textarea",
           "id": "description",
-          "label": "Descripción",
+          "label": "DescripciÃ³n",
           "default": "Comparte la intensidad perfecta de tu espresso favorito."
         }
       ]
@@ -321,15 +321,18 @@
     {
       "name": "Beverage carousel",
       "blocks": [
-        { "type": "beverage" },
-        { "type": "beverage" },
-        { "type": "beverage" },
-        { "type": "beverage" },
-        { "type": "beverage" }
+        { "type": "beverage_slide" },
+        { "type": "beverage_slide" },
+        { "type": "beverage_slide" },
+        { "type": "beverage_slide" },
+        { "type": "beverage_slide" }
       ]
     }
   ]
 }
 {% endschema %}
+
+
+
 
 
