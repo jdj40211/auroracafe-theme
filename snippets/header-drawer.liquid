@@ -21,6 +21,13 @@
   elsif block_settings.menu_style == 'featured_products'
     assign ratio = block_settings.featured_products_aspect_ratio
   endif
+  assign menu_links = linklist.links
+  assign use_fallback_links = false
+  if menu_links == blank
+    assign use_fallback_links = true
+  endif
+  assign fallback_titles = 'Tienda|Ofertas|Nosotros' | split: '|'
+  assign fallback_urls = '/collections/all|/collections/ofertas|/pages/nosotros' | split: '|'
 
   ##
   # We only eager load heavy elements of the page when rendering this template
@@ -95,6 +102,38 @@
           class="menu-drawer__menu has-submenu"
           role="list"
         >
+          <li class="menu-drawer__list-item menu-drawer__list-item--logo">
+            <a
+              href="{{ routes.root_url }}"
+              class="menu-drawer__menu-item menu-drawer__menu-item--logo focus-inset"
+              aria-label="{{ shop.name }}"
+            >
+              <img
+                src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Blanco_-_Website.svg?v=1759104233"
+                alt="{{ shop.name }}"
+                class="menu-drawer__logo-image"
+                loading="lazy"
+              >
+            </a>
+          </li>
+          {% if use_fallback_links %}
+            {% for title in fallback_titles %}
+              {% assign fallback_url = fallback_urls[forloop.index0] %}
+              <li
+                style="--menu-drawer-animation-index: {{ forloop.index }};"
+                class="{%- if block_settings.drawer_accordion -%}menu-drawer__list-item--deep{%- else -%}menu-drawer__list-item--flat{%- endif -%}{% if block_settings.drawer_dividers %} menu-drawer__list-item--divider{% endif %}"
+              >
+                <a
+                  id="HeaderDrawer-fallback-{{ forloop.index }}"
+                  href="{{ fallback_url }}"
+                  class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset"
+                  data-fallback-link="true"
+                >
+                  <span class="menu-drawer__menu-item-text">{{ title }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          {% endif %}
           {%- comment -%}
             Handle menus with fewer than 3 levels of links
           {%- endcomment -%}

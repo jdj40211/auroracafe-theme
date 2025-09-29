@@ -21,9 +21,54 @@
   elsif block_settings.menu_style == 'featured_products'
     assign ratio = block_settings.featured_products_aspect_ratio
   endif
+  assign menu_links = block_settings.menu.links
+  assign use_fallback_links = false
+  if menu_links == blank
+    assign use_fallback_links = true
+  endif
+  assign fallback_titles = 'Tienda|Ofertas|Nosotros' | split: '|'
+  assign fallback_urls = '/collections/all|/collections/ofertas|/pages/nosotros' | split: '|'
 %}
 
 {% capture children %}
+  <li
+    role="presentation"
+    class="menu-list__list-item menu-list__list-item--logo"
+  >
+    <a
+      href="{{ routes.root_url }}"
+      class="menu-list__link menu-list__link--logo"
+      aria-label="{{ shop.name }}"
+    >
+      <img
+        src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Negro_-_Website_bd1c89d0-c17f-4803-996a-062c0cc0459c.svg?v=1759104347"
+        alt="{{ shop.name }}"
+        class="menu-list__logo-image menu-list__logo-image--black"
+        loading="lazy"
+      >
+    </a>
+  </li>
+  {% if use_fallback_links %}
+    {% for title in fallback_titles %}
+      {% assign fallback_url = fallback_urls[forloop.index0] %}
+      {% assign link_class = 'menu-list__link' %}
+      {% if title != 'Nosotros' %}
+        {% assign link_class = link_class | append: ' menu-list__link--chevron' %}
+      {% endif %}
+      <li
+        role="presentation"
+        class="menu-list__list-item menu-list__list-item--fallback"
+      >
+        <a
+          href="{{ fallback_url }}"
+          class="{{ link_class }}"
+          data-fallback-link="true"
+        >
+          <span class="menu-list__link-title">{{ title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  {% endif %}
   {% for link in block_settings.menu.links %}
     <li
       role="presentation"
