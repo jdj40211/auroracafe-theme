@@ -30,7 +30,8 @@
   assign fallback_urls = '/collections/all|/collections/ofertas|/pages/nosotros' | split: '|'
 %}
 
-{% capture children %}
+
+{% capture menu_items %}
   <li
     role="presentation"
     class="menu-list__list-item menu-list__list-item--logo"
@@ -112,19 +113,6 @@
       {%- endif -%}
     </li>
   {% endfor %}
-  <li
-    class="menu-list__list-item"
-    role="presentation"
-    slot="more"
-    on:focus="/activate"
-    on:blur="/deactivate"
-    on:pointerenter="/activate"
-    on:pointerleave="/deactivate"
-  >
-    <button role="menuitem" class="button menu-list__link button-unstyled">
-      <span class="menu-list__link-title">{{ 'actions.more' | t }}</span>
-    </button>
-  </li>
 {% endcapture %}
 
 <nav header-menu>
@@ -132,7 +120,13 @@
     class="menu-list"
     style="{% render 'menu-font-styles', settings: block_settings %}"
   >
-    {% assign class = 'overflow-menu' | append: color_scheme_classes %}
-    {% render 'overflow-list', class: class, ref: 'overflowMenu', children: children, minimum-items: 2, defer: true %}
+    <ul
+      class="menu-list__list list-unstyled{{ color_scheme_classes }}"
+      role="list"
+    >
+      {{ menu_items }}
+    </ul>
   </div>
+  <div class="menu-list__overflow" ref="overflowMenu" hidden></div>
 </nav>
+

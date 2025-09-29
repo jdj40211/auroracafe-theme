@@ -4550,9 +4550,16 @@ text-component {
   }
 
   .header--aurora .menu-list {
-    display: inline-flex;
+    width: 100%;
+  }
+
+  .header--aurora .menu-list__list {
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 35px;
+    margin: 0;
+    padding: 0;
   }
 
   .header--aurora .menu-list__link {
@@ -4728,16 +4735,11 @@ text-component {
   }
 
   .header--aurora header-menu {
-    width: auto;
+    width: 100%;
   }
 
   .header--aurora header-menu .header-menu__inner {
     display: flex;
     justify-content: flex-end;
-    width: auto;
-  }
-
-  .header--aurora header-menu overflow-list {
-    --overflow-list-alignment: flex-end;
   }
 }
