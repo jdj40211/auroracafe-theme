@@ -4,7 +4,7 @@
   assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0
   assign show_payment_icons = section.settings.show_payment_icons
   assign newsletter_form_id = 'AuroraFooterNewsletter-' | append: section.id
-  
+
   capture overlay_rgba
     assign rgb = overlay_color | default: '#000000' | color_to_rgb
     assign rgba = rgb | replace: 'rgb(', 'rgba(' | replace: ')', '' | append: ', ' | append: overlay_opacity | append: ')'
@@ -13,9 +13,12 @@
 %}
 
 <footer class="aurora-footer" data-section-id="{{ section.id }}">
-  <div class="aurora-footer__hero" style="{% if bg_image != blank %}background-image: url({{ bg_image | image_url: width: 2400 }});{% endif %}">
+  <div
+    class="aurora-footer__hero"
+    style="{% if bg_image != blank %}background-image: url({{ bg_image | image_url: width: 2400 }});{% endif %}"
+  >
     <div class="aurora-footer__overlay" style="--overlay-color-rgba: {{ overlay_rgba | strip }};"></div>
-    
+
     <div class="aurora-footer__inner">
       {%- comment -%} Newsletter Section {%- endcomment -%}
       <section class="aurora-footer__newsletter">
@@ -27,7 +30,7 @@
             <p class="aurora-footer__newsletter-subheading">{{ section.settings.newsletter_subheading }}</p>
           {% endif %}
         </div>
-        
+
         <div class="aurora-footer__newsletter-form">
           {% form 'customer', id: newsletter_form_id, class: 'aurora-footer__form', novalidate: 'novalidate' %}
             <input type="hidden" name="contact[tags]" value="newsletter">
@@ -42,12 +45,18 @@
                 required
                 autocomplete="email"
               >
-              <button type="submit" class="aurora-footer__button">{{ section.settings.newsletter_button_label }}</button>
+              <button type="submit" class="aurora-footer__button">
+                {{ section.settings.newsletter_button_label }}
+              </button>
             </div>
             {% if form.posted_successfully? %}
-              <p class="aurora-footer__form-message aurora-footer__form-message--success">{{ section.settings.newsletter_success_message }}</p>
+              <p class="aurora-footer__form-message aurora-footer__form-message--success">
+                {{ section.settings.newsletter_success_message }}
+              </p>
             {% elsif form.errors %}
-              <p class="aurora-footer__form-message aurora-footer__form-message--error">Por favor ingresa un correo válido.</p>
+              <p class="aurora-footer__form-message aurora-footer__form-message--error">
+                Por favor ingresa un correo válido.
+              </p>
             {% endif %}
           {% endform %}
         </div>
@@ -108,56 +117,148 @@
   <div class="aurora-footer__utility">
     <div class="aurora-footer__utility-inner">
       <div class="aurora-footer__brand">
-        {% if section.settings.logo != blank %}
-          {{ section.settings.logo | image_url: width: 200 | image_tag: class: 'aurora-footer__logo', alt: shop.name, loading: 'lazy' }}
-        {% else %}
-          <span class="aurora-footer__brand-name">{{ shop.name }}</span>
-        {% endif %}
-        <p class="aurora-footer__copyright">© 2025 Todos los derechos reservados</p>
-        {% if section.settings.developed_by_url != blank %}
-          <p class="aurora-footer__developed">Desarrollado por <a href="{{ section.settings.developed_by_url }}" target="_blank" rel="noopener">{{ section.settings.developed_by_label }}</a></p>
-        {% endif %}
+        <div class="aurora-footer__country">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/flag-for-flag-guatemala-svgrepo-com.svg?v=1759358203"
+            alt="Bandera de Guatemala"
+            class="aurora-footer__flag"
+            loading="lazy"
+            width="28"
+            height="20"
+          >
+          <span class="aurora-footer__country-name">Guatemala</span>
+        </div>
+        <p class="aurora-footer__copyright">
+          Aurora Café GT® es una marca de CONFORT & ENTRETENIMIENTO Y COPROPIEDAD, Guatemala 2023.
+          <br>
+          Desarrollado por <a href="https://digitdeck.online" target="_blank" rel="noopener" class="aurora-footer__developer-link">Digit Deck</a>
+        </p>
       </div>
 
-      {% if show_payment_icons and shop.enabled_payment_types != blank %}
-        <div class="aurora-footer__payments" aria-label="Métodos de pago">
-          {% for type in shop.enabled_payment_types %}
-            {{ type | payment_type_svg_tag: class: 'aurora-footer__payment-icon' }}
-          {% endfor %}
-        </div>
-      {% endif %}
+      <div class="aurora-footer__payments" aria-label="Métodos de pago">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/visa-svgrepo-com.svg?v=1759308071"
+          alt="Visa"
+          class="aurora-footer__payment-icon"
+          loading="lazy"
+          width="40"
+          height="26"
+        >
+        <img
+          src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/mastercard-full-svgrepo-com.svg?v=1759308071"
+          alt="Mastercard"
+          class="aurora-footer__payment-icon"
+          loading="lazy"
+          width="40"
+          height="26"
+        >
+        <img
+          src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/amex-svgrepo-com.svg?v=1759357476"
+          alt="American Express"
+          class="aurora-footer__payment-icon"
+          loading="lazy"
+          width="40"
+          height="26"
+        >
+        <img
+          src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/google-pay-svgrepo-com.svg?v=1759308071"
+          alt="Google Pay"
+          class="aurora-footer__payment-icon"
+          loading="lazy"
+          width="40"
+          height="26"
+        >
+      </div>
 
-      <div class="aurora-footer__social" aria-label="Redes sociales">
-        {% if section.settings.youtube_url != blank %}
-          <a class="aurora-footer__social-link" href="{{ section.settings.youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="20" height="14" viewBox="0 0 20 14" fill="currentColor"><path d="M19.582 2.186c-.23-.859-.907-1.535-1.766-1.764C16.254 0 10 0 10 0S3.746 0 2.184.422c-.859.23-1.536.905-1.766 1.764C0 3.746 0 7 0 7s0 3.254.418 4.814c.23.859.907 1.535 1.766 1.764C3.746 14 10 14 10 14s6.254 0 7.816-.422c.859-.23 1.536-.905 1.766-1.764C20 10.254 20 7 20 7s0-3.254-.418-4.814zM8 10V4l5.196 3L8 10z"/></svg>
-          </a>
-        {% endif %}
-        {% if section.settings.facebook_url != blank %}
-          <a class="aurora-footer__social-link" href="{{ section.settings.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="10" height="18" viewBox="0 0 10 18" fill="currentColor"><path d="M6.135 3H8V0H6.135C4.165 0 2.568 1.584 2.568 3.538V6H0v3h2.568v9h3.243V9h2.432l.757-3H5.81V3.538C5.81 3.243 6.055 3 6.352 3h-.217z"/></svg>
-          </a>
-        {% endif %}
-        {% if section.settings.twitter_url != blank %}
-          <a class="aurora-footer__social-link" href="{{ section.settings.twitter_url }}" target="_blank" rel="noopener" aria-label="X">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M13.5 0h2.48l-5.41 6.19L16.5 18h-4.99l-3.9-5.1L2.79 18H.3l5.79-6.62L0 0h5.12l3.52 4.66L13.5 0zm-.87 16.17h1.37L4.95 1.39H3.48l9.15 14.78z"/></svg>
-          </a>
-        {% endif %}
-        {% if section.settings.linkedin_url != blank %}
-          <a class="aurora-footer__social-link" href="{{ section.settings.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M4.03 2.03c0 1.14-.92 2.06-2.06 2.06C.93 4.09 0 3.17 0 2.03 0 .89.93 0 2.06 0c1.14 0 2.06.89 2.06 2.03zM4.09 18H.09V6h4v12zM18 18h-4v-5.8c0-1.38-.49-2.32-1.71-2.32-.93 0-1.49.63-1.73 1.23-.09.22-.11.52-.11.83V18H6.47s.05-10.24 0-11.3h3.98v1.6c.53-.81 1.48-1.97 3.59-1.97 2.62 0 4.58 1.71 4.58 5.39V18z"/></svg>
-          </a>
-        {% endif %}
-        {% if section.settings.tiktok_url != blank %}
-          <a class="aurora-footer__social-link" href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor"><path d="M11.5 0v1.5c0 1.933 1.567 3.5 3.5 3.5V8c-1.167 0-2.25-.35-3.15-.95v4.45c0 3.033-2.467 5.5-5.5 5.5S.85 14.533.85 11.5s2.467-5.5 5.5-5.5v3c-1.383 0-2.5 1.117-2.5 2.5s1.117 2.5 2.5 2.5 2.5-1.117 2.5-2.5V0h2.65z"/></svg>
-          </a>
-        {% endif %}
-        {% if section.settings.instagram_url != blank %}
-          <a class="aurora-footer__social-link" href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M9 1.62c2.403 0 2.688.009 3.637.052.877.04 1.354.187 1.671.31.421.163.72.358 1.035.673.315.315.51.614.673 1.035.123.317.27.794.31 1.671.043.95.052 1.234.052 3.637s-.009 2.688-.052 3.637c-.04.877-.187 1.354-.31 1.671-.163.421-.358.72-.673 1.035-.315.315-.614.51-1.035.673-.317.123-.794.27-1.671.31-.95.043-1.234.052-3.637.052s-2.688-.009-3.637-.052c-.877-.04-1.354-.187-1.671-.31-.421-.163-.72-.358-1.035-.673-.315-.315-.51-.614-.673-1.035-.123-.317-.27-.794-.31-1.671-.043-.95-.052-1.234-.052-3.637s.009-2.688.052-3.637c.04-.877.187-1.354.31-1.671.163-.421.358-.72.673-1.035.315-.315.614-.51 1.035-.673.317-.123.794-.27 1.671-.31.95-.043 1.234-.052 3.637-.052zM9 0C6.556 0 6.25.01 5.29.054 4.33.098 3.677.25 3.105.473c-.598.232-1.104.542-1.609 1.047C1 2.025.69 2.531.458 3.129.235 3.701.083 4.354.039 5.314.005 6.274 0 6.58 0 9.024s.01 2.75.054 3.71c.044.96.196 1.613.419 2.185.232.598.542 1.104 1.047 1.609.505.505 1.011.815 1.609 1.047.572.223 1.225.375 2.185.419.96.034 1.266.044 3.71.044s2.75-.01 3.71-.054c.96-.044 1.613-.196 2.185-.419.598-.232 1.104-.542 1.609-1.047.505-.505.815-1.011 1.047-1.609.223-.572.375-1.225.419-2.185.034-.96.044-1.266.044-3.71s-.01-2.75-.054-3.71c-.044-.96-.196-1.613-.419-2.185-.232-.598-.542-1.104-1.047-1.609C14.975 1 14.469.69 13.871.458c-.572-.223-1.225-.375-2.185-.419C10.726.005 10.42 0 7.976 0H9zm0 4.378c-2.552 0-4.622 2.07-4.622 4.622S6.448 13.622 9 13.622s4.622-2.07 4.622-4.622S11.552 4.378 9 4.378zM9 12c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm4.804-8.884c-.596 0-1.08.484-1.08 1.08s.484 1.08 1.08 1.08 1.08-.484 1.08-1.08-.484-1.08-1.08-1.08z"/></svg>
-          </a>
-        {% endif %}
+      <div class="aurora-footer__brand-section">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Blanco_-_Website.svg?v=1759104233"
+          alt="Aurora Café"
+          class="aurora-footer__brand-logo"
+          loading="lazy"
+          width="120"
+          height="auto"
+        >
+        <div class="aurora-footer__social" aria-label="Redes sociales">
+          {% if section.settings.youtube_url != blank %}
+            <a
+              class="aurora-footer__social-link"
+              href="{{ section.settings.youtube_url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+            >
+              <svg width="20" height="14" viewBox="0 0 20 14" fill="currentColor">
+                <path d="M19.582 2.186c-.23-.859-.907-1.535-1.766-1.764C16.254 0 10 0 10 0S3.746 0 2.184.422c-.859.23-1.536.905-1.766 1.764C0 3.746 0 7 0 7s0 3.254.418 4.814c.23.859.907 1.535 1.766 1.764C3.746 14 10 14 10 14s6.254 0 7.816-.422c.859-.23 1.536-.905 1.766-1.764C20 10.254 20 7 20 7s0-3.254-.418-4.814zM8 10V4l5.196 3L8 10z"/>
+              </svg>
+            </a>
+          {% endif %}
+          {% if section.settings.facebook_url != blank %}
+            <a
+              class="aurora-footer__social-link"
+              href="{{ section.settings.facebook_url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+            >
+              <svg width="10" height="18" viewBox="0 0 10 18" fill="currentColor">
+                <path d="M6.135 3H8V0H6.135C4.165 0 2.568 1.584 2.568 3.538V6H0v3h2.568v9h3.243V9h2.432l.757-3H5.81V3.538C5.81 3.243 6.055 3 6.352 3h-.217z"/>
+              </svg>
+            </a>
+          {% endif %}
+          {% if section.settings.twitter_url != blank %}
+            <a
+              class="aurora-footer__social-link"
+              href="{{ section.settings.twitter_url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="X"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                <path d="M13.5 0h2.48l-5.41 6.19L16.5 18h-4.99l-3.9-5.1L2.79 18H.3l5.79-6.62L0 0h5.12l3.52 4.66L13.5 0zm-.87 16.17h1.37L4.95 1.39H3.48l9.15 14.78z"/>
+              </svg>
+            </a>
+          {% endif %}
+          {% if section.settings.linkedin_url != blank %}
+            <a
+              class="aurora-footer__social-link"
+              href="{{ section.settings.linkedin_url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                <path d="M4.03 2.03c0 1.14-.92 2.06-2.06 2.06C.93 4.09 0 3.17 0 2.03 0 .89.93 0 2.06 0c1.14 0 2.06.89 2.06 2.03zM4.09 18H.09V6h4v12zM18 18h-4v-5.8c0-1.38-.49-2.32-1.71-2.32-.93 0-1.49.63-1.73 1.23-.09.22-.11.52-.11.83V18H6.47s.05-10.24 0-11.3h3.98v1.6c.53-.81 1.48-1.97 3.59-1.97 2.62 0 4.58 1.71 4.58 5.39V18z"/>
+              </svg>
+            </a>
+          {% endif %}
+          {% if section.settings.tiktok_url != blank %}
+            <a
+              class="aurora-footer__social-link"
+              href="{{ section.settings.tiktok_url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+            >
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor">
+                <path d="M11.5 0v1.5c0 1.933 1.567 3.5 3.5 3.5V8c-1.167 0-2.25-.35-3.15-.95v4.45c0 3.033-2.467 5.5-5.5 5.5S.85 14.533.85 11.5s2.467-5.5 5.5-5.5v3c-1.383 0-2.5 1.117-2.5 2.5s1.117 2.5 2.5 2.5 2.5-1.117 2.5-2.5V0h2.65z"/>
+              </svg>
+            </a>
+          {% endif %}
+          {% if section.settings.instagram_url != blank %}
+            <a
+              class="aurora-footer__social-link"
+              href="{{ section.settings.instagram_url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                <path d="M9 1.62c2.403 0 2.688.009 3.637.052.877.04 1.354.187 1.671.31.421.163.72.358 1.035.673.315.315.51.614.673 1.035.123.317.27.794.31 1.671.043.95.052 1.234.052 3.637s-.009 2.688-.052 3.637c-.04.877-.187 1.354-.31 1.671-.163.421-.358.72-.673 1.035-.315.315-.614.51-1.035.673-.317.123-.794.27-1.671.31-.95.043-1.234.052-3.637.052s-2.688-.009-3.637-.052c-.877-.04-1.354-.187-1.671-.31-.421-.163-.72-.358-1.035-.673-.315-.315-.51-.614-.673-1.035-.123-.317-.27-.794-.31-1.671-.043-.95-.052-1.234-.052-3.637s.009-2.688.052-3.637c.04-.877.187-1.354.31-1.671.163-.421.358-.72.673-1.035.315-.315.614-.51 1.035-.673.317-.123.794-.27 1.671-.31.95-.043 1.234-.052 3.637-.052zM9 0C6.556 0 6.25.01 5.29.054 4.33.098 3.677.25 3.105.473c-.598.232-1.104.542-1.609 1.047C1 2.025.69 2.531.458 3.129.235 3.701.083 4.354.039 5.314.005 6.274 0 6.58 0 9.024s.01 2.75.054 3.71c.044.96.196 1.613.419 2.185.232.598.542 1.104 1.047 1.609.505.505 1.011.815 1.609 1.047.572.223 1.225.375 2.185.419.96.034 1.266.044 3.71.044s2.75-.01 3.71-.054c.96-.044 1.613-.196 2.185-.419.598-.232 1.104-.542 1.609-1.047.505-.505.815-1.011 1.047-1.609.223-.572.375-1.225.419-2.185.034-.96.044-1.266.044-3.71s-.01-2.75-.054-3.71c-.044-.96-.196-1.613-.419-2.185-.232-.598-.542-1.104-1.047-1.609C14.975 1 14.469.69 13.871.458c-.572-.223-1.225-.375-2.185-.419C10.726.005 10.42 0 7.976 0H9zm0 4.378c-2.552 0-4.622 2.07-4.622 4.622S6.448 13.622 9 13.622s4.622-2.07 4.622-4.622S11.552 4.378 9 4.378zM9 12c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm4.804-8.884c-.596 0-1.08.484-1.08 1.08s.484 1.08 1.08 1.08 1.08-.484 1.08-1.08-.484-1.08-1.08-1.08z"/>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -178,7 +279,7 @@
   }
 
   .aurora-footer a:hover {
-    color: #F3A000;
+    color: #f3a000;
   }
 
   .aurora-footer__hero {
@@ -191,7 +292,7 @@
   .aurora-footer__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.85) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.85) 100%);
   }
 
   .aurora-footer__inner {
@@ -259,7 +360,7 @@
     padding: 0 2rem;
     min-height: 52px;
     border-radius: 999px;
-    background-color: #F3A000;
+    background-color: #ffffff;
     color: #111111;
     font-weight: 600;
     font-size: 1rem;
@@ -280,11 +381,11 @@
   }
 
   .aurora-footer__form-message--success {
-    color: #9BE09B;
+    color: #9be09b;
   }
 
   .aurora-footer__form-message--error {
-    color: #FF8A80;
+    color: #ff8a80;
   }
 
   .aurora-footer__navigation {
@@ -308,14 +409,34 @@
     font-size: 1rem;
     cursor: pointer;
     user-select: none;
+    color: #ffffff;
+  }
+
+  .aurora-footer__column-heading:active,
+  .aurora-footer__column-heading:focus,
+  .aurora-footer__column-heading:hover {
+    color: #ffffff;
   }
 
   .aurora-footer__chevron {
     transition: transform 0.3s ease;
+    color: #ffffff !important;
+    flex-shrink: 0;
+  }
+
+  .aurora-footer__column-heading:active .aurora-footer__chevron,
+  .aurora-footer__column-heading:focus .aurora-footer__chevron,
+  .aurora-footer__column-heading:hover .aurora-footer__chevron {
+    color: #ffffff !important;
   }
 
   details[open] .aurora-footer__chevron {
     transform: rotate(180deg);
+    color: #ffffff !important;
+  }
+
+  details[open] .aurora-footer__column-heading {
+    color: #ffffff;
   }
 
   .aurora-footer__links {
@@ -346,31 +467,45 @@
 
   .aurora-footer__brand {
     display: grid;
-    gap: 0.5rem;
+    gap: 0.75rem;
     justify-items: center;
   }
 
-  .aurora-footer__logo {
-    max-width: 140px;
-    height: auto;
-    filter: brightness(0) invert(1);
+  .aurora-footer__country {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
-  .aurora-footer__brand-name {
-    font-size: 1.5rem;
-    font-weight: 700;
+  .aurora-footer__flag {
+    flex-shrink: 0;
+    height: 30px;
+    width: auto;
   }
 
-  .aurora-footer__copyright,
-  .aurora-footer__developed {
-    margin: 0;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .aurora-footer__developed a {
-    color: #F3A000;
+  .aurora-footer__country-name {
+    font-size: 0.95rem;
     font-weight: 600;
+  }
+
+  .aurora-footer__copyright {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    max-width: 50ch;
+  }
+
+  .aurora-footer__developer-link {
+    color: #f3a000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .aurora-footer__developer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
   }
 
   .aurora-footer__payments {
@@ -382,9 +517,20 @@
   }
 
   .aurora-footer__payment-icon {
-    height: 24px;
+    height: 26px;
     width: auto;
-    filter: brightness(0) invert(1) opacity(0.6);
+    filter: brightness(1);
+  }
+
+  .aurora-footer__brand-section {
+    display: grid;
+    gap: 1.25rem;
+    justify-items: center;
+  }
+
+  .aurora-footer__brand-logo {
+    max-width: 120px;
+    height: auto;
   }
 
   .aurora-footer__social {
@@ -460,6 +606,10 @@
       justify-items: start;
     }
 
+    .aurora-footer__brand-section {
+      justify-items: end;
+    }
+
     .aurora-footer__social {
       justify-content: flex-end;
     }
@@ -520,28 +670,6 @@
       "id": "newsletter_success_message",
       "label": "Mensaje de éxito",
       "default": "¡Gracias por suscribirte!"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo del footer"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "Mostrar iconos de pago",
-      "default": true
-    },
-    {
-      "type": "url",
-      "id": "developed_by_url",
-      "label": "URL de DigitDeck"
-    },
-    {
-      "type": "text",
-      "id": "developed_by_label",
-      "label": "Nombre del desarrollador",
-      "default": "DigitDeck"
     },
     {
       "type": "url",

@@ -56,6 +56,7 @@
 {% stylesheet %}
   .beverage-carousel {
     padding-block: clamp(3rem, 6vw, 4.5rem);
+    overflow: hidden;
   }
 
   .beverage-carousel__header {
@@ -123,14 +124,13 @@
   }
 
   .beverage-carousel__viewport {
-    overflow: hidden;
-    margin-inline: -1rem;
-    padding-inline: 1rem;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
   }
 
   .beverage-carousel__track {
     scrollbar-width: none;
-
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(220px, 1fr);
@@ -138,6 +138,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .beverage-carousel__track::-webkit-scrollbar {
@@ -145,36 +146,37 @@
   }
 
   .beverage-carousel__item {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     display: grid;
     gap: 0.75rem;
     text-align: center;
+    height: fit-content;
   }
 
   .beverage-carousel__image-wrapper {
     width: 100%;
-    max-width: 220px;
-    height: 262px;
+    height: 194px;
     margin-inline: auto;
     border-radius: 220px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .beverage-carousel__image {
-    width: 220px;
+    width: 100%;
     height: 194px;
     object-fit: cover;
     border-radius: 220px;
     display: block;
-    margin-inline: auto;
   }
 
   .beverage-carousel__image--placeholder {
-    width: 220px;
+    width: 100%;
     height: 194px;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
     border-radius: 220px;
-    margin-inline: auto;
   }
 
   .beverage-carousel__title {
@@ -201,17 +203,36 @@
     }
 
     .beverage-carousel__controls {
-      align-self: flex-end;
+      display: none;
     }
 
     .beverage-carousel__heading {
       font-size: clamp(2rem, 8vw, 2.25rem);
     }
 
-    .beverage-carousel__track {
-    scrollbar-width: none;
+    .beverage-carousel__viewport {
+      margin-left: calc(-1 * var(--page-width-padding, 1.5rem));
+      padding-left: var(--page-width-padding, 1.5rem);
+      overflow: visible;
+    }
 
-      grid-auto-columns: minmax(220px, 1fr);
+    .beverage-carousel__track {
+      grid-auto-columns: 42%;
+      gap: 20px;
+      padding-right: var(--page-width-padding, 1.5rem);
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: var(--page-width-padding, 1.5rem);
+    }
+
+    .beverage-carousel__item {
+      width: 100%;
+      height: fit-content;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .beverage-carousel__controls {
+      display: inline-flex;
     }
   }
 {% endstylesheet %}
