@@ -334,6 +334,8 @@
         "subheading": "Descubre por qué miles están cambiando su cafetera de cápsulas por la libertad de un café hecho a tu gusto.",
         "button_label": "Ver Productos",
         "button_link": "shopify://collections/all",
+        "media_video_url": "",
+        "media_video_alt": "",
         "color_scheme": "scheme-1"
       }
     },
