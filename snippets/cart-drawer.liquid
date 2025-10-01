@@ -2,9 +2,7 @@
   Renders the cart drawer, a slide-out panel that displays the contents of the cart. It includes the cart icon that acts as a trigger.
 
   @param {object} [settings] - An object containing theme settings.
-
-  @param {boolean} [settings.auto_open_cart_drawer] - If `true`, the cart drawer opens automatically after an item is
-  added.
+  @param {boolean} [settings.auto_open_cart_drawer] - If `true`, the cart drawer opens automatically after an item is added.
   @param {string} [settings.drawer_color_scheme] - The color scheme for the drawer.
 {%- enddoc -%}
 
@@ -196,9 +194,12 @@
             <div
               class="cart-drawer__summary"
             >
-              {% render 'cart-summary' %}
+              {%- comment -%} Aquí va el resumen del carrito {%- endcomment -%}
+              <div class="cart-summary-wrapper">
+                {% render 'cart-summary' %}
+              </div>
               
-              {%- comment -%} Trust Badges - Debajo del resumen {%- endcomment -%}
+              {%- comment -%} Trust Badges - DESPUÉS del resumen, ANTES del checkout {%- endcomment -%}
               <div class="cart-drawer__trust-badges">
                 <div class="trust-badges__grid">
                   <div class="trust-badge">
@@ -230,7 +231,7 @@
                         <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
                         <circle cx="5.5" cy="18.5" r="2.5"/>
                         <circle cx="18.5" cy="18.5" r="2.5"/>
-                      </svg>
+                    </svg>
                     </div>
                     <div class="trust-badge__title">Tracked Shipping in</div>
                     <div class="trust-badge__description">5-7Days</div>
@@ -238,14 +239,16 @@
                 </div>
               </div>
 
-              {%- comment -%} Iconos de pago - Debajo del botón de checkout {%- endcomment -%}
+              {%- comment -%} El botón de checkout va aquí (será renderizado por cart-summary) {%- endcomment -%}
+              
+              {%- comment -%} Iconos de pago - Al final de todo {%- endcomment -%}
               <div class="cart-drawer__payment-icons">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="payment-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="payment-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="payment-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Apple_Pay_logo.svg" alt="Apple Pay" class="payment-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay" class="payment-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" class="payment-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/visa-svgrepo-com.svg?v=1759308071" alt="Visa" class="payment-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/mastercard-full-svgrepo-com.svg?v=1759308071" alt="Mastercard" class="payment-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/paypal-svgrepo-com.svg?v=1759308071" alt="PayPal" class="payment-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/apple-pay-svgrepo-com.svg?v=1759307958" alt="Apple Pay" class="payment-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/google-pay-svgrepo-com.svg?v=1759308071" alt="Google Pay" class="payment-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/stripe-svgrepo-com.svg?v=1759307937" alt="Stripe" class="payment-icon">
               </div>
             </div>
           </div>
@@ -478,14 +481,22 @@
   }
 
   /* ============================================
-     TRUST BADGES
+     CART SUMMARY WRAPPER
+     ============================================ */
+  .cart-summary-wrapper {
+    /* Este wrapper contiene el resumen del carrito */
+    /* Los trust badges irán después de este wrapper */
+  }
+
+  /* ============================================
+     TRUST BADGES - Posicionados DESPUÉS del resumen
      ============================================ */
   .cart-drawer__trust-badges {
-    padding: 15px 20px;
+    padding: 12px 20px;
     border-top: 1px solid var(--color-border, #e5e5e5);
-    border-bottom: 1px solid var(--color-border, #e5e5e5);
-    background: #fff;
+    background: #fafafa;
     margin: 0;
+    /* Los badges aparecen después del resumen pero antes del checkout */
   }
 
   .trust-badges__grid {
@@ -500,9 +511,9 @@
   }
 
   .trust-badge__icon {
-    width: 28px;
-    height: 28px;
-    margin: 0 auto 6px;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -526,29 +537,32 @@
   .trust-badge__description {
     font-size: 9px;
     color: #666;
-    line-height: 1.2;
+    line-height: 1.1;
     display: block;
   }
 
   /* ============================================
-     ICONOS DE PAGO
+     ICONOS DE PAGO - Más pequeños y en una línea
      ============================================ */
   .cart-drawer__payment-icons {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 15px 20px;
+    gap: 10px;
+    padding: 10px 20px;
     background: #fff;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Mantener en una sola línea */
+    overflow-x: auto; /* Permitir scroll horizontal si es necesario */
   }
 
   .payment-icon {
-    height: 24px;
+    height: 40px; 
+    min-width: auto;
     width: auto;
+    max-width: 40px; /* Limitar ancho máximo */
     object-fit: contain;
-    filter: grayscale(0);
-    opacity: 0.8;
+    opacity: 0.7;
+    flex-shrink: 0; /* Evitar que se encojan */
   }
 
   .payment-icon:hover {
@@ -563,14 +577,8 @@
     padding-bottom: 0;
   }
 
-  /* Asegurar que los badges estén dentro del summary */
-  .cart-drawer__summary .cart-drawer__trust-badges {
-    position: relative;
-    bottom: auto;
-  }
-
   /* ============================================
-     ESTRUCTURA DEL FOOTER
+     ESTRUCTURA DEL FOOTER PARA CARRITO VACÍO
      ============================================ */
   .cart-drawer__footer-empty {
     position: absolute;
@@ -598,25 +606,25 @@
     }
 
     .trust-badges__grid {
-      gap: 5px;
+      gap: 8px;
     }
 
     .trust-badge {
-      padding: 8px 3px;
+      padding: 6px 3px;
     }
 
     .trust-badge__title {
-      font-size: 10px;
-    }
-    
-    .trust-badge__description {
       font-size: 9px;
     }
     
+    .trust-badge__description {
+      font-size: 8px;
+    }
+    
     .trust-badge__icon {
-      width: 28px;
-      height: 28px;
-      margin-bottom: 6px;
+      width: 22px;
+      height: 22px;
+      margin-bottom: 4px;
     }
 
     .cart-drawer__empty-text {
@@ -626,6 +634,17 @@
     .cart-drawer__cta-button {
       padding: 10px 25px;
       font-size: 13px;
+    }
+
+    /* Iconos de pago aún más pequeños en móvil */
+    .payment-icon {
+      height: 40px;
+      max-width: auto;
+    }
+
+    .cart-drawer__payment-icons {
+      gap: 8px;
+      padding: 8px 15px;
     }
   }
 
@@ -667,5 +686,20 @@
 
   .cart-drawer--empty .cart-drawer__summary {
     display: none;
+  }
+
+  /* ============================================
+     SCROLLBAR PERSONALIZADO PARA PAYMENT ICONS
+     ============================================ */
+  .cart-drawer__payment-icons::-webkit-scrollbar {
+    height: 0px;
+  }
+
+  .cart-drawer__payment-icons::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .cart-drawer__payment-icons::-webkit-scrollbar-thumb {
+    background: transparent;
   }
 {% endstylesheet %}

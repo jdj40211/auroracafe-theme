@@ -38,10 +38,13 @@
     color: rgb(var(--color-foreground-heading-rgb));
   }
 
+  /* Forzar siempre 2 columnas */
   .trust-badges__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: clamp(0.75rem, 2vw, 1.25rem);
+    max-width: min(640px, 100%);
+    margin-inline: auto;
   }
 
   .trust-badge {
@@ -49,7 +52,6 @@
     align-content: center;
     justify-items: center;
     gap: 0.5rem;
-    height: 133px;
     padding: 1.5rem;
     border-radius: 8px;
     background-color: #f7f7f7;
@@ -83,9 +85,63 @@
     color: rgba(0, 0, 0, 0.6);
   }
 
+  /* Sobrescribir cualquier regla específica de sección */
+  #shopify-section-{{ section.id }} .trust-badges__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: min(640px, 100%);
+    margin-inline: auto;
+  }
+
+  #shopify-section-{{ section.id }} .trust-badge {
+    align-content: start;
+    justify-items: center;
+    gap: 0.75rem;
+    height: auto;
+    min-height: 0;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    border-radius: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .trust-badge__icon {
+    margin-top: 0;
+  }
+
+  /* Asegurar 2 columnas en todos los tamaños de pantalla */
   @media (max-width: 749px) {
     .trust-badges__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    #shopify-section-{{ section.id }} .trust-badges__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  /* Para pantallas muy pequeñas, mantener 2 columnas pero ajustar espacio */
+  @media (max-width: 480px) {
+    .trust-badges__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: clamp(0.5rem, 2vw, 0.75rem);
+    }
+    
+    .trust-badge {
+      padding: 1rem;
+    }
+    
+    .trust-badge__text {
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Para pantallas grandes también forzar 2 columnas */
+  @media (min-width: 750px) {
+    .trust-badges__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      max-width: min(800px, 100%);
+    }
+    
+    #shopify-section-{{ section.id }} .trust-badges__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
     }
   }
 {% endstylesheet %}
@@ -154,4 +210,5 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}
+

@@ -1,4 +1,4 @@
-{%- doc -%}
+﻿{%- doc -%}
   Renders an account button.
 
   @param {string} [tag] - The tag to use
@@ -48,7 +48,7 @@
 
 {% stylesheet %}
   .account-button {
-    color: var(--color-foreground);
+    color: var(--account-button-color, var(--color-foreground));
     appearance: none;
     border: none;
     background: none;
@@ -71,10 +71,10 @@
     width: var(--account-button-size);
     height: var(--account-button-size);
     border-radius: var(--style-border-radius-50);
-    background-color: var(--color-primary-button-background);
+    background-color: var(--account-button-avatar-bg, var(--color-primary-button-background));
     font-size: var(--font-size--sm);
     font-weight: 500;
-    color: var(--color-primary-button-text);
+    color: var(--account-button-avatar-text, var(--color-primary-button-text));
     text-transform: uppercase;
     line-height: 1;
   }
@@ -91,3 +91,4 @@
     pointer-events: none;
   }
 {% endstylesheet %}
+
