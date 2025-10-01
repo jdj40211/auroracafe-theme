@@ -4005,6 +4005,12 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   width: 100%;
 }
 
+@media (min-width: 48em) {
+  .group-block-content {
+    width: 70%;
+  }
+}
+
 /* Container styles */
 .section-content-wrapper.section-content-wrapper:where(.layout-panel-flex) .group-block--fill {
   flex: 1;
@@ -4266,6 +4272,10 @@ text-component {
 /* Aurora Cafe hero styling */
 #shopify-section-hero_jVaWmY .hero__container {
   position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  padding-inline: clamp(1.5rem, 6vw, 6rem);
 }
 
 #shopify-section-hero_jVaWmY .hero__container::after {
@@ -4284,7 +4294,27 @@ text-component {
 #shopify-section-hero_jVaWmY .hero__content-wrapper {
   position: relative;
   z-index: 2;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: clamp(0.75rem, 2.5vw, 1.75rem);
+  width: min(100%, 605px);
+  max-width: 605px;
+  margin: 0;
+  align-items: flex-start;
+  justify-items: stretch;
+  text-align: left;
+}
+
+#shopify-section-hero_jVaWmY .hero__content-wrapper > * {
+  width: 100%;
+}
+
+#shopify-section-hero_jVaWmY #shopify-block-group_buttons {
+  margin-block-start: clamp(1.75rem, 6vw, 3.75rem);
+}
+
+#shopify-section-hero_jVaWmY #shopify-block-group_features {
+  margin-block-start: clamp(1rem, 4vw, 1.75rem);
 }
 
 #shopify-section-hero_jVaWmY #shopify-block-group_content {
@@ -4341,14 +4371,16 @@ text-component {
 #shopify-section-hero_jVaWmY #shopify-block-group_buttons .group-block-content {
   flex-wrap: wrap;
   gap: clamp(0.75rem, 2vw, 1.25rem);
+  width: 100%;
 }
 
 #shopify-section-hero_jVaWmY #shopify-block-group_buttons .button,
 #shopify-section-hero_jVaWmY #shopify-block-group_buttons .button-secondary {
-  min-height: 52px;
-  padding-inline: clamp(1.5rem, 3vw, 2.5rem);
-  font-size: 1rem;
-  flex: 1 1 100%;
+  min-height: clamp(3rem, 8vw, 4.5rem);
+  max-width: 100%;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  font-size: clamp(1rem, 3.2vw, 1.4rem);
+  flex: 1 1 auto;
 }
 
 @media (min-width: 48em) {
@@ -4393,8 +4425,21 @@ text-component {
 }
 
 @media (max-width: 47.9375em) {
+  #shopify-section-hero_jVaWmY .hero__container {
+    padding-inline: clamp(1.25rem, 6vw, 2rem);
+  }
+
   #shopify-section-hero_jVaWmY .hero__content-wrapper {
     gap: clamp(1.25rem, 6vw, 2rem);
+    width: 100%;
+  }
+
+  #shopify-section-hero_jVaWmY #shopify-block-group_buttons {
+    margin-block-start: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  #shopify-section-hero_jVaWmY #shopify-block-group_features {
+    margin-block-start: clamp(0.75rem, 6vw, 1.5rem);
   }
 
   #shopify-section-hero_jVaWmY .hero-aurora__trust {
@@ -4741,5 +4786,104 @@ text-component {
   .header--aurora header-menu .header-menu__inner {
     display: flex;
     justify-content: flex-end;
+  }
+}
+#shopify-section-hero_jVaWmY .hero__container.hero__container--fixed-width {
+  width: 100%;
+  max-width: none;
+}
+@media (max-width: 47.9375em) {
+  .header--aurora {
+    position: sticky;
+    top: 0;
+    z-index: var(--layer-floating, 5);
+    background-color: var(--header-bg-color, var(--color-background));
+    min-height: 54px;
+  }
+
+  .header--aurora .header__columns {
+    --header-mobile-bookend: 0;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "menu logo actions";
+    column-gap: 10px;
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
+    padding-block: 0;
+    align-items: center;
+    min-height: 54px;
+  }
+
+  .header--aurora .header__drawer {
+    grid-area: menu;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .header--aurora header-drawer {
+    grid-area: menu;
+    justify-self: flex-start;
+  }
+
+  .header--aurora .header__icon--menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    min-height: 54px;
+    width: 44px;
+    padding: 0;
+  }
+
+  .header--aurora .header-logo,
+  .header--aurora .header__logo {
+    grid-area: logo;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header--aurora .header-logo__image-container {
+    margin-inline: auto;
+  }
+
+  .header--aurora header-actions {
+    grid-area: actions;
+    justify-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 54px;
+  }
+
+  .header--aurora .header-actions__quiz {
+    display: none;
+  }
+
+  .header--aurora .header-actions__icon-stack {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header--aurora .header-actions__icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    min-height: 54px;
+    width: 44px;
+  }
+
+  .header--aurora .header-actions__icon-link--question {
+    display: none;
+  }
+
+  .header--aurora header-actions svg,
+  .header--aurora .header-actions__icon-link svg,
+  .header--aurora .header__icon--menu svg {
+    width: 24px;
+    height: 24px;
   }
 }

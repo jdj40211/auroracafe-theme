@@ -232,7 +232,7 @@
   {% endcomment %}
 
   <div
-    class="hero__container spacing-style section section--full-width"
+    class="hero__container spacing-style section section--full-width {% if section.id == 'hero_jVaWmY' %}hero__container--fixed-width{% endif %}"
     style="      {% render 'spacing-style', settings: section.settings %}"
   >
     {%- if section.settings.link != blank -%}
@@ -271,7 +271,6 @@
     </div>
   </div>
 </div>
-
 {% stylesheet %}
   .hero-wrapper {
     --hero-height-offset: 0px;
