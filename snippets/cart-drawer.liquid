@@ -41,6 +41,9 @@
       >
         {%- if cart.empty? -%}
           <div class="cart-drawer__header">
+            <span class="cart-drawer__heading h3">
+              0 Items on the cart
+            </span>
             <button
               ref="closeButton"
               on:click="cart-drawer-component/close"
@@ -51,28 +54,98 @@
                 {{- 'icon-close.svg' | inline_asset_content -}}
               </span>
             </button>
+          </div>
+
+          {%- comment -%} Barra de progreso de envío gratis {%- endcomment -%}
+          {% assign free_shipping_threshold = 10000 %}
+          {% assign cart_total = cart.total_price %}
+          {% assign remaining = free_shipping_threshold | minus: cart_total %}
+          {% assign progress_percentage = cart_total | times: 100.0 | divided_by: free_shipping_threshold %}
+          {% if progress_percentage > 100 %}
+            {% assign progress_percentage = 100 %}
+          {% endif %}
+          
+          <div class="cart-drawer__free-shipping-bar">
+            <div class="free-shipping-bar__text">
+              {% if remaining > 0 %}
+                ¡You are <strong>{{ remaining | money }}</strong> away from free shipping!
+              {% else %}
+                <strong>¡Congratulations! You qualify for free shipping!</strong>
+              {% endif %}
+            </div>
+            <div class="free-shipping-bar__progress">
+              <div class="free-shipping-bar__progress-fill" style="width: {{ progress_percentage }}%"></div>
+            </div>
           </div>
 
           <div
             class="cart-drawer__content motion-reduce"
             aria-label="{{ 'accessibility.cart' | t }}"
           >
-            <span class="cart-drawer__heading h3 cart-drawer__heading--empty">
-              {{ 'content.your_cart_is_empty' | t }}
-            </span>
-
-            <div class="cart-drawer__items">
-              {% render 'cart-products' %}
+            <div class="cart-drawer__empty-state">
+              <span class="cart-drawer__empty-text">
+                Your cart is empty
+              </span>
+              <a href="/collections/all" class="cart-drawer__cta-button">
+                See all products
+              </a>
             </div>
           </div>
+
+          {%- comment -%} Trust Badges para carrito vacío {%- endcomment -%}
+          <div class="cart-drawer__footer-empty">
+            <div class="cart-drawer__trust-badges">
+              <div class="trust-badges__grid">
+                <div class="trust-badge">
+                  <div class="trust-badge__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 11L12 14L22 4"/>
+                      <path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16"/>
+                    </svg>
+                  </div>
+                  <div class="trust-badge__title">100% Authentic</div>
+                  <div class="trust-badge__description">Fragrances</div>
+                </div>
+
+                <div class="trust-badge">
+                  <div class="trust-badge__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2L2 7V11C2 16.5 6.2 21.7 12 23C17.8 21.7 22 16.5 22 11V7L12 2Z"/>
+                      <path d="M12 11V16M12 8V8"/>
+                    </svg>
+                  </div>
+                  <div class="trust-badge__title">Secure,</div>
+                  <div class="trust-badge__description">PCI-Compliant<br>Checkout</div>
+                </div>
+
+                <div class="trust-badge">
+                  <div class="trust-badge__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="1" y="3" width="15" height="13"/>
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                      <circle cx="5.5" cy="18.5" r="2.5"/>
+                      <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                  </div>
+                  <div class="trust-badge__title">Tracked Shipping in</div>
+                  <div class="trust-badge__description">5-7Days</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         {%- else -%}
           <div
             class="cart-drawer__header"
             id="cart-drawer-header"
           >
-            <span class="cart-drawer__heading h3">
-              {{ 'content.cart_title' | t }}
-              {% render 'cart-bubble' %}
+            <span class="cart-drawer__heading h3" data-cart-count="{{ cart.item_count }}">
+              {{ cart.item_count }} 
+              {%- if cart.item_count == 1 -%}
+                Item on the cart
+              {%- else -%}
+                Items on the cart
+              {%- endif -%}
             </span>
 
             <button
@@ -85,6 +158,28 @@
                 {{- 'icon-close.svg' | inline_asset_content -}}
               </span>
             </button>
+          </div>
+
+          {%- comment -%} Barra de progreso de envío gratis {%- endcomment -%}
+          {% assign free_shipping_threshold = 10000 %}
+          {% assign cart_total = cart.total_price %}
+          {% assign remaining = free_shipping_threshold | minus: cart_total %}
+          {% assign progress_percentage = cart_total | times: 100.0 | divided_by: free_shipping_threshold %}
+          {% if progress_percentage > 100 %}
+            {% assign progress_percentage = 100 %}
+          {% endif %}
+          
+          <div class="cart-drawer__free-shipping-bar">
+            <div class="free-shipping-bar__text">
+              {% if remaining > 0 %}
+                ¡You are <strong>{{ remaining | money }}</strong> away from free shipping!
+              {% else %}
+                <strong>¡Congratulations! You qualify for free shipping!</strong>
+              {% endif %}
+            </div>
+            <div class="free-shipping-bar__progress">
+              <div class="free-shipping-bar__progress-fill" style="width: {{ progress_percentage }}%"></div>
+            </div>
           </div>
 
           <div
@@ -102,15 +197,144 @@
               class="cart-drawer__summary"
             >
               {% render 'cart-summary' %}
+              
+              {%- comment -%} Trust Badges - Debajo del resumen {%- endcomment -%}
+              <div class="cart-drawer__trust-badges">
+                <div class="trust-badges__grid">
+                  <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11L12 14L22 4"/>
+                        <path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16"/>
+                      </svg>
+                    </div>
+                    <div class="trust-badge__title">100% Authentic</div>
+                    <div class="trust-badge__description">Fragrances</div>
+                  </div>
+
+                  <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7V11C2 16.5 6.2 21.7 12 23C17.8 21.7 22 16.5 22 11V7L12 2Z"/>
+                        <path d="M12 11V16M12 8V8"/>
+                      </svg>
+                    </div>
+                    <div class="trust-badge__title">Secure,</div>
+                    <div class="trust-badge__description">PCI-Compliant<br>Checkout</div>
+                  </div>
+
+                  <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="3" width="15" height="13"/>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                      </svg>
+                    </div>
+                    <div class="trust-badge__title">Tracked Shipping in</div>
+                    <div class="trust-badge__description">5-7Days</div>
+                  </div>
+                </div>
+              </div>
+
+              {%- comment -%} Iconos de pago - Debajo del botón de checkout {%- endcomment -%}
+              <div class="cart-drawer__payment-icons">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="payment-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="payment-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="payment-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Apple_Pay_logo.svg" alt="Apple Pay" class="payment-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay" class="payment-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Stripe_Logo%2C_revised_2016.svg" alt="Stripe" class="payment-icon">
+              </div>
             </div>
           </div>
         {%- endif -%}
       </cart-items-component>
     </div>
   </dialog>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const FREE_SHIPPING_THRESHOLD = 10000;
+      
+      function updateShippingBar(cartTotal) {
+        const remaining = FREE_SHIPPING_THRESHOLD - cartTotal;
+        const percentage = Math.min((cartTotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
+        
+        const progressBars = document.querySelectorAll('.free-shipping-bar__progress-fill');
+        progressBars.forEach(bar => {
+          bar.style.width = percentage + '%';
+        });
+        
+        const textElements = document.querySelectorAll('.free-shipping-bar__text');
+        textElements.forEach(element => {
+          if (remaining > 0) {
+            const formattedAmount = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }).format(remaining / 100);
+            element.innerHTML = `¡You are <strong>${formattedAmount}</strong> away from free shipping!`;
+          } else {
+            element.innerHTML = '<strong>¡Congratulations! You qualify for free shipping!</strong>';
+          }
+        });
+      }
+      
+      function updateCartHeader(itemCount) {
+        const headerElements = document.querySelectorAll('.cart-drawer__heading');
+        headerElements.forEach(element => {
+          const itemText = itemCount === 1 ? 'Item' : 'Items';
+          element.textContent = `${itemCount} ${itemText} on the cart`;
+        });
+      }
+      
+      function refreshCartDrawer() {
+        fetch('/cart.js', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        .then(response => response.json())
+        .then(cart => {
+          updateShippingBar(cart.total_price);
+          updateCartHeader(cart.item_count);
+          
+          const cartBubbles = document.querySelectorAll('.cart-bubble');
+          cartBubbles.forEach(bubble => {
+            bubble.textContent = cart.item_count;
+          });
+        })
+        .catch(error => {
+          console.error('Error updating cart drawer:', error);
+        });
+      }
+      
+      document.addEventListener('cart:updated', refreshCartDrawer);
+      document.addEventListener('cart:added', refreshCartDrawer);
+      document.addEventListener('cart:change', refreshCartDrawer);
+      
+      const originalFetch = window.fetch;
+      window.fetch = function(...args) {
+        return originalFetch.apply(this, args).then(response => {
+          const url = args[0];
+          if (typeof url === 'string' && (url.includes('/cart/add') || url.includes('/cart/change'))) {
+            setTimeout(refreshCartDrawer, 100);
+          }
+          return response;
+        });
+      };
+      
+      refreshCartDrawer();
+    });
+  </script>
 </cart-drawer-component>
 
 {% stylesheet %}
+  /* ============================================
+     ESTRUCTURA BASE
+     ============================================ */
   .cart-items-component {
     width: 100%;
     height: 100%;
@@ -136,14 +360,16 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: var(--cart-drawer-padding);
-    border-bottom: var(--style-border-width) solid none;
+    padding: var(--cart-drawer-padding, 20px);
+    border-bottom: var(--style-border-width, 1px) solid var(--color-border, #e5e5e5);
     position: sticky;
     top: 0;
     z-index: 1;
+  }
 
-    @media screen and (min-width: 750px) {
-      padding: var(--cart-drawer-padding-desktop);
+  @media screen and (min-width: 750px) {
+    .cart-drawer__header {
+      padding: var(--cart-drawer-padding-desktop, 20px);
     }
   }
 
@@ -154,12 +380,16 @@
   .cart-drawer__inner {
     height: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .cart-drawer__content {
-    height: calc(100% - var(--header-height));
+    height: calc(100% - var(--header-height, 60px));
     display: flex;
     flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
   }
 
   .cart-drawer__summary {
@@ -167,5 +397,275 @@
     position: sticky;
     bottom: 0;
     z-index: 1;
+  }
+
+  /* ============================================
+     BARRA DE ENVÍO GRATIS
+     ============================================ */
+  .cart-drawer__free-shipping-bar {
+    padding: 15px 20px;
+    background: #f8f8f8;
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+  }
+
+  .free-shipping-bar__text {
+    font-size: 14px;
+    color: var(--color-foreground, #333);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .free-shipping-bar__text strong {
+    font-weight: 600;
+    color: #000;
+  }
+
+  .free-shipping-bar__progress {
+    width: 100%;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .free-shipping-bar__progress-fill {
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+  }
+
+  /* ============================================
+     ESTADO VACÍO
+     ============================================ */
+  .cart-drawer__empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    flex: 1;
+    min-height: 200px;
+  }
+
+  .cart-drawer__empty-text {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .cart-drawer__cta-button {
+    background: white;
+    color: #333;
+    border: 1px solid #d0d0d0;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  .cart-drawer__cta-button:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #333;
+  }
+
+  /* ============================================
+     TRUST BADGES
+     ============================================ */
+  .cart-drawer__trust-badges {
+    padding: 15px 20px;
+    border-top: 1px solid var(--color-border, #e5e5e5);
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+    background: #fff;
+    margin: 0;
+  }
+
+  .trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .trust-badge {
+    text-align: center;
+    padding: 8px 5px;
+  }
+
+  .trust-badge__icon {
+    width: 28px;
+    height: 28px;
+    margin: 0 auto 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .trust-badge__icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #666;
+  }
+
+  .trust-badge__title {
+    font-size: 10px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+    display: block;
+    line-height: 1.2;
+  }
+
+  .trust-badge__description {
+    font-size: 9px;
+    color: #666;
+    line-height: 1.2;
+    display: block;
+  }
+
+  /* ============================================
+     ICONOS DE PAGO
+     ============================================ */
+  .cart-drawer__payment-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 20px;
+    background: #fff;
+    flex-wrap: wrap;
+  }
+
+  .payment-icon {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(0);
+    opacity: 0.8;
+  }
+
+  .payment-icon:hover {
+    opacity: 1;
+  }
+
+  /* Ajuste para el summary */
+  .cart-drawer__summary {
+    background-color: var(--color-background);
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0;
+  }
+
+  /* Asegurar que los badges estén dentro del summary */
+  .cart-drawer__summary .cart-drawer__trust-badges {
+    position: relative;
+    bottom: auto;
+  }
+
+  /* ============================================
+     ESTRUCTURA DEL FOOTER
+     ============================================ */
+  .cart-drawer__footer-empty {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+
+  /* Ajustar el contenido cuando está vacío */
+  .cart-drawer--empty .cart-drawer__content {
+    padding-bottom: 140px; /* Espacio para los badges */
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 480px) {
+    .cart-drawer__free-shipping-bar {
+      padding: 12px 15px;
+    }
+
+    .free-shipping-bar__text {
+      font-size: 13px;
+    }
+
+    .trust-badges__grid {
+      gap: 5px;
+    }
+
+    .trust-badge {
+      padding: 8px 3px;
+    }
+
+    .trust-badge__title {
+      font-size: 10px;
+    }
+    
+    .trust-badge__description {
+      font-size: 9px;
+    }
+    
+    .trust-badge__icon {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 6px;
+    }
+
+    .cart-drawer__empty-text {
+      font-size: 16px;
+    }
+
+    .cart-drawer__cta-button {
+      padding: 10px 25px;
+      font-size: 13px;
+    }
+  }
+
+  /* ============================================
+     ANIMACIONES
+     ============================================ */
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .cart-drawer__dialog[open] {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .cart-drawer__trust-badges {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  /* ============================================
+     UTILIDADES
+     ============================================ */
+  .cart-drawer--empty .cart-drawer__items {
+    display: none;
+  }
+
+  .cart-drawer--empty .cart-drawer__summary {
+    display: none;
   }
 {% endstylesheet %}

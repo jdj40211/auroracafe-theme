@@ -4802,6 +4802,7 @@ text-component {
     width: 100%;
     height: 54px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    --header-padding: 0;
   }
 
   .header--aurora .header__columns {
@@ -4814,17 +4815,19 @@ text-component {
     position: relative;
   }
 
-  /* Stack izquierdo - Menú hamburguesa */
-  .header--aurora .header__drawer {
+  .header--aurora .header__drawer,
+  .header--aurora header-actions {
     display: flex !important;
     align-items: center;
-    gap: 10px;
+    height: 100%;
     flex: 0 0 auto;
+    gap: 10px;
     z-index: 2;
   }
 
-  .header--aurora .header__drawer--mobile {
-    display: flex !important;
+  .header--aurora .header__drawer {
+    justify-content: flex-start;
+    justify-self: flex-start;
   }
 
   .header--aurora .header__icon--menu,
@@ -4849,7 +4852,6 @@ text-component {
     height: 100%;
   }
 
-  /* Logo centrado absoluto */
   .header--aurora .header-logo,
   .header--aurora .header__logo {
     position: absolute;
@@ -4884,15 +4886,8 @@ text-component {
     object-fit: contain;
   }
 
-  /* Stack derecho - Acciones (con orden corregido) */
-  .header--aurora header-actions,
-  .header--aurora .header-actions {
-    display: flex;
-    align-items: center;
+  .header--aurora header-actions {
     justify-content: flex-end;
-    gap: 10px;
-    flex: 0 0 auto;
-    z-index: 2;
   }
 
   .header--aurora .header-actions__icon-stack {
@@ -4902,13 +4897,12 @@ text-component {
     flex-direction: row;
   }
 
-  /* Orden específico: carrito primero, luego login */
-  .header--aurora .header-actions__icon-link--cart {
-    order: 2;
+  .header--aurora .header-actions__icon-link--account {
+    order: 0 !important;
   }
 
-  .header--aurora .header-actions__icon-link--account {
-    order: 1;
+  .header--aurora .header-actions__icon-link--cart {
+    order: 999 !important;
   }
 
   .header--aurora .header-actions__icon-link {
@@ -4923,7 +4917,6 @@ text-component {
     cursor: pointer;
   }
 
-  /* Tamaño de íconos SVG */
   .header--aurora .header__icon--menu svg,
   .header--aurora .header__drawer svg,
   .header--aurora .header__drawer button svg,
@@ -4944,12 +4937,10 @@ text-component {
     fill: currentColor;
   }
 
-  /* Mostrar solo los elementos necesarios */
-  .header--aurora .desktop\\:hidden {
+  .header--aurora .desktop\:hidden {
     display: flex !important;
   }
 
-  /* Ocultar elementos no necesarios en móvil */
   .header--aurora .header-actions__quiz,
   .header--aurora .header-actions__icon-link--question,
   .header--aurora .header-actions__divider,
@@ -4957,21 +4948,21 @@ text-component {
     display: none !important;
   }
 
-  /* Asegurar que no haya elementos apilados */
   .header--aurora * {
     margin-block: 0;
   }
 
-  /* Resetear cualquier grid que pueda causar problemas */
   .header--aurora .header__columns {
     grid-template-columns: unset;
     grid-template-areas: unset;
     column-gap: unset;
   }
 }
+
 @media (min-width: 48em) {
   .header--aurora .header-logo,
   .header--aurora .header__logo {
     display: none;
   }
 }
+
