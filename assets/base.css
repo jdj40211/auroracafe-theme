@@ -1,4 +1,4 @@
-* {
+﻿* {
   box-sizing: border-box;
 }
 
@@ -4792,98 +4792,159 @@ text-component {
   width: 100%;
   max-width: none;
 }
+
 @media (max-width: 47.9375em) {
   .header--aurora {
     position: sticky;
     top: 0;
-    z-index: var(--layer-floating, 5);
+    z-index: 5;
     background-color: var(--header-bg-color, var(--color-background));
-    min-height: 54px;
+    width: 100%;
+    height: 54px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
   .header--aurora .header__columns {
-    --header-mobile-bookend: 0;
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "menu logo actions";
-    column-gap: 10px;
-    padding-inline: clamp(1rem, 5vw, 1.5rem);
-    padding-block: 0;
+    display: flex;
+    width: 100%;
+    height: 54px;
     align-items: center;
-    min-height: 54px;
+    justify-content: space-between;
+    padding: 0 16px;
+    position: relative;
   }
 
+  /* Stack izquierdo - Menú hamburguesa */
   .header--aurora .header__drawer {
-    grid-area: menu;
-    display: inline-flex;
+    display: flex !important;
     align-items: center;
-    justify-content: flex-start;
     gap: 10px;
+    flex: 0 0 auto;
+    z-index: 2;
   }
 
-  .header--aurora header-drawer {
-    grid-area: menu;
-    justify-self: flex-start;
+  .header--aurora .header__drawer--mobile {
+    display: flex !important;
   }
 
-  .header--aurora .header__icon--menu {
-    display: inline-flex;
+  .header--aurora .header__icon--menu,
+  .header--aurora [data-header-drawer-type="mobile-drawer"] button,
+  .header--aurora .header__drawer button:first-child,
+  .header--aurora .header__drawer summary {
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    line-height: 0;
-    min-height: 54px;
-    width: 44px;
+    width: 24px;
+    height: 24px;
     padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
+  .header--aurora .header__drawer header-drawer,
+  .header--aurora .header__drawer header-drawer > details {
+    display: flex !important;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* Logo centrado absoluto */
   .header--aurora .header-logo,
   .header--aurora .header__logo {
-    grid-area: logo;
-    justify-self: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    height: auto;
+    z-index: 1;
   }
 
   .header--aurora .header-logo__image-container {
-    margin-inline: auto;
-  }
-
-  .header--aurora header-actions {
-    grid-area: actions;
-    justify-self: flex-end;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 10px;
-    min-height: 54px;
+    justify-content: center;
   }
 
-  .header--aurora .header-actions__quiz {
-    display: none;
+  .header--aurora .header-logo__image {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Stack derecho - Acciones (con orden corregido) */
+  .header--aurora header-actions,
+  .header--aurora .header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex: 0 0 auto;
+    z-index: 2;
   }
 
   .header--aurora .header-actions__icon-stack {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 10px;
+    flex-direction: row;
+  }
+
+  /* Orden específico: carrito primero, luego login */
+  .header--aurora .header-actions__icon-link--cart {
+    order: 1;
+  }
+
+  .header--aurora .header-actions__icon-link--account {
+    order: 2;
   }
 
   .header--aurora .header-actions__icon-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 0;
-    min-height: 54px;
-    width: 44px;
-  }
-
-  .header--aurora .header-actions__icon-link--question {
-    display: none;
-  }
-
-  .header--aurora header-actions svg,
-  .header--aurora .header-actions__icon-link svg,
-  .header--aurora .header__icon--menu svg {
     width: 24px;
     height: 24px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Tamaño de íconos SVG */
+  .header--aurora .header__icon--menu svg,
+  .header--aurora .header__drawer svg,
+  .header--aurora .header__drawer button svg,
+  .header--aurora .header-actions__icon-link svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Mostrar solo los elementos necesarios */
+  .header--aurora .desktop\\:hidden {
+    display: flex !important;
+  }
+
+  /* Ocultar elementos no necesarios en móvil */
+  .header--aurora .header-actions__quiz,
+  .header--aurora .header-actions__icon-link--question,
+  .header--aurora .header-actions__divider,
+  .header--aurora .menu-list--mobile {
+    display: none !important;
+  }
+
+  /* Asegurar que no haya elementos apilados */
+  .header--aurora * {
+    margin-block: 0;
+  }
+
+  /* Resetear cualquier grid que pueda causar problemas */
+  .header--aurora .header__columns {
+    grid-template-columns: unset;
+    grid-template-areas: unset;
+    column-gap: unset;
   }
 }
