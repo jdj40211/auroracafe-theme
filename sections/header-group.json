@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Envíos Gratis",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
@@ -35,7 +35,7 @@
       "settings": {
         "speed": 5,
         "section_width": "page-width",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "divider_width": 1,
         "padding-block-start": 15,
         "padding-block-end": 15
@@ -69,7 +69,7 @@
             "image_border_radius": 0,
             "product_title_case": "default",
             "collection_title_case": "default",
-            "color_scheme": "",
+            "color_scheme": "scheme-ceaf56bf-88d0-413a-9f8a-d825591daad3",
             "menu_font_style": "default",
             "type_font_primary_link": "body",
             "type_font_primary_size": "0.875rem",
@@ -112,7 +112,7 @@
         "border_width": 0,
         "color_scheme_top": "scheme-1",
         "color_scheme_bottom": "",
-        "color_scheme_transparent": "scheme-6",
+        "color_scheme_transparent": "scheme-cfeb8cfe-59f0-4e03-b168-dcb814398df6",
         "enable_transparent_header_home": true,
         "home_color_scheme": "inverse",
         "enable_transparent_header_product": false,

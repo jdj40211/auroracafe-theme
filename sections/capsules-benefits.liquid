@@ -5,6 +5,42 @@
   assign button_label = section.settings.button_label
   assign button_link = section.settings.button_link
   assign image = section.settings.media_image
+  assign video_url_object = section.settings.media_video_url
+  assign hosted_video = section.settings.media_video
+  assign video_id = ''
+  assign video_type = ''
+  assign has_video_url = false
+  if video_url_object != blank and video_url_object.id != blank
+    assign video_id = video_url_object.id
+    assign video_type = video_url_object.type
+    assign has_video_url = true
+  endif
+  assign has_hosted_video = false
+  if hosted_video != blank
+    assign has_hosted_video = true
+  endif
+  assign has_video = false
+  if has_video_url
+    assign has_video = true
+  elsif has_hosted_video
+    assign has_video = true
+  endif
+  assign video_alt = section.settings.media_video_alt
+  if video_alt == blank
+    assign video_alt = ''
+    if heading_prefix != blank
+      assign video_alt = heading_prefix
+    endif
+    if heading_emphasis != blank
+      if video_alt != ''
+        assign video_alt = video_alt | append: ' '
+      endif
+      assign video_alt = video_alt | append: heading_emphasis
+    endif
+    if video_alt == ''
+      assign video_alt = 'Video destacado'
+    endif
+  endif
 %}
 
 <div class="section section--page-width capsules-section color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
@@ -38,8 +74,28 @@
           </a>
         {% endif %}
       </div>
-      <div class="capsules-section__media">
-        {% if image != blank %}
+      <div class="capsules-section__media{% if has_video %} capsules-section__media--video{% endif %}">
+        {% if has_video %}
+          {% if has_video_url %}
+            {% render 'video',
+              video: video_id,
+              video_from_url: true,
+              video_type: video_type,
+              video_class: 'capsules-section__media-video',
+              video_preview_image: image,
+              video_alt: video_alt,
+              section_id: section.id
+            %}
+          {% else %}
+            {% render 'video',
+              video: hosted_video,
+              video_class: 'capsules-section__media-video',
+              video_preview_image: image,
+              video_alt: video_alt,
+              section_id: section.id
+            %}
+          {% endif %}
+        {% elsif image != blank %}
           {{
             image
             | image_url: width: 1200
@@ -51,13 +107,13 @@
           }}
         {% else %}
           <div class="capsules-section__media-placeholder" role="img" aria-label="{{ 'sections.capsules.media_placeholder' | t | default: 'Espacio reservado para video' }}"></div>
+          <div class="capsules-section__play-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="presentation">
+              <circle cx="32" cy="32" r="32" fill="currentColor" opacity="0.6" />
+              <polygon points="26,20 26,44 46,32" fill="#ffffff" />
+            </svg>
+          </div>
         {% endif %}
-        <div class="capsules-section__play-icon" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="presentation">
-            <circle cx="32" cy="32" r="32" fill="currentColor" opacity="0.6" />
-            <polygon points="26,20 26,44 46,32" fill="#ffffff" />
-          </svg>
-        </div>
       </div>
     </div>
     {% if section.blocks.size > 0 %}
@@ -175,6 +231,36 @@
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
   }
 
+  .capsules-section__media--video deferred-media {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .capsules-section__media-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .capsules-section__media-video .deferred-media__poster-button {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .capsules-section__media-video .deferred-media__poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .capsules-section__media-video iframe,
+  .capsules-section__media-video video {
+    width: 100%;
+    height: 100%;
+  }
+
   .capsules-section__play-icon {
     position: absolute;
     inset: 0;
@@ -275,6 +361,27 @@
       "id": "media_image",
       "label": "Media image",
       "info": "Usa una imagen representativa del video."
+    },
+    {
+      "type": "video",
+      "id": "media_video",
+      "label": "Video alojado"
+    },
+    {
+      "type": "video_url",
+      "id": "media_video_url",
+      "label": "Enlace de video",
+      "info": "Admite YouTube o Vimeo.",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    },
+    {
+      "type": "text",
+      "id": "media_video_alt",
+      "label": "Descripcion del video",
+      "info": "Texto alternativo para accesibilidad."
     },
     {
       "type": "select",
