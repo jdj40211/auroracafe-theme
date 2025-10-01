@@ -2,119 +2,163 @@
   assign bg_image = section.settings.background_image
   assign overlay_color = section.settings.overlay_color
   assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0
-  assign overlay_gradient = section.settings.overlay_gradient
   assign show_payment_icons = section.settings.show_payment_icons
-  assign show_policy_links = section.settings.show_policy_links
+  assign newsletter_form_id = 'AuroraFooterNewsletter-' | append: section.id
+  
+  capture overlay_rgba
+    assign rgb = overlay_color | default: '#000000' | color_to_rgb
+    assign rgba = rgb | replace: 'rgb(', 'rgba(' | replace: ')', '' | append: ', ' | append: overlay_opacity | append: ')'
+    echo rgba
+  endcapture
 %}
 
-<footer class="aurora-footer color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
+<footer class="aurora-footer" data-section-id="{{ section.id }}">
   <div class="aurora-footer__hero" style="{% if bg_image != blank %}background-image: url({{ bg_image | image_url: width: 2400 }});{% endif %}">
-    <div
-      class="aurora-footer__overlay{% if overlay_gradient %} aurora-footer__overlay--gradient{% endif %}"
-      style="--overlay-color: {{ overlay_color }}; --overlay-opacity: {{ overlay_opacity }};"
-    ></div>
-    <div class="aurora-footer__container">
-      <div class="aurora-footer__lead">
-        {% if section.settings.heading != blank %}
-          <h2 class="aurora-footer__heading">{{ section.settings.heading }}</h2>
-        {% endif %}
-        {% if section.settings.subheading != blank %}
-          <p class="aurora-footer__subheading">{{ section.settings.subheading }}</p>
-        {% endif %}
-        {% if section.settings.button_label != blank %}
-          <a
-            class="aurora-footer__cta"
-            {% if section.settings.button_link != blank %}
-              href="{{ section.settings.button_link }}"
-            {% else %}
-              role="link"
-              aria-disabled="true"
-            {% endif %}
-          >
-            {{ section.settings.button_label }}
-          </a>
-        {% endif %}
-      </div>
-      <div class="aurora-footer__columns">
-        {% for block in section.blocks %}
-          {% if block.type == 'column' %}
-            <div class="aurora-footer__column" {{ block.shopify_attributes }}>
-              {% if block.settings.heading != blank %}
-                <p class="aurora-footer__column-heading">{{ block.settings.heading }}</p>
-              {% endif %}
-              {% if block.settings.menu != blank %}
-                <ul class="aurora-footer__links">
-                  {% for link in block.settings.menu.links %}
-                    <li>
-                      <a href="{{ link.url }}">{{ link.title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </div>
+    <div class="aurora-footer__overlay" style="--overlay-color-rgba: {{ overlay_rgba | strip }};"></div>
+    
+    <div class="aurora-footer__inner">
+      {%- comment -%} Newsletter Section {%- endcomment -%}
+      <section class="aurora-footer__newsletter">
+        <div class="aurora-footer__newsletter-content">
+          {% if section.settings.newsletter_heading != blank %}
+            <h2 class="aurora-footer__newsletter-heading">{{ section.settings.newsletter_heading }}</h2>
           {% endif %}
-        {% endfor %}
-      </div>
+          {% if section.settings.newsletter_subheading != blank %}
+            <p class="aurora-footer__newsletter-subheading">{{ section.settings.newsletter_subheading }}</p>
+          {% endif %}
+        </div>
+        
+        <div class="aurora-footer__newsletter-form">
+          {% form 'customer', id: newsletter_form_id, class: 'aurora-footer__form', novalidate: 'novalidate' %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="aurora-footer__form-fields">
+              <label class="visually-hidden" for="FooterNewsletterEmail-{{ section.id }}">Correo electrónico</label>
+              <input
+                id="FooterNewsletterEmail-{{ section.id }}"
+                class="aurora-footer__input"
+                type="email"
+                name="contact[email]"
+                placeholder="{{ section.settings.newsletter_placeholder }}"
+                required
+                autocomplete="email"
+              >
+              <button type="submit" class="aurora-footer__button">{{ section.settings.newsletter_button_label }}</button>
+            </div>
+            {% if form.posted_successfully? %}
+              <p class="aurora-footer__form-message aurora-footer__form-message--success">{{ section.settings.newsletter_success_message }}</p>
+            {% elsif form.errors %}
+              <p class="aurora-footer__form-message aurora-footer__form-message--error">Por favor ingresa un correo válido.</p>
+            {% endif %}
+          {% endform %}
+        </div>
+      </section>
+
+      {%- comment -%} Navigation Columns {%- endcomment -%}
+      <nav class="aurora-footer__navigation" aria-label="Footer navigation">
+        <details class="aurora-footer__column aurora-footer__column--collapsible">
+          <summary class="aurora-footer__column-heading">
+            Productos
+            <svg class="aurora-footer__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <ul class="aurora-footer__links">
+            <li><a href="/collections/cafe-en-grano">Café en grano</a></li>
+            <li><a href="/collections/cafe-molido">Café molido</a></li>
+            <li><a href="/collections/capsulas">Cápsulas</a></li>
+            <li><a href="/collections/maquinas">Máquinas</a></li>
+            <li><a href="/collections/accesorios">Accesorios</a></li>
+          </ul>
+        </details>
+
+        <details class="aurora-footer__column aurora-footer__column--collapsible">
+          <summary class="aurora-footer__column-heading">
+            Empresa
+            <svg class="aurora-footer__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <ul class="aurora-footer__links">
+            <li><a href="/pages/sobre-nosotros">Sobre nosotros</a></li>
+            <li><a href="/pages/faqs">FAQs</a></li>
+            <li><a href="/pages/envios-y-devoluciones">Envíos y devoluciones</a></li>
+            <li><a href="/policies/terms-of-service">Términos y condiciones</a></li>
+            <li><a href="/policies/privacy-policy">Política de privacidad</a></li>
+          </ul>
+        </details>
+
+        <details class="aurora-footer__column aurora-footer__column--collapsible">
+          <summary class="aurora-footer__column-heading">
+            Soporte
+            <svg class="aurora-footer__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <ul class="aurora-footer__links">
+            <li><a href="/pages/contacto">Contacto</a></li>
+            <li><a href="/pages/atencion-al-cliente">Atención al cliente</a></li>
+            <li><a href="/pages/localiza-tu-tienda">Localiza tu tienda</a></li>
+          </ul>
+        </details>
+      </nav>
     </div>
   </div>
+
+  {%- comment -%} Bottom Utility Section {%- endcomment -%}
   <div class="aurora-footer__utility">
-    <div class="aurora-footer__meta">
+    <div class="aurora-footer__utility-inner">
       <div class="aurora-footer__brand">
         {% if section.settings.logo != blank %}
-          {{ section.settings.logo | image_url: width: 200 | image_tag: class: 'aurora-footer__logo', loading: 'lazy' }}
+          {{ section.settings.logo | image_url: width: 200 | image_tag: class: 'aurora-footer__logo', alt: shop.name, loading: 'lazy' }}
         {% else %}
           <span class="aurora-footer__brand-name">{{ shop.name }}</span>
         {% endif %}
-      </div>
-      <div class="aurora-footer__legal">
-        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'general.all_rights_reserved' | t }}</span>
-        {% if show_policy_links %}
-          <ul class="aurora-footer__policy-links">
-            {% for policy in shop.policies %}
-              {% if policy.url != blank %}
-                <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
+        <p class="aurora-footer__copyright">© 2025 Todos los derechos reservados</p>
+        {% if section.settings.developed_by_url != blank %}
+          <p class="aurora-footer__developed">Desarrollado por <a href="{{ section.settings.developed_by_url }}" target="_blank" rel="noopener">{{ section.settings.developed_by_label }}</a></p>
         {% endif %}
       </div>
-    </div>
-    <div class="aurora-footer__extras">
-      {% assign social_links_exist = false %}
-      {% for block in section.blocks %}
-        {% if block.type == 'social_link' %}
-          {% assign social_links_exist = true %}
-        {% endif %}
-      {% endfor %}
-      {% if social_links_exist %}
-        <div class="aurora-footer__social">
-          {% for block in section.blocks %}
-            {% if block.type == 'social_link' %}
-              <a
-                class="aurora-footer__social-link"
-                {% if block.settings.url != blank %}
-                  href="{{ block.settings.url }}"
-                  target="_blank"
-                  rel="noopener"
-                {% else %}
-                  role="link"
-                  aria-disabled="true"
-                {% endif %}
-                aria-label="{{ block.settings.label }}"
-              >
-                {% render 'icon-or-image', icon: block.settings.icon, width: 20 %}
-              </a>
-            {% endif %}
-          {% endfor %}
-        </div>
-      {% endif %}
+
       {% if show_payment_icons and shop.enabled_payment_types != blank %}
-        <div class="aurora-footer__payments">
+        <div class="aurora-footer__payments" aria-label="Métodos de pago">
           {% for type in shop.enabled_payment_types %}
             {{ type | payment_type_svg_tag: class: 'aurora-footer__payment-icon' }}
           {% endfor %}
         </div>
       {% endif %}
+
+      <div class="aurora-footer__social" aria-label="Redes sociales">
+        {% if section.settings.youtube_url != blank %}
+          <a class="aurora-footer__social-link" href="{{ section.settings.youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="currentColor"><path d="M19.582 2.186c-.23-.859-.907-1.535-1.766-1.764C16.254 0 10 0 10 0S3.746 0 2.184.422c-.859.23-1.536.905-1.766 1.764C0 3.746 0 7 0 7s0 3.254.418 4.814c.23.859.907 1.535 1.766 1.764C3.746 14 10 14 10 14s6.254 0 7.816-.422c.859-.23 1.536-.905 1.766-1.764C20 10.254 20 7 20 7s0-3.254-.418-4.814zM8 10V4l5.196 3L8 10z"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.facebook_url != blank %}
+          <a class="aurora-footer__social-link" href="{{ section.settings.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="10" height="18" viewBox="0 0 10 18" fill="currentColor"><path d="M6.135 3H8V0H6.135C4.165 0 2.568 1.584 2.568 3.538V6H0v3h2.568v9h3.243V9h2.432l.757-3H5.81V3.538C5.81 3.243 6.055 3 6.352 3h-.217z"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.twitter_url != blank %}
+          <a class="aurora-footer__social-link" href="{{ section.settings.twitter_url }}" target="_blank" rel="noopener" aria-label="X">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M13.5 0h2.48l-5.41 6.19L16.5 18h-4.99l-3.9-5.1L2.79 18H.3l5.79-6.62L0 0h5.12l3.52 4.66L13.5 0zm-.87 16.17h1.37L4.95 1.39H3.48l9.15 14.78z"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.linkedin_url != blank %}
+          <a class="aurora-footer__social-link" href="{{ section.settings.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M4.03 2.03c0 1.14-.92 2.06-2.06 2.06C.93 4.09 0 3.17 0 2.03 0 .89.93 0 2.06 0c1.14 0 2.06.89 2.06 2.03zM4.09 18H.09V6h4v12zM18 18h-4v-5.8c0-1.38-.49-2.32-1.71-2.32-.93 0-1.49.63-1.73 1.23-.09.22-.11.52-.11.83V18H6.47s.05-10.24 0-11.3h3.98v1.6c.53-.81 1.48-1.97 3.59-1.97 2.62 0 4.58 1.71 4.58 5.39V18z"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.tiktok_url != blank %}
+          <a class="aurora-footer__social-link" href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor"><path d="M11.5 0v1.5c0 1.933 1.567 3.5 3.5 3.5V8c-1.167 0-2.25-.35-3.15-.95v4.45c0 3.033-2.467 5.5-5.5 5.5S.85 14.533.85 11.5s2.467-5.5 5.5-5.5v3c-1.383 0-2.5 1.117-2.5 2.5s1.117 2.5 2.5 2.5 2.5-1.117 2.5-2.5V0h2.65z"/></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.instagram_url != blank %}
+          <a class="aurora-footer__social-link" href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M9 1.62c2.403 0 2.688.009 3.637.052.877.04 1.354.187 1.671.31.421.163.72.358 1.035.673.315.315.51.614.673 1.035.123.317.27.794.31 1.671.043.95.052 1.234.052 3.637s-.009 2.688-.052 3.637c-.04.877-.187 1.354-.31 1.671-.163.421-.358.72-.673 1.035-.315.315-.614.51-1.035.673-.317.123-.794.27-1.671.31-.95.043-1.234.052-3.637.052s-2.688-.009-3.637-.052c-.877-.04-1.354-.187-1.671-.31-.421-.163-.72-.358-1.035-.673-.315-.315-.51-.614-.673-1.035-.123-.317-.27-.794-.31-1.671-.043-.95-.052-1.234-.052-3.637s.009-2.688.052-3.637c.04-.877.187-1.354.31-1.671.163-.421.358-.72.673-1.035.315-.315.614-.51 1.035-.673.317-.123.794-.27 1.671-.31.95-.043 1.234-.052 3.637-.052zM9 0C6.556 0 6.25.01 5.29.054 4.33.098 3.677.25 3.105.473c-.598.232-1.104.542-1.609 1.047C1 2.025.69 2.531.458 3.129.235 3.701.083 4.354.039 5.314.005 6.274 0 6.58 0 9.024s.01 2.75.054 3.71c.044.96.196 1.613.419 2.185.232.598.542 1.104 1.047 1.609.505.505 1.011.815 1.609 1.047.572.223 1.225.375 2.185.419.96.034 1.266.044 3.71.044s2.75-.01 3.71-.054c.96-.044 1.613-.196 2.185-.419.598-.232 1.104-.542 1.609-1.047.505-.505.815-1.011 1.047-1.609.223-.572.375-1.225.419-2.185.034-.96.044-1.266.044-3.71s-.01-2.75-.054-3.71c-.044-.96-.196-1.613-.419-2.185-.232-.598-.542-1.104-1.047-1.609C14.975 1 14.469.69 13.871.458c-.572-.223-1.225-.375-2.185-.419C10.726.005 10.42 0 7.976 0H9zm0 4.378c-2.552 0-4.622 2.07-4.622 4.622S6.448 13.622 9 13.622s4.622-2.07 4.622-4.622S11.552 4.378 9 4.378zM9 12c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm4.804-8.884c-.596 0-1.08.484-1.08 1.08s.484 1.08 1.08 1.08 1.08-.484 1.08-1.08-.484-1.08-1.08-1.08z"/></svg>
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </footer>
@@ -123,388 +167,416 @@
   .aurora-footer {
     position: relative;
     color: #ffffff;
-    background-color: #111111;
-    overflow: hidden;
+    background-color: #0a0a0a;
+    font-family: var(--font-body--family);
   }
 
   .aurora-footer a {
     color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .aurora-footer a:hover {
+    color: #F3A000;
   }
 
   .aurora-footer__hero {
     position: relative;
     background-size: cover;
     background-position: center;
+    background-color: #111;
   }
 
   .aurora-footer__overlay {
     position: absolute;
     inset: 0;
-    background: rgb(0 0 0 / 0.65);
+    background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.85) 100%);
   }
 
-  .aurora-footer__overlay--gradient {
-    background: linear-gradient(120deg, rgb(0 0 0 / 0.75) 0%, rgb(0 0 0 / 0.5) 45%, rgb(0 0 0 / 0.85) 100%);
-  }
-
-  .aurora-footer__overlay {
-    background-color: color-mix(in srgb, var(--overlay-color, #000000) calc(var(--overlay-opacity, 0.65) * 100%), transparent);
-  }
-
-  .aurora-footer__container {
+  .aurora-footer__inner {
     position: relative;
     z-index: 1;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 2.5rem);
     display: grid;
-    gap: clamp(2.5rem, 6vw, 4rem);
-    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem);
-
-    @media (min-width: 1024px) {
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      align-items: start;
-    }
+    gap: clamp(2.5rem, 5vw, 4rem);
   }
 
-  .aurora-footer__lead {
+  .aurora-footer__newsletter {
     display: grid;
-    gap: clamp(1rem, 2.5vw, 1.5rem);
+    gap: 1.5rem;
   }
 
-  .aurora-footer__heading {
+  .aurora-footer__newsletter-heading {
     margin: 0;
     font-family: var(--font-heading--family);
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
     font-weight: 700;
-    font-size: clamp(2.2rem, 4vw, 3rem);
-    line-height: 1.1;
+    line-height: 1.2;
+    max-width: 20ch;
   }
 
-  .aurora-footer__subheading {
+  .aurora-footer__newsletter-subheading {
     margin: 0;
-    font-family: var(--font-body--family);
-    font-weight: 400;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: rgb(255 255 255 / 0.85);
-    max-width: 52ch;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+    max-width: 50ch;
   }
 
-  .aurora-footer__cta {
+  .aurora-footer__form-fields {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 500px;
+  }
+
+  .aurora-footer__input {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 1.25rem;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .aurora-footer__input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .aurora-footer__input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .aurora-footer__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    align-self: start;
+    padding: 0 2rem;
     min-height: 52px;
-    padding-inline: 2.25rem;
-    font-family: var(--font-body--family);
+    border-radius: 999px;
+    background-color: #F3A000;
+    color: #111111;
     font-weight: 600;
     font-size: 1rem;
-    background-color: #795838;
-    color: #ffffff;
-    border-radius: 999px;
-    text-decoration: none;
+    border: none;
+    cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .aurora-footer__cta:hover,
-  .aurora-footer__cta:focus-visible {
+  .aurora-footer__button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgb(0 0 0 / 0.4);
+    box-shadow: 0 8px 20px rgba(243, 160, 0, 0.3);
   }
 
-  .aurora-footer__columns {
+  .aurora-footer__form-message {
+    min-height: 1.5em;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .aurora-footer__form-message--success {
+    color: #9BE09B;
+  }
+
+  .aurora-footer__form-message--error {
+    color: #FF8A80;
+  }
+
+  .aurora-footer__navigation {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: clamp(1.5rem, 4vw, 2.5rem);
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .aurora-footer__column--collapsible {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .aurora-footer__column-heading {
-    margin: 0 0 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    margin: 0;
     font-family: var(--font-heading--family);
     font-weight: 600;
     font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .aurora-footer__chevron {
+    transition: transform 0.3s ease;
+  }
+
+  details[open] .aurora-footer__chevron {
+    transform: rotate(180deg);
   }
 
   .aurora-footer__links {
-    list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 1.5rem 0;
+    list-style: none;
     display: grid;
-    gap: 0.5rem;
+    gap: 0.875rem;
   }
 
   .aurora-footer__links a {
-    text-decoration: none;
-    font-family: var(--font-body--family);
-    font-weight: 400;
     font-size: 0.95rem;
-    color: rgb(255 255 255 / 0.7);
-    transition: color 0.2s ease;
-  }
-
-  .aurora-footer__links a:hover,
-  .aurora-footer__links a:focus-visible {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
   }
 
   .aurora-footer__utility {
-    display: grid;
-    gap: 2rem;
-    padding: clamp(2rem, 4vw, 2.75rem) clamp(1.5rem, 6vw, 5rem) clamp(2.5rem, 5vw, 3.5rem);
-    background: linear-gradient(180deg, rgb(0 0 0 / 0.85) 0%, rgb(0 0 0 / 1) 100%);
+    background-color: #000000;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .aurora-footer__meta {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
+  .aurora-footer__utility-inner {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem clamp(1.25rem, 5vw, 2.5rem);
+    text-align: center;
   }
 
   .aurora-footer__brand {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
   }
 
   .aurora-footer__logo {
-    max-height: 32px;
-    width: auto;
+    max-width: 140px;
+    height: auto;
+    filter: brightness(0) invert(1);
   }
 
   .aurora-footer__brand-name {
-    font-family: var(--font-heading--family);
+    font-size: 1.5rem;
     font-weight: 700;
-    font-size: 1.25rem;
   }
 
-  .aurora-footer__legal {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-family: var(--font-body--family);
-    font-size: 0.85rem;
-    color: rgb(255 255 255 / 0.65);
-  }
-
-  .aurora-footer__policy-links {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+  .aurora-footer__copyright,
+  .aurora-footer__developed {
     margin: 0;
-    padding: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
   }
 
-  .aurora-footer__policy-links a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .aurora-footer__policy-links a:hover,
-  .aurora-footer__policy-links a:focus-visible {
-    color: #ffffff;
-  }
-
-  .aurora-footer__extras {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
-  .aurora-footer__social {
-    display: flex;
-    gap: 0.75rem;
-  }
-
-  .aurora-footer__social-link {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgb(255 255 255 / 0.2);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-  }
-
-  .aurora-footer__social-link:hover,
-  .aurora-footer__social-link:focus-visible {
-    transform: translateY(-2px);
-    background-color: rgb(255 255 255 / 0.15);
-    border-color: rgb(255 255 255 / 0.4);
+  .aurora-footer__developed a {
+    color: #F3A000;
+    font-weight: 600;
   }
 
   .aurora-footer__payments {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 0.75rem;
   }
 
   .aurora-footer__payment-icon {
-    height: 28px;
+    height: 24px;
     width: auto;
-    filter: brightness(1.2);
+    filter: brightness(0) invert(1) opacity(0.6);
   }
 
-  @media (max-width: 767px) {
-    .aurora-footer__hero {
+  .aurora-footer__social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .aurora-footer__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .aurora-footer__social-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 900px) {
+    .aurora-footer__inner {
+      grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(3rem, 6vw, 6rem);
+    }
+
+    .aurora-footer__navigation {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      border: none;
+    }
+
+    .aurora-footer__column--collapsible {
+      border: none;
+    }
+
+    .aurora-footer__column-heading {
+      padding: 0 0 1rem 0;
+      cursor: default;
+      pointer-events: none;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+
+    .aurora-footer__chevron {
+      display: none;
+    }
+
+    details .aurora-footer__links {
+      display: grid;
+      padding: 0;
+    }
+
+    .aurora-footer__form-fields {
+      grid-template-columns: 1fr auto;
+    }
+
+    .aurora-footer__utility-inner {
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
       text-align: left;
     }
 
-    .aurora-footer__columns {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .aurora-footer__brand {
+      justify-items: start;
+    }
+
+    .aurora-footer__social {
+      justify-content: flex-end;
     }
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Aurora footer",
+  "name": "Aurora Footer",
   "settings": [
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "Background image"
-    },
-    {
-      "type": "checkbox",
-      "id": "overlay_gradient",
-      "label": "Use gradient overlay",
-      "default": true
+      "label": "Imagen de fondo"
     },
     {
       "type": "color",
       "id": "overlay_color",
-      "label": "Overlay color",
-      "default": "#000000",
-      "alpha": true
+      "label": "Color de overlay",
+      "default": "#000000"
     },
     {
       "type": "range",
       "id": "overlay_opacity",
-      "label": "Overlay opacity",
+      "label": "Opacidad del overlay",
       "min": 0,
       "max": 100,
       "step": 5,
       "unit": "%",
-      "default": 65
+      "default": 75
     },
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Plant-based nutrition to help the planet thrive"
+      "id": "newsletter_heading",
+      "label": "Título del newsletter",
+      "default": "Mantente al día con Aurora Café"
     },
     {
       "type": "textarea",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "All Aurora Café productos son 100% veganos y hechos para sorprender cada mañana."
+      "id": "newsletter_subheading",
+      "label": "Subtítulo del newsletter",
+      "default": "Recibe ofertas exclusivas y novedades directamente en tu correo."
     },
     {
       "type": "text",
-      "id": "button_label",
-      "label": "Button label",
-      "default": "Ver compromisos"
+      "id": "newsletter_placeholder",
+      "label": "Placeholder del input",
+      "default": "Tu correo electrónico"
     },
     {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
+      "type": "text",
+      "id": "newsletter_button_label",
+      "label": "Texto del botón",
+      "default": "Suscribirse"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_success_message",
+      "label": "Mensaje de éxito",
+      "default": "¡Gracias por suscribirte!"
     },
     {
       "type": "image_picker",
       "id": "logo",
-      "label": "Footer logo"
+      "label": "Logo del footer"
     },
     {
       "type": "checkbox",
       "id": "show_payment_icons",
-      "label": "Show payment icons",
+      "label": "Mostrar iconos de pago",
       "default": true
     },
     {
-      "type": "checkbox",
-      "id": "show_policy_links",
-      "label": "Show policy links",
-      "default": true
-    }
-  ],
-  "blocks": [
-    {
-      "type": "column",
-      "name": "Link column",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Food"
-        },
-        {
-          "type": "link_list",
-          "id": "menu",
-          "label": "Menu"
-        }
-      ]
+      "type": "url",
+      "id": "developed_by_url",
+      "label": "URL de DigitDeck"
     },
     {
-      "type": "social_link",
-      "name": "Social link",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "Icon",
-          "options": [
-            { "value": "facebook", "label": "Facebook" },
-            { "value": "instagram", "label": "Instagram" },
-            { "value": "youtube", "label": "YouTube" },
-            { "value": "tiktok", "label": "TikTok" },
-            { "value": "linkedin", "label": "LinkedIn" },
-            { "value": "twitter", "label": "X / Twitter" }
-          ],
-          "default": "instagram"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Accessible label",
-          "default": "Instagram"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "URL"
-        }
-      ]
+      "type": "text",
+      "id": "developed_by_label",
+      "label": "Nombre del desarrollador",
+      "default": "DigitDeck"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "URL de YouTube"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "URL de Facebook"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "URL de X / Twitter"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "URL de LinkedIn"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "URL de TikTok"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "URL de Instagram"
     }
   ],
-  "max_blocks": 12,
   "presets": [
     {
-      "name": "Aurora footer",
-      "blocks": [
-        { "type": "column" },
-        { "type": "column" },
-        { "type": "column" },
-        { "type": "social_link" },
-        { "type": "social_link" },
-        { "type": "social_link" }
-      ]
+      "name": "Aurora Footer"
     }
   ]
 }
