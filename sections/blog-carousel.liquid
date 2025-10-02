@@ -74,6 +74,8 @@
 {% stylesheet %}
   .blog-carousel {
     padding-block: clamp(3rem, 6vw, 4.5rem);
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .blog-carousel__header {
@@ -125,20 +127,25 @@
   }
 
   .blog-carousel__viewport {
-    overflow: hidden;
-    margin-inline: -1rem;
-    padding-inline: 1rem;
+    overflow: visible;
+    margin-inline: calc(-1 * var(--page-width-padding, 1.5rem));
+    padding-inline: 0;
   }
 
   .blog-carousel__track {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(220px, 1fr);
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    gap: 20px;
     overflow-x: auto;
+    overflow-y: visible;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     padding-bottom: 1rem;
+    padding-left: var(--page-width-padding, 1.5rem);
+    padding-right: var(--page-width-padding, 1.5rem);
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
   .blog-carousel__track::-webkit-scrollbar {
@@ -201,17 +208,58 @@
   }
 
   @media (max-width: 749px) {
+    .blog-carousel {
+      overflow: visible;
+      overflow-x: clip;
+    }
+
     .blog-carousel__header {
       flex-direction: column;
       align-items: stretch;
     }
 
     .blog-carousel__controls {
-      align-self: flex-end;
+      display: none;
+    }
+
+    .blog-carousel__heading {
+      font-size: 24px;
+    }
+
+    .blog-carousel__viewport {
+      margin-left: calc(-1 * var(--page-width-padding, 1.5rem));
+      margin-right: calc(-1 * var(--page-width-padding, 1.5rem));
+      padding-left: 0;
+      padding-right: 0;
+      overflow: visible;
     }
 
     .blog-carousel__track {
-      grid-auto-columns: minmax(220px, 1fr);
+      grid-auto-columns: 42%;
+      gap: 20px;
+      padding-left: var(--page-width-padding, 1.5rem);
+      padding-right: 15px;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: var(--page-width-padding, 1.5rem);
+      scroll-padding-right: 0;
+      scroll-behavior: smooth;
+      overflow-x: scroll;
+      overflow-y: visible;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .blog-carousel__controls {
+      display: inline-flex;
+    }
+
+    .blog-carousel__viewport {
+      overflow: visible;
+    }
+
+    .blog-carousel__track {
+      overflow-x: auto;
+      overflow-y: visible;
     }
   }
 {% endstylesheet %}
@@ -244,7 +292,7 @@
         const item = track.querySelector('.blog-carousel__item');
         const itemWidth = item ? item.getBoundingClientRect().width : track.clientWidth;
         const style = getComputedStyle(track);
-        const gap = parseFloat(style.columnGap || style.gap || 24);
+        const gap = parseFloat(style.columnGap || style.gap || 20);
         return itemWidth + gap;
       };
 

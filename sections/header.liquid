@@ -638,6 +638,70 @@
       margin-top: calc(var(--header-height) * var(--transparent-header-offset-boolean) * -1);
     }
   }
+
+  /* Fix para header transparente - número del carrito y menú hamburguesa */
+  .header[transparent]:not([data-sticky-state='active']) .cart-bubble__background {
+    background-color: #795838 !important;
+  }
+
+  .header[transparent]:not([data-sticky-state='active']) .cart-bubble__text,
+  .header[transparent]:not([data-sticky-state='active']) .cart-bubble__text-count {
+    color: #ffffff !important;
+  }
+
+  .header[transparent]:not([data-sticky-state='active']) .header__icon--menu svg,
+  .header[transparent]:not([data-sticky-state='active']) .header-drawer-icon svg,
+  .header[transparent]:not([data-sticky-state='active']) .header-drawer-icon svg path,
+  .header[transparent]:not([data-sticky-state='active']) .header__icon--menu svg path {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Fix para mobile - orden del carrito al final y visibilidad del número */
+  @media screen and (max-width: 749px) {
+    /* Ocultar el icono de pregunta en mobile */
+    header-actions .header-actions__icon-link--question {
+      display: none !important;
+    }
+
+    header-actions .header-actions__icon-stack {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+
+    /* FORZAR orden: Persona primero, Carrito último */
+    header-actions .header-actions__icon-link--account {
+      order: 1 !important;
+    }
+
+    header-actions .header-actions__icon-link--cart {
+      order: 2 !important;
+    }
+
+    /* Asegurar que el carrito siempre esté al final */
+    .header-actions__icon-stack .header-actions__icon-link--cart,
+    .header-actions__icon-stack > div.header-actions__icon-link--cart,
+    .header-actions__icon-stack > a.header-actions__icon-link--cart {
+      order: 999 !important;
+    }
+
+    .header-actions__icon-stack .header-actions__icon-link--account,
+    .header-actions__icon-stack > div.header-actions__icon-link--account {
+      order: 1 !important;
+    }
+
+    /* Mejorar visibilidad del número del carrito en mobile */
+    .cart-bubble__background {
+      background-color: #795838 !important;
+    }
+
+    .cart-bubble__text,
+    .cart-bubble__text-count {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+    }
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}

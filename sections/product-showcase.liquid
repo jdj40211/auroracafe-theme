@@ -12,7 +12,8 @@
       <p class="product-showcase__subheading">{{ subheading }}</p>
     {% endif %}
   </div>
-  <div class="product-showcase__grid">
+  <div class="product-showcase__viewport">
+    <div class="product-showcase__grid">
     {% for block in section.blocks %}
       {% assign product = block.settings.product %}
       <article class="product-showcase__card" {{ block.shopify_attributes }}>
@@ -111,18 +112,20 @@
             </a>
             {% if product != blank and product.available %}
               {% assign quick_variant = product.selected_or_first_available_variant %}
-              <form method="post" action="/cart/add" class="product-showcase__cart-form" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="{{ quick_variant.id }}">
-                <button type="submit" class="product-showcase__cart-button" aria-label="Agregar {{ product.title }} al carrito">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-                    <path fill="currentColor" d="M7.5 20a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm9 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM3 2h2.18a1 1 0 0 1 .97.757L6.9 5H21a1 1 0 0 1 .98 1.198l-1.5 7.5A1 1 0 0 1 19.5 14H8.06l-.36 1.447A1 1 0 0 1 6.73 16H4a1 1 0 0 1 0-2h1.18l1.64-6.447L5.62 3H3a1 1 0 0 1 0-2Zm5.47 7-1.05 4H18.6l1.2-6H7.53Z"/>
-                  </svg>
-                </button>
-              </form>
+              <product-form data-product-id="{{ product.id }}">
+                <form method="post" action="/cart/add" class="product-showcase__cart-form" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="{{ quick_variant.id }}">
+                  <button type="submit" class="product-showcase__cart-button" aria-label="Agregar {{ product.title }} al carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="presentation" aria-hidden="true">
+                      <path fill="currentColor" d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
+                    </svg>
+                  </button>
+                </form>
+              </product-form>
             {% else %}
               <button type="button" class="product-showcase__cart-button product-showcase__cart-button--disabled" disabled>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-                  <path fill="currentColor" d="M7.5 20a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm9 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM3 2h2.18a1 1 0 0 1 .97.757L6.9 5H21a1 1 0 0 1 .98 1.198l-1.5 7.5A1 1 0 0 1 19.5 14H8.06l-.36 1.447A1 1 0 0 1 6.73 16H4a1 1 0 0 1 0-2h1.18l1.64-6.447L5.62 3H3a1 1 0 0 1 0-2Zm5.47 7-1.05 4H18.6l1.2-6H7.53Z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="presentation" aria-hidden="true">
+                  <path fill="currentColor" d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
                 </svg>
               </button>
             {% endif %}
@@ -130,6 +133,7 @@
         </div>
       </article>
     {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -163,35 +167,39 @@
     color: rgb(var(--color-foreground-rgb));
   }
 
+  .product-showcase__viewport {
+    overflow: visible;
+  }
+
   .product-showcase__grid {
     display: grid;
     gap: clamp(2rem, 3vw, 2.5rem);
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    overflow-x: visible;
-    overflow-y: visible;
   }
 
   .product-showcase__card {
     display: grid;
-    gap: 1.25rem;
+    gap: 12px;
   }
 
   .product-showcase__media {
     display: block;
-    border-radius: 18px;
+    border-radius: 0;
     overflow: hidden;
+    height: 252px;
   }
 
   .product-showcase__media--placeholder {
-    border-radius: 18px;
+    border-radius: 0;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    height: 252px;
     background: rgba(0, 0, 0, 0.05);
   }
 
   .product-showcase__image {
     width: 100%;
-    height: auto;
+    height: 252px;
+    object-fit: cover;
     display: block;
   }
 
@@ -321,6 +329,12 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   }
 
+  .product-showcase__cart-button:active {
+    background-color: #795838;
+    color: #ffffff;
+    border-color: #795838;
+  }
+
   .product-showcase__cart-button svg {
     width: 20px;
     height: 20px;
@@ -337,26 +351,31 @@
 
   @media (max-width: 749px) {
     .product-showcase__heading {
-      font-size: clamp(2rem, 8vw, 2.25rem);
+      font-size: 24px;
+    }
+
+    .product-showcase__viewport {
+      overflow: visible;
+      margin-left: calc(-1 * var(--page-width-padding, 1.5rem));
+      margin-right: calc(-1 * var(--page-width-padding, 1.5rem));
     }
 
     .product-showcase__grid {
-      --product-showcase-mobile-card-width: min(85vw, 320px);
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: var(--product-showcase-mobile-card-width);
-      grid-template-columns: none;
-      margin-inline: calc(var(--page-margin) * -1);
-      padding-inline: var(--page-margin);
+      grid-auto-columns: 70%;
+      gap: 12px;
+      padding-left: var(--page-width-padding, 1.5rem);
+      padding-right: var(--page-width-padding, 1.5rem);
       padding-block-end: clamp(1rem, 6vw, 1.5rem);
-      gap: clamp(1rem, 5vw, 1.5rem);
       overflow-x: auto;
       overflow-y: visible;
       overscroll-behavior-x: contain;
-      scroll-snap-type: x proximity;
-      scroll-padding-inline: var(--page-margin);
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: var(--page-width-padding, 1.5rem);
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
 
     .product-showcase__grid::-webkit-scrollbar {
@@ -364,7 +383,7 @@
     }
 
     .product-showcase__card {
-      scroll-snap-align: start;
+      scroll-snap-align: center;
       min-width: 0;
     }
 

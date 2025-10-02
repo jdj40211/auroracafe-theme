@@ -38,14 +38,25 @@
 </div>
 
 {% stylesheet %}
+  .section.faq-section {
+    padding-block-start: clamp(3rem, 6vw, 5rem);
+    padding-block-end: 0 !important;
+    margin-bottom: 0 !important;
+    margin-block-end: 0 !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
   .faq-section {
-    padding-block: clamp(3rem, 6vw, 5rem);
-    background-color: rgba(0, 0, 0, 0.03);
+    padding-block-start: clamp(3rem, 6vw, 5rem);
+    padding-block-end: 0 !important;
+    margin-bottom: 0 !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
   }
 
   .faq-section__grid {
     display: grid;
     gap: clamp(2rem, 4vw, 4rem);
+    padding-bottom: 0;
 
     @media (min-width: 900px) {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -102,6 +113,8 @@
   .faq-section__accordion {
     display: grid;
     gap: clamp(0.75rem, 2vw, 1rem);
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .faq-item {
@@ -111,6 +124,7 @@
 
   .faq-item:last-of-type {
     border-bottom: none;
+    padding-bottom: 0;
   }
 
   .faq-item__summary {
@@ -160,20 +174,27 @@
   }
 
   .faq-item__panel {
-    max-height: 0;
+    display: grid;
+    grid-template-rows: 0fr;
     opacity: 0;
     overflow: hidden;
-    padding-top: 0;
-    transition: max-height 0.6s cubic-bezier(0.5, 1.6, 0.4, 1), opacity 0.6s cubic-bezier(0.5, 1.6, 0.4, 1), padding-top 0.6s cubic-bezier(0.5, 1.6, 0.4, 1);
+    transition: grid-template-rows 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .faq-item__panel > * {
+    min-height: 0;
     overflow: hidden;
+    padding-top: 0;
+    transition: padding-top 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   details.faq-item[open] .faq-item__panel {
-    max-height: 500px;
+    grid-template-rows: 1fr;
     opacity: 1;
+  }
+
+  details.faq-item[open] .faq-item__panel > * {
     padding-top: 0.75rem;
   }
 
@@ -186,7 +207,7 @@
     line-height: 1.4em;
     color: #6E6E6E;
     text-transform: none;
-    transition: color 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: color 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 {% endstylesheet %}
 

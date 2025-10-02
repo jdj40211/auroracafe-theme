@@ -71,6 +71,28 @@
     --cart-font-size--2xl: var(--font-size--2xl);
   }
 
+  @media screen and (max-width: 749px) {
+    /* MOBILE: Ocultar pregunta y forzar orden con flexbox */
+    .header-actions__icon-link--question {
+      display: none !important;
+    }
+
+    .header-actions__icon-stack {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+
+    /* Cuenta primero */
+    .header-actions__icon-link--account {
+      order: -1 !important;
+    }
+
+    /* Carrito último */
+    .header-actions__icon-link--cart {
+      order: 1 !important;
+    }
+  }
+
   .cart-drawer__dialog {
     position: fixed;
     border-radius: 0;

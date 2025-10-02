@@ -31,4 +31,15 @@
       --cart-bubble-right: 4px;
     }
   }
+
+  /* Fix para header transparente - asegurar visibilidad del número */
+  .header[transparent]:not([data-sticky-state='active']) cart-icon .cart-bubble__background {
+    background-color: #795838 !important;
+  }
+
+  .header[transparent]:not([data-sticky-state='active']) cart-icon .cart-bubble__text,
+  .header[transparent]:not([data-sticky-state='active']) cart-icon .cart-bubble__text-count {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+  }
 {% endstylesheet %}
