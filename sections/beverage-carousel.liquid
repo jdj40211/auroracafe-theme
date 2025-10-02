@@ -135,7 +135,7 @@
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(220px, 1fr);
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: 1rem;
@@ -149,7 +149,7 @@
   }
 
   .beverage-carousel__item {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     display: grid;
     gap: 0.75rem;
     text-align: center;
@@ -215,7 +215,7 @@
     }
 
     .beverage-carousel__heading {
-      font-size: clamp(2rem, 8vw, 2.25rem);
+      font-size: 24px;
     }
 
     .beverage-carousel__viewport {
@@ -229,10 +229,11 @@
     .beverage-carousel__track {
       grid-auto-columns: 42%;
       gap: 20px;
-      padding-left: 15px;
+      padding-left: var(--page-width-padding, 1.5rem);
       padding-right: 15px;
       scroll-snap-type: x mandatory;
-      scroll-padding-left: 15px;
+      scroll-padding-left: var(--page-width-padding, 1.5rem);
+      scroll-padding-right: 0;
       scroll-behavior: smooth;
       overflow-x: scroll;
       overflow-y: visible;
@@ -278,7 +279,7 @@
       const scrollByAmount = () => {
         const item = track.querySelector('.beverage-carousel__item');
         const itemWidth = item ? item.getBoundingClientRect().width : track.clientWidth;
-        return itemWidth + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 24);
+        return itemWidth + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 20);
       };
 
       prevBtn.addEventListener('click', () => {
