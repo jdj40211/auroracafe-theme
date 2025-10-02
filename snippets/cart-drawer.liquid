@@ -40,7 +40,7 @@
         {%- if cart.empty? -%}
           <div class="cart-drawer__header">
             <span class="cart-drawer__heading h3">
-              0 Artículos en el carrito
+              0 Items on the cart
             </span>
             <button
               ref="closeButton"
@@ -66,9 +66,9 @@
           <div class="cart-drawer__free-shipping-bar">
             <div class="free-shipping-bar__text">
               {% if remaining > 0 %}
-                Debes agregar al menos una cafetera de la familia Aurora para tener envío gratis
+                ¡You are <strong>{{ remaining | money }}</strong> away from free shipping!
               {% else %}
-                <strong>¡Felicidades! Calificas para envío gratis!</strong>
+                <strong>¡Congratulations! You qualify for free shipping!</strong>
               {% endif %}
             </div>
             <div class="free-shipping-bar__progress">
@@ -82,50 +82,51 @@
           >
             <div class="cart-drawer__empty-state">
               <span class="cart-drawer__empty-text">
-                Tu carrito está vacío
+                Your cart is empty
               </span>
               <a href="/collections/all" class="cart-drawer__cta-button">
-                Ver todos los productos
+                See all products
               </a>
-              
-              {%- comment -%} Trust Badges para carrito vacío {%- endcomment -%}
-              <div class="cart-drawer__trust-badges">
-                <div class="trust-badges__grid">
-                  <div class="trust-badge">
-                    <div class="trust-badge__icon">
-                      <svg viewBox="0 0 256 256" fill="currentColor">
-                        <path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM58.73,167.15A8,8,0,0,1,64,155.28l32-32,17.66,17.66a8,8,0,0,0,11.31,0L192,73.94v25.84a89.78,89.78,0,0,1-.85,11.74,8,8,0,0,0,6.85,9A8.15,8.15,0,0,0,199,120a8,8,0,0,0,7.93-7.13A112.55,112.55,0,0,0,208,99.78V88a8,8,0,0,0-13.66-5.66L130,146.74,112.32,129A8,8,0,0,0,101,129l-37.66,37.66A8,8,0,0,1,58.73,167.15Z"/>
-                      </svg>
-                    </div>
-                    <div class="trust-badge__content">
-                      <div class="trust-badge__title">6 meses de garantía</div>
-                      <div class="trust-badge__description">por defectos</div>
-                    </div>
-                  </div>
+            </div>
+          </div>
 
-                  <div class="trust-badge">
-                    <div class="trust-badge__icon">
-                      <svg viewBox="0 0 256 256" fill="currentColor">
-                        <path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Zm-16-24a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h32A8,8,0,0,1,208,168Zm-64,0a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,168Z"/>
-                      </svg>
-                    </div>
-                    <div class="trust-badge__content">
-                      <div class="trust-badge__title">Pago seguro,</div>
-                      <div class="trust-badge__description">hasta 12 cuotas sin recargo</div>
-                    </div>
+          {%- comment -%} Trust Badges para carrito vacío {%- endcomment -%}
+          <div class="cart-drawer__footer-empty">
+            <div class="cart-drawer__trust-badges">
+              <div class="trust-badges__grid">
+                <div class="trust-badge">
+                  <div class="trust-badge__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 11L12 14L22 4"/>
+                      <path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16"/>
+                    </svg>
                   </div>
+                  <div class="trust-badge__title">100% Authentic</div>
+                  <div class="trust-badge__description">Fragrances</div>
+                </div>
 
-                  <div class="trust-badge">
-                    <div class="trust-badge__icon">
-                      <svg viewBox="0 0 256 256" fill="currentColor">
-                        <path d="M201.89,54.66A103.43,103.43,0,0,0,128.79,24H128A104,104,0,0,0,24,128v56a24,24,0,0,0,24,24H64a24,24,0,0,0,24-24V144a24,24,0,0,0-24-24H40.36A88.12,88.12,0,0,1,190.54,65.93,87.39,87.39,0,0,1,215.65,120H192a24,24,0,0,0-24,24v40a24,24,0,0,0,24,24h24a24,24,0,0,1-24,24H136a8,8,0,0,0,0,16h56a40,40,0,0,0,40-40V128A103.41,103.41,0,0,0,201.89,54.66ZM64,136a8,8,0,0,1,8,8v40a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V136Zm128,56a8,8,0,0,1-8-8V144a8,8,0,0,1,8-8h24v56Z"/>
-                      </svg>
-                    </div>
-                    <div class="trust-badge__content">
-                      <div class="trust-badge__title">Soporte 24/7</div>
-                      <div class="trust-badge__description">por WhatsApp</div>
-                    </div>
+                <div class="trust-badge">
+                  <div class="trust-badge__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2L2 7V11C2 16.5 6.2 21.7 12 23C17.8 21.7 22 16.5 22 11V7L12 2Z"/>
+                      <path d="M12 11V16M12 8V8"/>
+                    </svg>
                   </div>
+                  <div class="trust-badge__title">Secure,</div>
+                  <div class="trust-badge__description">PCI-Compliant<br>Checkout</div>
+                </div>
+
+                <div class="trust-badge">
+                  <div class="trust-badge__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="1" y="3" width="15" height="13"/>
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                      <circle cx="5.5" cy="18.5" r="2.5"/>
+                      <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                  </div>
+                  <div class="trust-badge__title">Tracked Shipping in</div>
+                  <div class="trust-badge__description">5-7Days</div>
                 </div>
               </div>
             </div>
@@ -139,9 +140,9 @@
             <span class="cart-drawer__heading h3" data-cart-count="{{ cart.item_count }}">
               {{ cart.item_count }} 
               {%- if cart.item_count == 1 -%}
-                Artículo en el carrito
+                Item on the cart
               {%- else -%}
-                Artículos en el carrito
+                Items on the cart
               {%- endif -%}
             </span>
 
@@ -169,9 +170,9 @@
           <div class="cart-drawer__free-shipping-bar">
             <div class="free-shipping-bar__text">
               {% if remaining > 0 %}
-                Debes agregar al menos una cafetera de la familia Aurora para tener envío gratis
+                ¡You are <strong>{{ remaining | money }}</strong> away from free shipping!
               {% else %}
-                <strong>¡Felicitaciones, haz desbloqueado el envío gratis!</strong>
+                <strong>¡Congratulations! You qualify for free shipping!</strong>
               {% endif %}
             </div>
             <div class="free-shipping-bar__progress">
@@ -190,54 +191,55 @@
               {% render 'cart-products' %}
             </scroll-hint>
 
-            {%- comment -%} Trust Badges - Justo después de los productos {%- endcomment -%}
-            <div class="cart-drawer__trust-badges cart-drawer__trust-badges--after-products">
-              <div class="trust-badges__grid">
-                <div class="trust-badge">
-                  <div class="trust-badge__icon">
-                    <svg viewBox="0 0 256 256" fill="currentColor">
-                      <path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM58.73,167.15A8,8,0,0,1,64,155.28l32-32,17.66,17.66a8,8,0,0,0,11.31,0L192,73.94v25.84a89.78,89.78,0,0,1-.85,11.74,8,8,0,0,0,6.85,9A8.15,8.15,0,0,0,199,120a8,8,0,0,0,7.93-7.13A112.55,112.55,0,0,0,208,99.78V88a8,8,0,0,0-13.66-5.66L130,146.74,112.32,129A8,8,0,0,0,101,129l-37.66,37.66A8,8,0,0,1,58.73,167.15Z"/>
-                    </svg>
-                  </div>
-                  <div class="trust-badge__content">
-                    <div class="trust-badge__title">6 meses de garantía</div>
-                    <div class="trust-badge__description">por defectos</div>
-                  </div>
-                </div>
-
-                <div class="trust-badge">
-                  <div class="trust-badge__icon">
-                    <svg viewBox="0 0 256 256" fill="currentColor">
-                      <path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Zm-16-24a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h32A8,8,0,0,1,208,168Zm-64,0a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,168Z"/>
-                    </svg>
-                  </div>
-                  <div class="trust-badge__content">
-                    <div class="trust-badge__title">Pago seguro,</div>
-                    <div class="trust-badge__description">hasta 12 cuotas sin recargo</div>
-                  </div>
-                </div>
-
-                <div class="trust-badge">
-                  <div class="trust-badge__icon">
-                    <svg viewBox="0 0 256 256" fill="currentColor">
-                      <path d="M201.89,54.66A103.43,103.43,0,0,0,128.79,24H128A104,104,0,0,0,24,128v56a24,24,0,0,0,24,24H64a24,24,0,0,0,24-24V144a24,24,0,0,0-24-24H40.36A88.12,88.12,0,0,1,190.54,65.93,87.39,87.39,0,0,1,215.65,120H192a24,24,0,0,0-24,24v40a24,24,0,0,0,24,24h24a24,24,0,0,1-24,24H136a8,8,0,0,0,0,16h56a40,40,0,0,0,40-40V128A103.41,103.41,0,0,0,201.89,54.66ZM64,136a8,8,0,0,1,8,8v40a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V136Zm128,56a8,8,0,0,1-8-8V144a8,8,0,0,1,8-8h24v56Z"/>
-                    </svg>
-                  </div>
-                  <div class="trust-badge__content">
-                    <div class="trust-badge__title">Soporte 24/7</div>
-                    <div class="trust-badge__description">por WhatsApp</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div
               class="cart-drawer__summary"
             >
-              {%- comment -%} Aquí va el resumen del carrito (incluye trust badges antes del checkout) {%- endcomment -%}
+              {%- comment -%} Aquí va el resumen del carrito {%- endcomment -%}
               <div class="cart-summary-wrapper">
                 {% render 'cart-summary' %}
               </div>
+              
+              {%- comment -%} Trust Badges - DESPUÉS del resumen, ANTES del checkout {%- endcomment -%}
+              <div class="cart-drawer__trust-badges">
+                <div class="trust-badges__grid">
+                  <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11L12 14L22 4"/>
+                        <path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16"/>
+                      </svg>
+                    </div>
+                    <div class="trust-badge__title">100% Authentic</div>
+                    <div class="trust-badge__description">Fragrances</div>
+                  </div>
+
+                  <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7V11C2 16.5 6.2 21.7 12 23C17.8 21.7 22 16.5 22 11V7L12 2Z"/>
+                        <path d="M12 11V16M12 8V8"/>
+                      </svg>
+                    </div>
+                    <div class="trust-badge__title">Secure,</div>
+                    <div class="trust-badge__description">PCI-Compliant<br>Checkout</div>
+                  </div>
+
+                  <div class="trust-badge">
+                    <div class="trust-badge__icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="3" width="15" height="13"/>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                    </div>
+                    <div class="trust-badge__title">Tracked Shipping in</div>
+                    <div class="trust-badge__description">5-7Days</div>
+                  </div>
+                </div>
+              </div>
+
+              {%- comment -%} El botón de checkout va aquí (será renderizado por cart-summary) {%- endcomment -%}
               
               {%- comment -%} Iconos de pago - Al final de todo {%- endcomment -%}
               <div class="cart-drawer__payment-icons">
@@ -271,9 +273,13 @@
         const textElements = document.querySelectorAll('.free-shipping-bar__text');
         textElements.forEach(element => {
           if (remaining > 0) {
-            element.innerHTML = 'Debes agregar al menos una cafetera de la familia Aurora para tener envío gratis';
+            const formattedAmount = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }).format(remaining / 100);
+            element.innerHTML = `¡You are <strong>${formattedAmount}</strong> away from free shipping!`;
           } else {
-            element.innerHTML = '<strong>¡Felicitaciones, haz desbloqueado el envío gratis!</strong>';
+            element.innerHTML = '<strong>¡Congratulations! You qualify for free shipping!</strong>';
           }
         });
       }
@@ -281,8 +287,8 @@
       function updateCartHeader(itemCount) {
         const headerElements = document.querySelectorAll('.cart-drawer__heading');
         headerElements.forEach(element => {
-          const itemText = itemCount === 1 ? 'Artículo' : 'Artículos';
-          element.textContent = `${itemCount} ${itemText} en el carrito`;
+          const itemText = itemCount === 1 ? 'Item' : 'Items';
+          element.textContent = `${itemCount} ${itemText} on the cart`;
         });
       }
       
@@ -355,21 +361,13 @@
     background-color: var(--color-background);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     padding: var(--cart-drawer-padding, 20px);
     border-bottom: var(--style-border-width, 1px) solid var(--color-border, #e5e5e5);
     position: sticky;
     top: 0;
     z-index: 1;
-  }
-  
-  .cart-drawer__header .cart-drawer__heading {
-    flex: 1;
-  }
-  
-  .cart-drawer__header .cart-drawer__close {
-    margin-left: auto;
   }
 
   @media screen and (min-width: 750px) {
@@ -483,86 +481,64 @@
   }
 
   /* ============================================
-  /* ============================================
-     TRUST BADGES - Dentro del cart summary, antes del checkout
+     CART SUMMARY WRAPPER
      ============================================ */
-  .cart-drawer__trust-badges {
-    padding: 20px 16px 16px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    background: transparent;
-    width: 100%;
-    overflow: visible;
-    border-top: 1px solid var(--color-border, #e5e5e5);
+  .cart-summary-wrapper {
+    /* Este wrapper contiene el resumen del carrito */
+    /* Los trust badges irán después de este wrapper */
   }
 
-  /* Trust badges después de los productos (carrito lleno) */
-  .cart-drawer__trust-badges--after-products {
-    padding: 20px 20px;
+  /* ============================================
+     TRUST BADGES - Posicionados DESPUÉS del resumen
+     ============================================ */
+  .cart-drawer__trust-badges {
+    padding: 12px 20px;
+    border-top: 1px solid var(--color-border, #e5e5e5);
+    background: #fafafa;
     margin: 0;
-    margin-bottom: 16px;
-    border-top: none;
-    border-bottom: 1px solid var(--color-border, #e5e5e5);
+    /* Los badges aparecen después del resumen pero antes del checkout */
   }
 
   .trust-badges__grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    gap: 16px;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .trust-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    gap: 8px;
-    flex: 0 1 auto;
-    width: 30%;
-    min-width: 80px;
-    max-width: 110px;
+    padding: 8px 5px;
   }
 
   .trust-badge__icon {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    margin: 0 auto;
   }
 
   .trust-badge__icon svg {
     width: 100%;
     height: 100%;
-    fill: #795838;
-  }
-
-  .trust-badge__content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    width: 100%;
+    stroke: #666;
   }
 
   .trust-badge__title {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #333;
+    margin-bottom: 2px;
+    display: block;
     line-height: 1.2;
-    white-space: nowrap;
   }
 
   .trust-badge__description {
     font-size: 9px;
     color: #666;
-    line-height: 1.3;
-    white-space: nowrap;
+    line-height: 1.1;
+    display: block;
   }
 
   /* ============================================
@@ -602,6 +578,21 @@
   }
 
   /* ============================================
+     ESTRUCTURA DEL FOOTER PARA CARRITO VACÍO
+     ============================================ */
+  .cart-drawer__footer-empty {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+
+  /* Ajustar el contenido cuando está vacío */
+  .cart-drawer--empty .cart-drawer__content {
+    padding-bottom: 140px; /* Espacio para los badges */
+  }
+
   /* ============================================
      RESPONSIVE
      ============================================ */
@@ -614,40 +605,26 @@
       font-size: 13px;
     }
 
-    .cart-drawer__trust-badges {
-      padding: 20px 12px;
-      margin-top: 20px;
-    }
-
     .trust-badges__grid {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: nowrap !important;
-      gap: 12px;
-      justify-content: space-evenly;
+      gap: 8px;
     }
 
     .trust-badge {
-      flex: 0 1 auto;
-      width: 30%;
-      min-width: 70px;
-      max-width: 95px;
-      padding: 0;
+      padding: 6px 3px;
     }
 
     .trust-badge__title {
       font-size: 9px;
-      white-space: nowrap;
     }
     
     .trust-badge__description {
       font-size: 8px;
-      white-space: nowrap;
     }
     
     .trust-badge__icon {
-      width: 32px;
-      height: 32px;
+      width: 22px;
+      height: 22px;
+      margin-bottom: 4px;
     }
 
     .cart-drawer__empty-text {

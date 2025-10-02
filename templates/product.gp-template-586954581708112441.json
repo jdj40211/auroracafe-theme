@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_586954581859172921": {
+      "settings": {
+        "checksum": "16c88a46a355cbb8b89eff625549a632a7cf8e9e8b22fb01a240bd4f2583e48c_1_1_1_0__1",
+        "gg1vEPndFUk_text": "<p>Alto</p>",
+        "gg3CIWKAB42_text": "<p>Menos Residuos</p>",
+        "gg4Ezadat3B_text": "<p>Otros</p>",
+        "ggBg2p1GHCK_text": "<p>Sí</p>",
+        "ggFQ_cG_x0d_text": "<p>No</p>",
+        "ggHPXAgyBr__text": "<p>Básica</p>",
+        "ggJ3YCTQ37M_text": "<p>Sí</p>",
+        "ggJfDkEDbgB_text": "<p>No siempre</p>",
+        "ggK-nlDOsXA_text": "<p>Leche Vegetal (Espuma Perfecta)</p>",
+        "ggNWyqo-8R-_text": "<p>Media</p>",
+        "ggOfPiRf0Qu_text": "<p>Facilidad de Uso</p>",
+        "ggOhuXx0DTD_text": "<p>Avanzada</p>",
+        "ggQ_TQRrbjS_text": "<p>No</p>",
+        "ggZALXbizHX_text": "<p>Uso de Cápsulas</p>",
+        "ggZYiyuLTGW_text": "<p>Variedad de Café</p>",
+        "ggfwHz6yThP_text": "<p>Personalización de Bebidas</p>",
+        "ggiePg1YL68_text": "<p>Costo por Taza</p>",
+        "ggjE2oUCd_6_text": "<p>Intuitiva</p>",
+        "ggkdkMUbpSH_text": "<p>Avanzada</p>",
+        "gglCDxA9-jz_text": "<p>Muy Bajo</p>",
+        "ggoKLdMCgf7_text": "<p>Sí</p>",
+        "ggtV6Rbi4hA_text": "<p>Sí</p>",
+        "gguh3YkD5WK_text": "<p>Café en 1 toque</p>",
+        "ggxb0kGllf6_text": "<span style=\"color:#967854;\"><i>Nosotros</i> </span>Vs Ellos"
+      },
+      "type": "gp-section-586954581859172921"
+    },
+    "gp_section_586954581859238457": {
+      "settings": {
+        "checksum": "0713e2b2f067eb2abfdb3f7756a43366ca39530839bb5ba50b4a441a64713896_1_1_1_0__1",
+        "ggDwGbgyJI-_text": "<p>Prepara hasta 50 tazas/día</p>",
+        "ggLl23guCOp_text": "<p>6 meses de garantía</p>",
+        "ggls4uUnhCr_text": "<p>Compatible con cualquier café y leche</p>"
+      },
+      "type": "gp-section-586954581859238457"
+    },
+    "gp_section_586954581859303993": {
+      "settings": {
+        "checksum": "0d40dab22c0687164c51fe052ec44acf26e608b4991acfe761626e5ad36ff2ba_1_1_1_0__1",
+        "gg2Z0oPvopN_text": "<p>Tienes garantía de 6 meses por defectos de fábrica. Contamos con repuestos y taller especializado. La garantía no cubre mal uso.</p>",
+        "gg2_q2NNOP__label": "<p><u>Ver más preguntas frecuentes</u></p>",
+        "gg431A5BeFK_text": "<p>¿Puedo personalizar las bebidas?</p>",
+        "gg4fB2cSumG_text": "<p>Míralo en acción:</p>",
+        "gg4jTz1Pv9G_viewLessText": "Mostrar Menos",
+        "gg4jTz1Pv9G_viewMoreText": "Mostrar Más",
+        "gg5SVLT1ttV_text": "<p>Sí, puedes hacer ajustes avanzados ademas de uso intensivo.</p>",
+        "ggC37K5Y5qe_text": "<p>¿Cuántas tazas puedo preparar por día?</p>",
+        "ggDbSfDKWu3_text": "<p>ahorra $160</p>",
+        "ggHWsTLaCyP_text": "<p>Entregamos tu cafetera en 24–72 horas hábiles en toda Guatemala mediante courier. Durante 2025, ofrecemos envío gratuito. Si no estás disponible, el courier intentará una nueva visita (en caso de reenvío, hay un costo adicional de Q150).</p>",
+        "ggIedDfR9C-_text": "<p>Disponemos de taller propio y técnicos especializados en cafeteras Aurora. Tenemos stock de repuestos originales y atención rápida ante cualquier inconveniente.</p>",
+        "ggLlEPnz2tq_text": "Despídete de las cápsulas y el café genérico. Dale la bienvenida al verdadero espresso.",
+        "ggN1cR_f9xv_childItem_0": "<p>Lo que incluye</p>",
+        "ggN1cR_f9xv_childItem_1": "<p>Garantía de la cafetera</p>",
+        "ggN1cR_f9xv_childItem_2": "<p>Información de Envíos rápidos y seguros</p>",
+        "ggN1cR_f9xv_childItem_3": "<p>Soporte técnico y repuestos</p>",
+        "ggN1cR_f9xv_childItem_4": "<p>Formas de pago</p>",
+        "ggN1cR_f9xv_childItem_5": "<p>Cómo funciona tu Aurora</p>",
+        "ggN1cR_f9xv_childItem_6": "<p>Preguntas frecuentes</p>",
+        "ggOniGzfzIC_text": "<p>Puedes hacer hasta 50 tazas diarias sin sobrecalentar la máquina.</p>",
+        "ggPIomzOPT4_childItem_0": "<p>Solo coloca café en grano y leche; la máquina hace todo sola, ajustando temperatura, espuma y volumen.</p>",
+        "ggPIomzOPT4_childItem_1": "<p>Ideal para oficinas grandes, cafeterías o eventos, con flujo continuo y sin intervención constante.</p>",
+        "ggPIomzOPT4_childItem_2": "<p>Café usado y agua residual con mayor capacidad, menos recargas y mantenimiento simplificado.</p>",
+        "ggPIomzOPT4_childItem_3": "<p>Olvídate de rellenar constantemente: lista para operar en instalaciones profesionales.</p>",
+        "ggPIomzOPT4_childItem_4": "<p>Español, inglés, francés, alemán y holandés, para que cualquier usuario pueda operar la máquina fácilmente.</p>",
+        "ggPIomzOPT4_childItem_5": "<p>Your custom text goes here</p>",
+        "ggQSXFLX11i_customText": "Recíbelo el",
+        "ggSGeD8ngTA_text": "<p>Todas las cafeteras Aurora cuentan con 6 meses de garantía por defectos de fábrica. La garantía cubre fallas técnicas y daños durante envío (previa evaluación). No aplica por mal uso o manipulaciones no autorizadas.</p>",
+        "ggUaldwjTFF_text": "<p>Sí, tiene autolimpieza y depósitos extraíbles.</p>",
+        "ggWaLjT7WGq_text": "<p>Soporte 24/7 por WhatsApp</p>",
+        "gg_S_jfJrEA_label": "Añadir al carrito",
+        "gg_S_jfJrEA_outOfStockLabel": "Out of stock",
+        "gg_S_jfJrEA_unavailableLabel": "Unavailable",
+        "gg_S_jfJrEA_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggaM4leJcVd_text": "<p>Sí, acepta café en grano o molido. La Family y Business espuman la leche automáticamente; la Home manualmente. Incluso funciona con leche vegetal.</p>",
+        "ggb3rA14avC_text": "<p>Pantalla táctil que facilitala la preparación.</p>",
+        "ggbJZ2JUwGX_text": "<p>Café fresco y delicioso usando granos o molido.</p>",
+        "ggh6reumGZc_text": "<p>¿Qué pasa si algo se rompe o falla?</p>",
+        "ggi_cIpiDbS_text": "<p>Pago seguro, hasta 12 cuotas sin recargo</p>",
+        "ggl5hvWuch1_text": "<p>Aceptamos efectivo, transferencia bancaria y tarjetas de crédito/débito. Puedes pagar al contado o en hasta 12 cuotas sin recargo.</p>",
+        "ggm06D2saq5_text": "<p>Limpieza rápida y sencilla después de cada uso.</p>",
+        "ggmLgVwjRR2_text": "<p>¿Se puede limpiar fácilmente?</p>",
+        "ggoCq18X-CA_text": "<p>¿Puedo usar cualquier café o leche?</p>",
+        "ggqKdyNAeFM_text": "<p>6 meses de garantía por defectos</p>",
+        "ggw4NY8vAzR_text": "<p>Todas las cafeteras Aurora cuentan con 6 meses de garantía por defectos de fábrica. La garantía cubre fallas técnicas y daños durante envío (previa evaluación). No aplica por mal uso o manipulaciones no autorizadas.</p>",
+        "ggwP6YvO1hU_text": "<p>El café que quieras en solo 2–3 minutos.</p>",
+        "ggyNk8CeO6t_text": "<p>La Aurora Business está diseñada para alto rendimiento: prepara hasta 50 tazas por día, con café y leche totalmente automáticos, manteniendo consistencia y calidad como en una cafetería profesional.</p>",
+        "ggyq65CGp8S_text": "<p>Aún disponibles</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-586954581859303993"
+    },
+    "gp_section_586954581859369529": {
+      "settings": {
+        "checksum": "0f184b4a5fadaa15acc40e34850de622c649af826a682e69697b179cf73454ba_1_1_1_0__1",
+        "gg5P6155pUt_text": "<p>Café fresco y delicioso usando granos o molido.</p>",
+        "gg9vYdhASQD_text": "<p>Vaporizador manual para preparar tu bebida a tu gusto.</p>",
+        "ggF0lyuLpMV_text": "<p>Tu café de calidad superior está a un toque de distancia,</p><p>con la libertad de un menú personal y sin complicaciones.</p>",
+        "ggJ12X850F7_text": "<p>Espresso, americano o cappuccino en solo 2–3 minutos.</p>",
+        "ggJqi1H44WJ_text": "Disfruta los beneficios<br>de la máxima comodidad",
+        "ggOk3886gTP_text": "<p>Pantalla táctil que facilitala la preparación.</p>",
+        "ggVPJjxQnLQ_text": "<p>Ideal para cocinas pequeñas o espacios reducidos.</p>",
+        "ggVaGCruC-5_text": "<p>Pantalla táctil intuitiva que facilita cada preparación.</p>",
+        "ggk0YF3fr1g_label": "<p>Comprar Ahora</p>"
+      },
+      "type": "gp-section-586954581859369529"
+    },
+    "gp_section_586954581859435065": {
+      "settings": {
+        "checksum": "3bec629e14aacaebd701510ee37f96ae770064d7eacd152df5e34ad218521eb9_1_1_1_0__1",
+        "gg1ORbhzSUM_text": "<p>19 bares de presión para extraer espresso con crema perfecta.</p>",
+        "gg1Up48fMKs_text": "<p>317 × 240 × 350 mm, ideal para cocinas y espacios reducidos.</p>",
+        "gg2iNG8t7NQ_text": "<p>Compatibilidad de café</p>",
+        "gg4vKEveULo_text": "<p>Descubre lo que hace tu Aurora la elección perfecta para tu hogar.</p>",
+        "ggJEzBrKGc-_text": "<p>Presión de bomba profesional</p>",
+        "ggVekbZcScG_text": "<p>Facilita el mantenimiento del grupo de café y mantiene higiene básica.</p>",
+        "ggcA4cXGVTN_text": "<p>Dimensiones compactas</p>",
+        "ggfXB_Ds3oQ_text": "<p>Control total sobre la textura y cantidad de espuma de cada bebida.</p>",
+        "gghKKxSfL5G_text": "<p>Pantalla táctil digital</p>",
+        "gghTOvUR2RT_text": "<p>Funciona con café en grano o molido según tu preferencia.</p>",
+        "ggk5Yhw90LI_text": "<p>Ciclos de autolimpieza parcial</p>",
+        "ggpX_R0HIuF_text": "<p>Vaporizador manual de leche</p>",
+        "ggrhG0LKTCG_text": "<p>2 litros de agua para múltiples preparaciones sin rellenar constantemente.</p>",
+        "ggsMBOekEL3_text": "Facilidad e Innovación en <span style=\"color:#967854;\"><i>Cada Detalle</i></span>",
+        "ggwb9_ODi7W_text": "<p>Interfaz intuitiva para seleccionar y preparar bebidas fácilmente.</p>",
+        "ggxO9sHx74c_text": "<p>Capacidad de tanque de agua</p>"
+      },
+      "type": "gp-section-586954581859435065"
+    },
+    "gp_section_586954581859566137": {
+      "settings": {
+        "checksum": "bea9ca8d5e578060e8040ce44e7284282af9221340bf2dcbbcc2fa7b7ff173f1_1_1_1_0__1",
+        "gg3VlTmE4oH_text": "<p>Ayuda profesional</p>",
+        "ggNs7gCysII_text": "<p>Servicio técnico y repuestos disponibles para mantener tu máquina siempre lista.</p>",
+        "ggP8RtlinPz_text": "<p>Paga fácil</p>",
+        "ggScuDbZEqw_text": "<p>Compra segura</p>",
+        "gg_xdW_0QEX_text": "<p>Envío veloz</p>",
+        "gge3i8jELiA_text": "<p>Hasta 12 cuotas sin recargo con tarjetas, para que adquieras tu cafetera cómodamente.</p>",
+        "ggfcWM-9PC-_text": "<p>6 meses de garantía por defectos de fábrica, para que disfrutes tu Aurora sin preocupaciones.</p>",
+        "ggiDviQ5ZkR_text": "<p>Recibe tu cafetera en 24–72 horas en cualquier lugar de Guatemala, con mensajería confiable.</p>"
+      },
+      "type": "gp-section-586954581859566137"
+    },
+    "gp_section_586954581859631673": {
+      "settings": {
+        "checksum": "e7f7950ead900a5e1e50cb31b391917f013b1ebbb7c2fc1655dbf43be287b403_1_1_1_0__1",
+        "gg2GVdXOlxd_text": "<p>2–3 minutos por taza, dependiendo del tipo de café y de cómo espumes la leche.</p>",
+        "gg5UeDZcacT_text": "<p>Tu café de calidad superior está a un toque de distancia, con la libertad de un menú personal y sin complicaciones.</p>",
+        "ggB5KYTM77g_text": "<p>Sí. Funciona con café en grano o molido. La leche se espuma manualmente con el vaporizador, aunque también puedes usar leche vegetal (la espuma será un poco diferente).</p>",
+        "ggN3DhUlEbf_text": "<p>Actualmente solo en Guatemala, con envíos a todo el país mediante couriers confiables.</p>",
+        "ggPvtYKa9O8_label": "<p>Contáctanos</p>",
+        "gggC7zfXrIQ_text": "<p>Sí. Solo requiere limpiar el grupo de café y el vaporizador de leche después de usar. Mantenerla lista toma solo unos minutos.</p>",
+        "gggNCTo7UqJ_label": "<p>Comprar Ahora</p>",
+        "ggh9Sp50BKT_text": "<p>Garantía de 6 meses por defectos de fábrica. Contamos con repuestos y taller especializado. La garantía no cubre mal uso o manipulaciones no autorizadas.</p>",
+        "gghVdUT_TRT_text": "Disfruta los beneficios de la máxima comodidad",
+        "ggoG3-3omab_text": "<p>Efectivo, transferencia bancaria o tarjeta de crédito/débito. Puedes pagar al contado o en hasta 12 cuotas sin recargo.</p>",
+        "ggqIp1NemEQ_childItem_0": "<p>¿Puedo usar cualquier café o leche?</p>",
+        "ggqIp1NemEQ_childItem_1": "<p>¿Cuántas tazas puedo preparar por día?</p>",
+        "ggqIp1NemEQ_childItem_2": "<p>¿Qué pasa si algo se rompe o falla?</p>",
+        "ggqIp1NemEQ_childItem_3": "<p>¿Se puede limpiar fácilmente?</p>",
+        "ggqIp1NemEQ_childItem_4": "<p>¿Puedo personalizar las bebidas?</p>",
+        "ggqIp1NemEQ_childItem_5": "<p>¿Cuánto tarda en preparar una bebida?</p>",
+        "ggqIp1NemEQ_childItem_6": "<p>¿Qué métodos de pago aceptan?</p>",
+        "ggqIp1NemEQ_childItem_7": "<p>¿En qué países venden las cafeteras?</p>",
+        "ggqIp1NemEQ_childItem_8": "<p>¿Puedo pagar a cuotas?</p>",
+        "ggqt1ndd83O_text": "<p>Sí. Ajustas manualmente la cantidad de leche y la textura de la espuma. El café se prepara automáticamente, pero tú controlas cómo queda la bebida final.</p>",
+        "ggvVt8ugPPx_text": "<p>Hasta 25–30 tazas diarias sin afectar la máquina, ideal para uso doméstico o personal.</p>",
+        "ggwHi5lXC3S_text": "<p>No garantizamos horarios exactos; los envíos normalmente se realizan en 24–72 horas hábiles después de confirmar el pago.</p>"
+      },
+      "type": "gp-section-586954581859631673"
+    },
+    "gp_section_586955128813126201": {
+      "settings": {
+        "checksum": "98713da153687f40eae2f9830f5ca74bc795cd596f5a5dbcb7aeeab2bcf3ea5b_1_1_1_0__1"
+      },
+      "type": "gp-section-586955128813126201"
+    },
+    "gp_section_586955936367641579": {
+      "settings": {
+        "checksum": "7f9c829fa194b28df51bcc9137aebf317fe21dab70a0f8e4fa8514ab7bb3141b_1_1_1_0__1"
+      },
+      "type": "gp-section-586955936367641579"
+    }
+  },
+  "order": [
+    "gp_section_586954581859303993",
+    "gp_section_586954581859238457",
+    "gp_section_586954581859435065",
+    "gp_section_586954581859369529",
+    "gp_section_586954581859566137",
+    "gp_section_586955128813126201",
+    "gp_section_586954581859172921",
+    "gp_section_586955936367641579",
+    "gp_section_586954581859631673"
+  ]
+}

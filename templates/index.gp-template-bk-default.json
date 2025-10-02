@@ -1,0 +1,889 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "hero_jVaWmY",
+    "capsules_benefits_Aurora",
+    "product_showcase_Aurora",
+    "beverage_carousel_Aurora",
+    "trust_highlights_Aurora",
+    "blog_carousel_Aurora",
+    "faq_split_Aurora",
+    "product_list_fa6P9H"
+  ],
+  "sections": {
+    "beverage_carousel_Aurora": {
+      "block_order": [
+        "beverage_1",
+        "beverage_2",
+        "beverage_3",
+        "beverage_4",
+        "beverage_5",
+        "beverage_6",
+        "beverage_slide_TwWxwt",
+        "beverage_slide_iFY7JU",
+        "beverage_slide_8yKCCF",
+        "beverage_slide_4zeh7w",
+        "beverage_slide_KUeApT",
+        "beverage_slide_6QgpJw"
+      ],
+      "blocks": {
+        "beverage_1": {
+          "settings": {
+            "description": "Café corto, intenso y aromático.",
+            "image": "shopify://shop_images/Espresso.avif",
+            "title": "Espresso"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_2": {
+          "settings": {
+            "description": "Más concentrado que el espresso.",
+            "image": "shopify://shop_images/Ristretto.avif",
+            "title": "Ristretto"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_3": {
+          "settings": {
+            "description": "Café más suave que el espresso.",
+            "image": "shopify://shop_images/espresso_largo.avif",
+            "title": "Espresso Largo"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_4": {
+          "settings": {
+            "description": "Café ligero y similar al de filtro.",
+            "image": "shopify://shop_images/americano.avif",
+            "title": "Americano"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_5": {
+          "settings": {
+            "description": "Equilibrio entre café, leche y espuma.",
+            "image": "shopify://shop_images/Capuccino.avif",
+            "title": "Capuccino"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_6": {
+          "settings": {
+            "description": "Cremoso y suave, más leche que el capuccino.",
+            "image": "shopify://shop_images/cafe_latte.avif",
+            "title": "Café Latte"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_slide_4zeh7w": {
+          "settings": {
+            "description": "Capuccino más fuerte.",
+            "image": "shopify://shop_images/6a4bbc80-60e6-4f56-b5a9-232a407417b4.png",
+            "title": "Capuccino Doble"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_slide_6QgpJw": {
+          "settings": {
+            "description": "Flat White más potente.",
+            "image": "shopify://shop_images/7ffda1d0-a071-4b59-92e5-8bc431dca86b.png",
+            "title": "Flat White Doble"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_slide_8yKCCF": {
+          "settings": {
+            "description": "El doble de café y cafeína.",
+            "image": "shopify://shop_images/espresso_doble.png",
+            "title": "Espresso Doble"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_slide_KUeApT": {
+          "settings": {
+            "description": "Latte con más intensidad.",
+            "image": "shopify://shop_images/605791e2-3ea6-476c-8b35-4bce297f96e0.png",
+            "title": "Latte Doble"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_slide_TwWxwt": {
+          "settings": {
+            "description": "Intenso y cremoso, con microespuma fina.",
+            "image": "shopify://shop_images/flat_white.avif",
+            "title": "Flat White"
+          },
+          "type": "beverage_slide"
+        },
+        "beverage_slide_iFY7JU": {
+          "settings": {
+            "description": "Espresso suavizado con un toque de leche.",
+            "image": "shopify://shop_images/Cortado.webp",
+            "title": "Cortado"
+          },
+          "type": "beverage_slide"
+        }
+      },
+      "settings": {
+        "heading": "Crea tu bebida favorita con un solo toque",
+        "subheading": "Disfruta de la libertad de crear la bebida que se te antoje, justo como la quieres, con el panel táctil intuitivo."
+      },
+      "type": "beverage-carousel"
+    },
+    "blog_carousel_Aurora": {
+      "settings": {
+        "blog": "",
+        "heading": "Artículos del blog",
+        "post_limit": 6
+      },
+      "type": "blog-carousel"
+    },
+    "capsules_benefits_Aurora": {
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "blocks": {
+        "feature_1": {
+          "settings": {
+            "icon": "price_tag",
+            "text": "Usa café en grano estándar y olvídate de las cápsulas costosas.",
+            "title": "Ahorro a largo plazo"
+          },
+          "type": "feature"
+        },
+        "feature_2": {
+          "settings": {
+            "custom_icon": "shopify://shop_images/star.svg",
+            "icon": "piggy_bank",
+            "text": "Disfruta el aroma del café recién molido en cada taza.",
+            "title": "Sabor auténtico"
+          },
+          "type": "feature"
+        },
+        "feature_3": {
+          "settings": {
+            "custom_icon": "shopify://shop_images/coffee-bean.svg",
+            "icon": "coffee",
+            "text": "Ajusta intensidad, temperatura y espumado según tu preferencia.",
+            "title": "Personaliza cada bebida"
+          },
+          "type": "feature"
+        },
+        "feature_4": {
+          "settings": {
+            "custom_icon": "shopify://shop_images/shield-plus.svg",
+            "icon": "badge_check",
+            "text": "Componentes duraderos y soporte experto cuando lo necesites.",
+            "title": "Calidad garantizada"
+          },
+          "type": "feature"
+        }
+      },
+      "settings": {
+        "button_label": "Ver Productos",
+        "button_link": "shopify://collections/all",
+        "color_scheme": "scheme-1",
+        "heading_emphasis": "el futuro del café en casa.",
+        "heading_prefix": "Olvídate de las cápsulas: Así se ve",
+        "media_video_alt": "",
+        "media_video_url": "",
+        "subheading": "Descubre por qué miles están cambiando su cafetera de cápsulas por la libertad de un café hecho a tu gusto."
+      },
+      "type": "capsules-benefits"
+    },
+    "faq_split_Aurora": {
+      "block_order": [
+        "question_1",
+        "question_2",
+        "question_3",
+        "question_4",
+        "question_5",
+        "question_JdVBCE",
+        "question_6",
+        "question_4VmLNW",
+        "question_R3rzJY",
+        "question_aGmMMd",
+        "question_abBcC6"
+      ],
+      "blocks": {
+        "question_1": {
+          "settings": {
+            "answer": "Aceptamos efectivo, transferencia bancaria y tarjeta de crédito o débito (al contado o hasta en 12 cuotas).",
+            "question": "¿Qué métodos de pago aceptan?"
+          },
+          "type": "question"
+        },
+        "question_2": {
+          "settings": {
+            "answer": "Actualmente vendemos únicamente en Guatemala con envíos a todo el país a través de couriers nacionales.",
+            "question": "¿En qué países venden las cafeteras?"
+          },
+          "type": "question"
+        },
+        "question_3": {
+          "settings": {
+            "answer": "No. Los envíos se realizan con empresas de mensajería externas y no podemos garantizar horarios exactos de entrega.",
+            "question": "¿Puedo programar el horario de entrega?"
+          },
+          "type": "question"
+        },
+        "question_4": {
+          "settings": {
+            "answer": "Sí. Todas nuestras máquinas cuentan con 6 meses de garantía por desperfectos de fábrica. No aplica por mal uso.",
+            "question": "¿Las cafeteras tienen garantía?"
+          },
+          "type": "question"
+        },
+        "question_4VmLNW": {
+          "settings": {
+            "answer": "Aurora Family: ideal para hogares y oficinas pequeñas, con depósito de café usado para 8 pastillas y agua residual para 10 tazas.\n\nAurora Business: diseñada para alto consumo, con capacidad de hasta 50 pastillas de café usado, depósito de agua residual para 50 tazas y opción de conexión a garrafón o filtro de agua.",
+            "question": "¿Cuál es la diferencia entre Family y Business?"
+          },
+          "type": "question"
+        },
+        "question_5": {
+          "settings": {
+            "answer": "Solicitamos nombre completo, DPI, dirección, número de teléfono y comprobante de pago para efectos de facturación y envío.",
+            "question": "¿Qué datos necesito para comprar?"
+          },
+          "type": "question"
+        },
+        "question_6": {
+          "settings": {
+            "answer": "Sí. Todas las cafeteras Aurora aceptan café en grano (recomendado por sabor y practicidad) y también café molido.\n\nEn grano: se coloca en el recipiente especial y la máquina muele automáticamente.\nMolido: se coloca manualmente por cada preparación.",
+            "question": "¿Puedo usar cualquier tipo de café?"
+          },
+          "type": "question"
+        },
+        "question_JdVBCE": {
+          "settings": {
+            "answer": "Aurora Home: el café es automático, pero la leche se espuma manualmente con vaporizador.\n\nAurora Family y Business: café y leche son totalmente automáticos.",
+            "question": "¿Las cafeteras preparan leche automáticamente?"
+          },
+          "type": "question"
+        },
+        "question_R3rzJY": {
+          "settings": {
+            "answer": "Sí. Contamos con stock de repuestos originales y taller de reparación especializado.",
+            "question": "¿Las máquinas tienen repuestos?"
+          },
+          "type": "question"
+        },
+        "question_aGmMMd": {
+          "settings": {
+            "answer": "Sí. Disponemos de taller propio y técnicos especializados en cafeteras automáticas Aurora, con entregas en tiempo récord.",
+            "question": "¿Hay servicio técnico?"
+          },
+          "type": "question"
+        },
+        "question_abBcC6": {
+          "settings": {
+            "answer": "Se recomienda un máximo de 20 tazas consecutivas, y luego dejar descansar la máquina 10 minutos.",
+            "question": "¿Cuántas tazas se pueden hacer por día?"
+          },
+          "type": "question"
+        }
+      },
+      "settings": {
+        "button_label": "Comprar ahora",
+        "button_link": "",
+        "description": "Encuentra aquí las dudas más comunes. Si no ves la tuya, escríbenos a WhatsApp y con gusto te ayudaremos a elegir la Aurora perfecta para ti.",
+        "heading": "¿Tienes preguntas? Tenemos respuestas"
+      },
+      "type": "faq-split"
+    },
+    "hero_jVaWmY": {
+      "block_order": [
+        "group_content"
+      ],
+      "blocks": {
+        "group_content": {
+          "block_order": [
+            "trust_badge",
+            "heading_primary",
+            "body_copy",
+            "group_buttons",
+            "group_features"
+          ],
+          "blocks": {
+            "body_copy": {
+              "blocks": {},
+              "name": "t:names.text",
+              "settings": {
+                "alignment": "left",
+                "background": false,
+                "background_color": "#00000026",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "corner_radius": 0,
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "letter_spacing": "normal",
+                "line_height": "normal",
+                "max_width": "none",
+                "padding-block-end": 0,
+                "padding-block-start": 0,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0,
+                "text": "<p>Cafeteras automáticas que no necesitan cápsulas, se autolimpian y preparan hasta 20 tipos de café en minutos. Disfruta bebidas perfectas, con envío gratuito y soporte técnico garantizado.</p>",
+                "type_preset": "paragraph",
+                "width": "100%",
+                "wrap": "pretty"
+              },
+              "type": "text"
+            },
+            "group_buttons": {
+              "block_order": [
+                "button_primary",
+                "button_secondary"
+              ],
+              "blocks": {
+                "button_primary": {
+                  "blocks": {},
+                  "name": "t:names.button",
+                  "settings": {
+                    "custom_width": 100,
+                    "custom_width_mobile": 100,
+                    "label": "Ver Productos",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "width": "fit-content",
+                    "width_mobile": "custom"
+                  },
+                  "type": "button"
+                },
+                "button_secondary": {
+                  "blocks": {},
+                  "name": "t:names.button",
+                  "settings": {
+                    "custom_width": 100,
+                    "custom_width_mobile": 100,
+                    "label": "Quiz De Tu Máquina Ideal",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "style_class": "button-secondary",
+                    "width": "fit-content",
+                    "width_mobile": "custom"
+                  },
+                  "type": "button"
+                }
+              },
+              "name": "t:names.group",
+              "settings": {
+                "align_baseline": true,
+                "background_image_position": "cover",
+                "background_media": "none",
+                "border": "none",
+                "border_opacity": 100,
+                "border_radius": 0,
+                "border_width": 1,
+                "color_scheme": "",
+                "content_direction": "row",
+                "custom_height": 100,
+                "custom_width": 100,
+                "custom_width_mobile": 100,
+                "gap": 16,
+                "gradient_direction": "to top",
+                "height": "fit",
+                "horizontal_alignment": "flex-start",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "inherit_color_scheme": true,
+                "link": "",
+                "open_in_new_tab": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "padding-block-end": 0,
+                "padding-block-start": 0,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0,
+                "placeholder": "",
+                "toggle_overlay": false,
+                "vertical_alignment": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "vertical_on_mobile": true,
+                "video_position": "cover",
+                "width": "fill",
+                "width_mobile": "fill"
+              },
+              "type": "group"
+            },
+            "group_features": {
+              "block_order": [
+                "marquee"
+              ],
+              "blocks": {
+                "marquee": {
+                  "blocks": {},
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "<div class=\"hero-trust-marquee\" data-trust-marquee>\n  <div class=\"hero-trust-marquee__track\">\n    <div class=\"hero-trust-marquee__group\">\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Garantía de satisfacción</span>\n      </span>\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Envío gratis</span>\n      </span>\n    </div>\n    <div class=\"hero-trust-marquee__group\" aria-hidden=\"true\">\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Garantía de satisfacción</span>\n      </span>\n      <span class=\"hero-trust-marquee__item\">\n        <span class=\"hero-trust-marquee__icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 256 256\" focusable=\"false\" fill=\"currentColor\">\n            <path d=\"M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z\" />\n          </svg>\n        </span>\n        <span class=\"hero-trust-marquee__text\">Envío gratis</span>\n      </span>\n    </div>\n  </div>\n</div>"
+                  },
+                  "type": "custom-liquid"
+                }
+              },
+              "name": "t:names.group",
+              "settings": {
+                "align_baseline": false,
+                "background_image_position": "cover",
+                "background_media": "none",
+                "border": "none",
+                "border_opacity": 100,
+                "border_radius": 0,
+                "border_width": 1,
+                "color_scheme": "",
+                "content_direction": "row",
+                "custom_height": 100,
+                "custom_width": 100,
+                "custom_width_mobile": 100,
+                "gap": 20,
+                "gradient_direction": "to top",
+                "height": "fit",
+                "horizontal_alignment": "flex-start",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "inherit_color_scheme": true,
+                "link": "",
+                "open_in_new_tab": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "padding-block-end": 0,
+                "padding-block-start": 0,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0,
+                "placeholder": "",
+                "toggle_overlay": false,
+                "vertical_alignment": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "vertical_on_mobile": true,
+                "video_position": "cover",
+                "width": "fill",
+                "width_mobile": "fill"
+              },
+              "type": "group"
+            },
+            "heading_primary": {
+              "blocks": {},
+              "name": "t:names.heading",
+              "settings": {
+                "alignment": "left",
+                "background": false,
+                "background_color": "#00000026",
+                "case": "none",
+                "color": "var(--color-foreground-heading)",
+                "corner_radius": 0,
+                "font": "var(--font-heading--family)",
+                "font_size": "",
+                "letter_spacing": "normal",
+                "line_height": "normal",
+                "max_width": "none",
+                "padding-block-end": 0,
+                "padding-block-start": 0,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0,
+                "text": "<h1>Café de calidad profesional, en tu hogar o negocio, <em>con solo un botón.</em></h1>",
+                "type_preset": "h1",
+                "width": "100%",
+                "wrap": "pretty"
+              },
+              "type": "text"
+            },
+            "trust_badge": {
+              "blocks": {},
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<div class=\"hero-aurora__trust\">\n  <span class=\"hero-aurora__stars\" aria-hidden=\"true\">&#9733;&#9733;&#9733;&#9733;&#9733;</span>\n  <span class=\"hero-aurora__trust-text\">Confiados por +2000 clientes satisfechos</span>\n</div>"
+              },
+              "type": "custom-liquid"
+            }
+          },
+          "name": "t:names.group",
+          "settings": {
+            "align_baseline": false,
+            "background_image_position": "cover",
+            "background_media": "none",
+            "border": "none",
+            "border_opacity": 100,
+            "border_radius": 0,
+            "border_width": 1,
+            "color_scheme": "",
+            "content_direction": "column",
+            "custom_height": 100,
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "gap": 28,
+            "gradient_direction": "to top",
+            "height": "fit",
+            "horizontal_alignment": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "inherit_color_scheme": true,
+            "link": "",
+            "open_in_new_tab": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "padding-block-end": 0,
+            "padding-block-start": 0,
+            "padding-inline-end": 0,
+            "padding-inline-start": 0,
+            "placeholder": "",
+            "toggle_overlay": false,
+            "vertical_alignment": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "vertical_on_mobile": true,
+            "video_position": "cover",
+            "width": "fill",
+            "width_mobile": "fill"
+          },
+          "type": "group"
+        }
+      },
+      "name": "t:names.hero",
+      "settings": {
+        "align_baseline": false,
+        "blurred_reflection": false,
+        "color_scheme": "scheme-6",
+        "content_direction": "column",
+        "gap": 32,
+        "gradient_direction": "to bottom",
+        "horizontal_alignment": "flex-start",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "image_1": "shopify://shop_images/ChatGPT_Image_Oct_1_2025_05_41_09_AM.png",
+        "link": "",
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "open_in_new_tab": false,
+        "overlay_color": "#14100ccc",
+        "overlay_style": "solid",
+        "padding-block-end": 40,
+        "padding-block-start": 32,
+        "reflection_opacity": 60,
+        "section_height": "full-screen",
+        "section_height_custom": 100,
+        "section_width": "page-width",
+        "toggle_overlay": false,
+        "vertical_alignment": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "vertical_on_mobile": true
+      },
+      "type": "hero"
+    },
+    "product_list_fa6P9H": {
+      "blocks": {
+        "static-header": {
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ],
+          "blocks": {
+            "product_list_button_MWeP9V": {
+              "blocks": {},
+              "name": "t:names.product_list_button",
+              "settings": {
+                "custom_width": 100,
+                "custom_width_mobile": 100,
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "width_mobile": "fit-content"
+              },
+              "type": "_product-list-button"
+            },
+            "product_list_text_YFtzcL": {
+              "blocks": {},
+              "name": "t:names.collection_title",
+              "settings": {
+                "alignment": "left",
+                "background": false,
+                "background_color": "#00000026",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "corner_radius": 0,
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "letter_spacing": "normal",
+                "line_height": "normal",
+                "max_width": "normal",
+                "padding-block-end": 0,
+                "padding-block-start": 0,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0,
+                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "type_preset": "h4",
+                "width": "fit-content",
+                "wrap": "pretty"
+              },
+              "type": "_product-list-text"
+            }
+          },
+          "name": "t:names.header",
+          "settings": {
+            "align_baseline": true,
+            "background_image_position": "cover",
+            "background_media": "none",
+            "border": "none",
+            "border_opacity": 100,
+            "border_radius": 0,
+            "border_width": 1,
+            "color_scheme": "",
+            "content_direction": "row",
+            "custom_height": 100,
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "gap": 12,
+            "height": "fit",
+            "horizontal_alignment": "space-between",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "inherit_color_scheme": true,
+            "padding-block-end": 0,
+            "padding-block-start": 0,
+            "padding-inline-end": 0,
+            "padding-inline-start": 0,
+            "vertical_alignment": "flex-end",
+            "vertical_alignment_flex_direction_column": "center",
+            "vertical_on_mobile": false,
+            "video_position": "cover",
+            "width": "fill",
+            "width_mobile": "fill"
+          },
+          "static": true,
+          "type": "_product-list-content"
+        },
+        "static-product-card": {
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ],
+          "blocks": {
+            "price_JQzVV4": {
+              "blocks": {},
+              "name": "t:names.product_price",
+              "settings": {
+                "alignment": "left",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "letter_spacing": "normal",
+                "line_height": "normal",
+                "padding-block-end": 0,
+                "padding-block-start": 0,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0,
+                "show_installments": false,
+                "show_sale_price_first": true,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%"
+              },
+              "type": "price"
+            },
+            "product_card_gallery_677WP3": {
+              "blocks": {},
+              "name": "t:names.product_card_media",
+              "settings": {
+                "border": "none",
+                "border_opacity": 100,
+                "border_radius": 0,
+                "border_width": 1,
+                "image_ratio": "adapt",
+                "padding-block-end": 0,
+                "padding-block-start": 0,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0
+              },
+              "type": "_product-card-gallery"
+            },
+            "product_title_YXxMTj": {
+              "blocks": {},
+              "name": "t:names.product_title",
+              "settings": {
+                "alignment": "left",
+                "background": false,
+                "background_color": "#00000026",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "corner_radius": 0,
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "letter_spacing": "normal",
+                "line_height": "normal",
+                "max_width": "normal",
+                "padding-block-end": 0,
+                "padding-block-start": 4,
+                "padding-inline-end": 0,
+                "padding-inline-start": 0,
+                "type_preset": "rte",
+                "width": "100%",
+                "wrap": "pretty"
+              },
+              "type": "product-title"
+            }
+          },
+          "name": "t:names.product_card",
+          "settings": {
+            "border": "none",
+            "border_opacity": 100,
+            "border_radius": 0,
+            "border_width": 1,
+            "color_scheme": "",
+            "inherit_color_scheme": true,
+            "padding-block-end": 0,
+            "padding-block-start": 0,
+            "padding-inline-end": 0,
+            "padding-inline-start": 0,
+            "product_card_gap": 4
+          },
+          "static": true,
+          "type": "_product-card"
+        }
+      },
+      "disabled": true,
+      "name": "Featured collection",
+      "settings": {
+        "carousel_on_mobile": false,
+        "collection": "all",
+        "color_scheme": "scheme-1",
+        "columns": 4,
+        "columns_gap": 8,
+        "gap": 28,
+        "horizontal_alignment": "flex-start",
+        "icons_shape": "none",
+        "icons_style": "arrow",
+        "layout_type": "grid",
+        "max_products": 8,
+        "mobile_card_size": "60cqw",
+        "mobile_columns": "2",
+        "padding-block-end": 48,
+        "padding-block-start": 48,
+        "rows_gap": 24,
+        "section_width": "page-width"
+      },
+      "type": "product-list"
+    },
+    "product_showcase_Aurora": {
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3"
+      ],
+      "blocks": {
+        "product_1": {
+          "settings": {
+            "fallback_title": "Producto destacado",
+            "feature_icon": "price_tag",
+            "feature_metafield_1": "",
+            "feature_metafield_2": "",
+            "feature_metafield_3": "",
+            "feature_text_1": "Diseñada para alto consumo",
+            "feature_text_2": "Gran autonomía",
+            "feature_text_3": "Componentes reforzados y profesionales, ideales para oficinas grandes y cafeterías.",
+            "product": "aurora-business",
+            "subtitle_metafield": "",
+            "subtitle_text": "Alto rendimiento para tu negocio"
+          },
+          "type": "product"
+        },
+        "product_2": {
+          "settings": {
+            "fallback_title": "Producto destacado",
+            "feature_icon": "price_tag",
+            "feature_metafield_1": "",
+            "feature_metafield_2": "",
+            "feature_metafield_3": "",
+            "feature_text_1": "5 bebidas automáticas predefinidas",
+            "feature_text_2": "Vaporizador manual de leche para espumar y personalizar cada preparación.",
+            "feature_text_3": "Compacta y económica, perfecta para uso personal o parejas.",
+            "product": "aurora-home",
+            "subtitle_metafield": "",
+            "subtitle_text": "La experiencia de barista en casa"
+          },
+          "type": "product"
+        },
+        "product_3": {
+          "settings": {
+            "fallback_title": "Producto destacado",
+            "feature_icon": "price_tag",
+            "feature_metafield_1": "",
+            "feature_metafield_2": "",
+            "feature_metafield_3": "",
+            "feature_text_1": "19 bebidas automáticas",
+            "feature_text_2": "Preparación automática de leche: la máquina espuma y mezcla sola.",
+            "feature_text_3": "Súper fácil de usar, incluso niños pueden preparar su café favorito con un botón.",
+            "product": "aurora-family",
+            "subtitle_metafield": "",
+            "subtitle_text": "Variedad y comodidad para todos"
+          },
+          "type": "product"
+        }
+      },
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Conoce Nuestros Productos",
+        "subheading": "Seleccionamos los favoritos de Aurora Café para comenzar tu día."
+      },
+      "type": "product-showcase"
+    },
+    "trust_highlights_Aurora": {
+      "block_order": [
+        "highlight_1",
+        "highlight_2",
+        "highlight_3",
+        "highlight_4"
+      ],
+      "blocks": {
+        "highlight_1": {
+          "settings": {
+            "custom_icon": "shopify://shop_images/truck.svg",
+            "icon": "truck",
+            "text": "Recibe tu cafetera en casa sin costo adicional, de forma rápida y segura.",
+            "title": "Envío gratuito a todo el país"
+          },
+          "type": "highlight"
+        },
+        "highlight_2": {
+          "settings": {
+            "custom_icon": "shopify://shop_images/shield-plus.svg",
+            "icon": "shield",
+            "text": "Todas las máquinas Aurora cuentan con 6 meses de garantía por defectos de fábrica.",
+            "title": "Garantía incluida"
+          },
+          "type": "highlight"
+        },
+        "highlight_3": {
+          "settings": {
+            "custom_icon": "shopify://shop_images/coffee-bean.svg",
+            "icon": "truck",
+            "text": "Usa el café que más te guste: la máquina muele el grano automáticamente o acepta café molido.",
+            "title": "Café en grano o molido"
+          },
+          "type": "highlight"
+        },
+        "highlight_4": {
+          "settings": {
+            "custom_icon": "shopify://shop_images/wrench.svg",
+            "icon": "truck",
+            "text": "Soporte y repuestos originales con taller propio para mantener tu cafetera siempre como nueva.",
+            "title": "Servicio técnico especializado"
+          },
+          "type": "highlight"
+        }
+      },
+      "settings": {
+        "heading": "Confía en Aurora Café"
+      },
+      "type": "trust-highlights"
+    }
+  }
+}

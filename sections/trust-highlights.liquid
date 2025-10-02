@@ -2,23 +2,23 @@
   assign heading = section.settings.heading
 %}
 
-<div class="section section--page-width trust-badges color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
+<div class="section section--page-width home-trust-section color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
   {% if heading != blank %}
-    <h2 class="trust-badges__heading">{{ heading }}</h2>
+    <h2 class="home-trust-section__heading">{{ heading }}</h2>
   {% endif %}
-  <div class="trust-badges__grid">
+  <div class="home-trust-section__grid">
     {% for block in section.blocks %}
-      <article class="trust-badge" {{ block.shopify_attributes }}>
+      <article class="home-trust-card" {{ block.shopify_attributes }}>
         {% if block.settings.icon != 'none' or block.settings.custom_icon != blank %}
-          <div class="trust-badge__icon">
+          <div class="home-trust-card__icon">
             {% render 'icon-or-image', icon: block.settings.icon, image_upload: block.settings.custom_icon, width: 36 %}
           </div>
         {% endif %}
         {% if block.settings.title != blank %}
-          <p class="trust-badge__title">{{ block.settings.title }}</p>
+          <p class="home-trust-card__title">{{ block.settings.title }}</p>
         {% endif %}
         {% if block.settings.text != blank %}
-          <p class="trust-badge__text">{{ block.settings.text }}</p>
+          <p class="home-trust-card__text">{{ block.settings.text }}</p>
         {% endif %}
       </article>
     {% endfor %}
@@ -26,122 +26,153 @@
 </div>
 
 {% stylesheet %}
-  .trust-badges {
+  /* Override section constraints */
+  .home-trust-section,
+  .section--page-width .home-trust-section {
     padding-block: clamp(2.5rem, 5vw, 3.5rem);
+    max-width: 100% !important;
+    width: 100% !important;
+    grid-column: 1 / -1 !important;
   }
 
-  .trust-badges__heading {
+  .home-trust-section__heading {
     margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
     font-family: var(--font-heading--family);
     font-weight: 700;
     font-size: clamp(1.75rem, 3vw, 2rem);
     color: rgb(var(--color-foreground-heading-rgb));
-  }
-
-  /* Forzar siempre 2 columnas */
-  .trust-badges__grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: clamp(0.75rem, 2vw, 1.25rem);
-    max-width: min(640px, 100%);
-    margin-inline: auto;
-  }
-
-  .trust-badge {
-    display: grid;
-    align-content: center;
-    justify-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background-color: #f7f7f7;
-    overflow: clip;
     text-align: center;
   }
 
-  .trust-badge__icon {
-    display: inline-flex;
+  /* Desktop: Grid con 4 columnas en fila */
+  .home-trust-section__grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    padding-inline: 3rem;
+  }
+
+  /* Cada card: Stack Vertical */
+  .home-trust-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px;
+    padding: 24px 20px;
+    height: 133px;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* Icono Container */
+  .home-trust-card__icon {
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    margin-top: 0.25rem;
-    color: rgba(0, 0, 0, 0.75);
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: transparent;
   }
 
-  .trust-badge__title {
+  .home-trust-card__icon svg,
+  .home-trust-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Título */
+  .home-trust-card__title {
     margin: 0;
     font-family: var(--font-heading--family);
-    font-weight: 700;
-    font-size: 1rem;
-    color: rgb(var(--color-foreground-heading-rgb));
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #333333;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
-  .trust-badge__text {
+  /* Descripción */
+  .home-trust-card__text {
     margin: 0;
     font-family: var(--font-body--family);
     font-weight: 400;
-    font-size: 0.95rem;
-    color: rgba(0, 0, 0, 0.6);
+    font-size: 10px;
+    line-height: 1.2;
+    color: #666666;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
-  /* Sobrescribir cualquier regla específica de sección */
-  #shopify-section-{{ section.id }} .trust-badges__grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    max-width: min(640px, 100%);
-    margin-inline: auto;
-  }
-
-  #shopify-section-{{ section.id }} .trust-badge {
-    align-content: start;
-    justify-items: center;
-    gap: 0.75rem;
-    height: auto;
-    min-height: 0;
-    padding: clamp(1.25rem, 3vw, 1.75rem);
-    border-radius: 12px;
-  }
-
-  #shopify-section-{{ section.id }} .trust-badge__icon {
-    margin-top: 0;
-  }
-
-  /* Asegurar 2 columnas en todos los tamaños de pantalla */
+  /* Mobile: Grid 2 columnas */
   @media (max-width: 749px) {
-    .trust-badges__grid {
-      grid-template-columns: repeat(2, 1fr) !important;
+    .home-trust-section {
+      padding-block: clamp(2rem, 4vw, 2.5rem);
     }
-    
-    #shopify-section-{{ section.id }} .trust-badges__grid {
+
+    .home-trust-section__grid {
       grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px;
+      padding-inline: 1.5rem;
+    }
+
+    .home-trust-card {
+      height: 160px;
+      gap: 12px;
+      padding: 20px 16px;
+    }
+
+    .home-trust-card__icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .home-trust-card__title {
+      font-size: 11px;
+    }
+
+    .home-trust-card__text {
+      font-size: 10px;
+      line-height: 1.2;
     }
   }
 
-  /* Para pantallas muy pequeñas, mantener 2 columnas pero ajustar espacio */
+  /* Mobile muy pequeño */
   @media (max-width: 480px) {
-    .trust-badges__grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: clamp(0.5rem, 2vw, 0.75rem);
+    .home-trust-section__grid {
+      gap: 10px;
+      padding-inline: 1rem;
     }
-    
-    .trust-badge {
-      padding: 1rem;
-    }
-    
-    .trust-badge__text {
-      font-size: 0.875rem;
-    }
-  }
 
-  /* Para pantallas grandes también forzar 2 columnas */
-  @media (min-width: 750px) {
-    .trust-badges__grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      max-width: min(800px, 100%);
+    .home-trust-card {
+      height: 150px;
+      gap: 10px;
+      padding: 18px 14px;
     }
-    
-    #shopify-section-{{ section.id }} .trust-badges__grid {
-      grid-template-columns: repeat(2, 1fr) !important;
+
+    .home-trust-card__icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .home-trust-card__title {
+      font-size: 10px;
+    }
+
+    .home-trust-card__text {
+      font-size: 9px;
     }
   }
 {% endstylesheet %}
