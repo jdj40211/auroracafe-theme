@@ -56,7 +56,8 @@
 {% stylesheet %}
   .beverage-carousel {
     padding-block: clamp(3rem, 6vw, 4.5rem);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .beverage-carousel__header {
@@ -138,7 +139,9 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: 1rem;
+    padding-inline: 15px;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
   .beverage-carousel__track::-webkit-scrollbar {
@@ -197,6 +200,11 @@
   }
 
   @media (max-width: 749px) {
+    .beverage-carousel {
+      overflow: visible;
+      overflow-x: clip;
+    }
+
     .beverage-carousel__header {
       flex-direction: column;
       align-items: stretch;
@@ -212,16 +220,22 @@
 
     .beverage-carousel__viewport {
       margin-left: calc(-1 * var(--page-width-padding, 1.5rem));
-      padding-left: var(--page-width-padding, 1.5rem);
+      margin-right: calc(-1 * var(--page-width-padding, 1.5rem));
+      padding-left: 0;
+      padding-right: 0;
       overflow: visible;
     }
 
     .beverage-carousel__track {
       grid-auto-columns: 42%;
       gap: 20px;
-      padding-right: var(--page-width-padding, 1.5rem);
+      padding-left: 15px;
+      padding-right: 15px;
       scroll-snap-type: x mandatory;
-      scroll-padding-left: var(--page-width-padding, 1.5rem);
+      scroll-padding-left: 15px;
+      scroll-behavior: smooth;
+      overflow-x: scroll;
+      overflow-y: visible;
     }
 
     .beverage-carousel__item {
