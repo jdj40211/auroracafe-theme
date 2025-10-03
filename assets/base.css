@@ -4707,6 +4707,14 @@ text-component {
   object-fit: contain;
 }
 
+/* Logo blanco en desktop cuando el header es transparente */
+@media screen and (min-width: 750px) {
+  .menu-list__logo-image--white {
+    width: 142px;
+    height: 30px;
+  }
+}
+
 .menu-drawer__list-item--logo {
   padding-inline: var(--padding-xl);
   padding-block: var(--padding-lg);

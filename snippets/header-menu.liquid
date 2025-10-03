@@ -28,6 +28,24 @@
   endif
   assign fallback_titles = 'Tienda|Ofertas|Nosotros' | split: '|'
   assign fallback_urls = '/collections/all|/collections/ofertas|/pages/nosotros' | split: '|'
+
+  # Detectar si el header es transparente para usar logo blanco
+  assign use_white_logo = false
+  if section.settings.enable_transparent_header_home and template.name == 'index'
+    assign use_white_logo = true
+  elsif section.settings.enable_transparent_header_product and template.name == 'product'
+    assign use_white_logo = true
+  elsif section.settings.enable_transparent_header_collection and template.name == 'collection'
+    assign use_white_logo = true
+  endif
+
+  if use_white_logo
+    assign logo_url = 'https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Blanco_-_Website.svg?v=1759104233'
+    assign logo_class = 'menu-list__logo-image--white'
+  else
+    assign logo_url = 'https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Negro_-_Website_bd1c89d0-c17f-4803-996a-062c0cc0459c.svg?v=1759104347'
+    assign logo_class = 'menu-list__logo-image--black'
+  endif
 %}
 
 
@@ -42,9 +60,9 @@
       aria-label="{{ shop.name }}"
     >
       <img
-        src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Negro_-_Website_bd1c89d0-c17f-4803-996a-062c0cc0459c.svg?v=1759104347"
+        src="{{ logo_url }}"
         alt="{{ shop.name }}"
-        class="menu-list__logo-image menu-list__logo-image--black"
+        class="menu-list__logo-image {{ logo_class }}"
         loading="lazy"
       >
     </a>
