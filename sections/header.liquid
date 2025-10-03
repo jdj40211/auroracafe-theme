@@ -29,6 +29,10 @@
     assign sticky = 'always'
   elsif section.settings.enable_sticky_header == 'scroll-up'
     assign sticky = 'scroll-up'
+  elsif section.settings.enable_sticky_header == 'never'
+    assign sticky = false
+  else
+    assign sticky = 'always'
   endif
 
   comment
@@ -375,7 +379,9 @@
   }
 
   .header-section {
-    position: relative;
+    position: sticky;
+    top: -1px;
+    z-index: var(--layer-sticky);
   }
 
   #header-group:has(#header-component[sticky]) {

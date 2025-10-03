@@ -26,14 +26,10 @@ class CartDrawerComponent extends DialogComponent {
     // Force update the cart items component to ensure it shows the latest cart state
     const cartItemsComponent = /** @type {HTMLElement | null} */ (this.querySelector('cart-items-component'));
     if (cartItemsComponent?.dataset?.sectionId) {
-      // Check if sections data is available in the event
-      const cartItemsHtml = event.detail?.data?.sections?.[cartItemsComponent.dataset.sectionId];
-      if (!cartItemsHtml) {
-        // If no section HTML is provided, force a fresh render
-        sectionRenderer.renderSection(cartItemsComponent.dataset.sectionId, { cache: false });
-      }
+      // Always force a fresh render to ensure the drawer shows the updated cart
+      sectionRenderer.renderSection(cartItemsComponent.dataset.sectionId, { cache: false });
     }
-    
+
     if (this.hasAttribute('auto-open')) {
       this.showDialog();
     }
