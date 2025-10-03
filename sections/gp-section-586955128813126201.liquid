@@ -29,10 +29,332 @@
       data-keep-class="true"
       class="gME1cbABIb gp-cursor-pointer gp-custom-code">
       <div>
-    
+    <div class="section section--page-width beverage-carousel color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}" data-beverage-carousel>
+  <div class="beverage-carousel__header">
+    <div class="beverage-carousel__intro">
+      {% if heading != blank %}
+        <h2 class="beverage-carousel__heading">{{ heading }}</h2>
+      {% endif %}
+      {% if subheading != blank %}
+        <p class="beverage-carousel__subheading">{{ subheading }}</p>
+      {% endif %}
+    </div>
+    <div class="beverage-carousel__controls">
+      <button type="button" class="beverage-carousel__arrow beverage-carousel__arrow--prev" data-prev aria-label="Ver anteriores">
+        <span class="beverage-carousel__arrow-icon" aria-hidden="true">&#8592;</span>
+      </button>
+      <button type="button" class="beverage-carousel__arrow beverage-carousel__arrow--next" data-next aria-label="Ver siguientes">
+        <span class="beverage-carousel__arrow-icon" aria-hidden="true">&#8594;</span>
+      </button>
+    </div>
+  </div>
+  <div class="beverage-carousel__viewport" data-viewport>
+    <ul class="beverage-carousel__track" data-track>
+      {% for block in section.blocks %}
+        <li class="beverage-carousel__item" {{ block.shopify_attributes }}>
+          <div class="beverage-carousel__image-wrapper">
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 600
+                | image_tag:
+                  class: 'beverage-carousel__image',
+                  widths: '200, 300, 400, 600',
+                  sizes: '200px',
+                  loading: 'lazy'
+              }}
+            {% else %}
+              <div class="beverage-carousel__image beverage-carousel__image--placeholder" role="img" aria-label="{{ block.settings.title | default: 'Bebida' }}"></div>
+            {% endif %}
+          </div>
+          {% if block.settings.title != blank %}
+            <h3 class="beverage-carousel__title">{{ block.settings.title }}</h3>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <p class="beverage-carousel__description">{{ block.settings.description }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
     </div>
     </div>
   
+      <style id="custom-css-gME1cbABIb">
+        .beverage-carousel {
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .beverage-carousel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .beverage-carousel__intro {
+    max-width: 52ch;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .beverage-carousel__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .beverage-carousel__subheading {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .beverage-carousel__controls {
+    display: inline-flex;
+    gap: 0.75rem;
+  }
+
+  .beverage-carousel__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #795838;
+    color: #ffffff;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .beverage-carousel__arrow.is-disabled {
+    background-color: transparent;
+    border-color: rgba(121, 88, 56, 0.35);
+    color: rgba(121, 88, 56, 0.5);
+    cursor: default;
+    transform: none;
+  }
+
+  .beverage-carousel__arrow:not(.is-disabled):hover,
+  .beverage-carousel__arrow:not(.is-disabled):focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .beverage-carousel__viewport {
+    overflow: visible;
+    margin-inline: calc(-1 * var(--page-width-padding, 1.5rem));
+    padding-inline: 0;
+  }
+
+  .beverage-carousel__track {
+    scrollbar-width: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(220px, 1fr);
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    padding-left: var(--page-width-padding, 1.5rem);
+    padding-right: var(--page-width-padding, 1.5rem);
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  .beverage-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .beverage-carousel__item {
+    scroll-snap-align: center;
+    display: grid;
+    gap: 0.75rem;
+    text-align: center;
+    height: fit-content;
+  }
+
+  .beverage-carousel__image-wrapper {
+    width: 100%;
+    height: 194px;
+    margin-inline: auto;
+    border-radius: 220px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .beverage-carousel__image {
+    width: 100%;
+    height: 194px;
+    object-fit: cover;
+    border-radius: 220px;
+    display: block;
+  }
+
+  .beverage-carousel__image--placeholder {
+    width: 100%;
+    height: 194px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
+    border-radius: 220px;
+  }
+
+  .beverage-carousel__title {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: rgb(var(--color-foreground-heading-rgb));
+  }
+
+  .beverage-carousel__description {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  @media (max-width: 749px) {
+    .beverage-carousel {
+      overflow: visible;
+      overflow-x: clip;
+    }
+
+    .beverage-carousel__header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .beverage-carousel__controls {
+      display: none;
+    }
+
+    .beverage-carousel__heading {
+      font-size: 24px;
+    }
+
+    .beverage-carousel__viewport {
+      margin-left: calc(-1 * var(--page-width-padding, 1.5rem));
+      margin-right: calc(-1 * var(--page-width-padding, 1.5rem));
+      padding-left: 0;
+      padding-right: 0;
+      overflow: visible;
+    }
+
+    .beverage-carousel__track {
+      grid-auto-columns: 42%;
+      gap: 20px;
+      padding-left: var(--page-width-padding, 1.5rem);
+      padding-right: 15px;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: var(--page-width-padding, 1.5rem);
+      scroll-padding-right: 0;
+      scroll-behavior: smooth;
+      overflow-x: scroll;
+      overflow-y: visible;
+    }
+
+    .beverage-carousel__item {
+      width: 100%;
+      height: fit-content;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .beverage-carousel__controls {
+      display: inline-flex;
+    }
+
+    .beverage-carousel__viewport {
+      overflow: visible;
+    }
+
+    .beverage-carousel__track {
+      overflow-x: auto;
+      overflow-y: visible;
+    }
+  }
+      </style>
+    
+      <script id="custom-js-gME1cbABIb">
+        try {
+          (function() {
+    const initCarousel = (root) => {
+      if (!root) return;
+      const track = root.querySelector('[data-track]');
+      const prevBtn = root.querySelector('[data-prev]');
+      const nextBtn = root.querySelector('[data-next]');
+      if (!track || !prevBtn || !nextBtn) return;
+
+      const updateControls = () => {
+        const scrollLeft = track.scrollLeft;
+        const maxScroll = track.scrollWidth - track.clientWidth - 1;
+        if (scrollLeft <= 1) {
+          prevBtn.classList.add('is-disabled');
+        } else {
+          prevBtn.classList.remove('is-disabled');
+        }
+        if (scrollLeft >= maxScroll) {
+          nextBtn.classList.add('is-disabled');
+        } else {
+          nextBtn.classList.remove('is-disabled');
+        }
+      };
+
+      const scrollByAmount = () => {
+        const item = track.querySelector('.beverage-carousel__item');
+        const itemWidth = item ? item.getBoundingClientRect().width : track.clientWidth;
+        return itemWidth + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 20);
+      };
+
+      prevBtn.addEventListener('click', () => {
+        if (prevBtn.classList.contains('is-disabled')) return;
+        track.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (nextBtn.classList.contains('is-disabled')) return;
+        track.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
+      });
+
+      let rafId;
+      const onScroll = () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateControls);
+      };
+
+      track.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', updateControls);
+      updateControls();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-beverage-carousel]').forEach(initCarousel);
+    });
+
+    document.addEventListener('shopify:section:load', (event) => {
+      const section = event.target.querySelector('[data-beverage-carousel]');
+      if (section) initCarousel(section);
+    });
+  })();
+        } catch(err){}
+      </script>
+    
     </div>
 
       

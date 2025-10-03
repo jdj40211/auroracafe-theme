@@ -8,11 +8,14 @@
   assign fallback_logo_style = '--header-logo-image-width: 107px; --header-logo-image-width-mobile: 107px; --header-logo-image-height: 24px; --header-logo-image-height-mobile: 24px;'
   assign has_theme_logo = settings.logo
 
-  if section.settings.enable_transparent_header_home and template.name == 'index' and section.settings.home_color_scheme == 'inverse'
+  comment
+    Always use inverse logo when header is transparent, regardless of color scheme
+  endcomment
+  if section.settings.enable_transparent_header_home and template.name == 'index'
     assign use_inverse_logo = true
-  elsif section.settings.enable_transparent_header_product and template.name == 'product' and section.settings.product_color_scheme == 'inverse'
+  elsif section.settings.enable_transparent_header_product and template.name == 'product'
     assign use_inverse_logo = true
-  elsif section.settings.enable_transparent_header_collection and template.name == 'collection' and section.settings.collection_color_scheme == 'inverse'
+  elsif section.settings.enable_transparent_header_collection and template.name == 'collection'
     assign use_inverse_logo = true
   endif
 
@@ -61,6 +64,13 @@
     else
       assign logo_style = fallback_logo_style
       assign inverse_logo_style = fallback_logo_style
+    endif
+    
+    comment
+      Force specific dimensions for inverse (white) logo on desktop: 107x24px
+    endcomment
+    if use_inverse_logo
+      assign inverse_logo_style = '--header-logo-image-width: 107px; --header-logo-image-width-mobile: ' | append: inverse_logo_width_mobile | append: 'px; --header-logo-image-height: 24px; --header-logo-image-height-mobile: ' | append: block_settings.custom_height_mobile | append: 'px;'
     endif
   %}
 

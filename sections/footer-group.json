@@ -13,73 +13,21 @@
   "sections": {
     "footer": {
       "type": "footer-aurora",
-      "blocks": {
-        "column_1": {
-          "type": "column",
-          "settings": {
-            "heading": "Tienda",
-            "menu": ""
-          }
-        },
-        "column_2": {
-          "type": "column",
-          "settings": {
-            "heading": "Soporte",
-            "menu": ""
-          }
-        },
-        "column_3": {
-          "type": "column",
-          "settings": {
-            "heading": "Recursos",
-            "menu": ""
-          }
-        },
-        "social_1": {
-          "type": "social_link",
-          "settings": {
-            "icon": "instagram",
-            "label": "Instagram",
-            "url": ""
-          }
-        },
-        "social_2": {
-          "type": "social_link",
-          "settings": {
-            "icon": "tiktok",
-            "label": "TikTok",
-            "url": ""
-          }
-        },
-        "social_3": {
-          "type": "social_link",
-          "settings": {
-            "icon": "linkedin",
-            "label": "LinkedIn",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_1",
-        "column_2",
-        "column_3",
-        "social_1",
-        "social_2",
-        "social_3"
-      ],
-      "name": "Aurora Footer",
       "settings": {
         "background_image": "shopify://shop_images/FRH0Pqp4ZMCHYhJdugX4QqvmK0.avif",
-        "overlay_gradient": true,
         "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "heading": "Aurora Café: el café de calidad profesional sin cápsulas, directo en tu hogar u oficina.",
-        "subheading": "Envíos a todo Guatemala con garantía y soporte técnico especializado.",
-        "button_label": "Ver compromisos",
-        "button_link": "",
-        "show_payment_icons": true,
-        "show_policy_links": true
+        "overlay_opacity": 75,
+        "newsletter_heading": "Mantente al día con Aurora Café",
+        "newsletter_subheading": "Recibe ofertas exclusivas y novedades directamente en tu correo.",
+        "newsletter_placeholder": "Tu correo electrónico",
+        "newsletter_button_label": "Suscribirse",
+        "newsletter_success_message": "¡Gracias por suscribirte!",
+        "youtube_url": "",
+        "facebook_url": "",
+        "twitter_url": "",
+        "linkedin_url": "",
+        "tiktok_url": "",
+        "instagram_url": ""
       }
     }
   },

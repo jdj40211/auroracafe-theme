@@ -170,6 +170,7 @@
                 "button_secondary": {
                   "type": "button",
                   "name": "t:names.button",
+                  "disabled": true,
                   "settings": {
                     "label": "Quiz De Tu Máquina Ideal",
                     "link": "",
@@ -334,6 +335,8 @@
         "subheading": "Descubre por qué miles están cambiando su cafetera de cápsulas por la libertad de un café hecho a tu gusto.",
         "button_label": "Ver Productos",
         "button_link": "shopify://collections/all",
+        "media_image": "shopify://shop_images/gempages_585900372774617885-ca44f601-5b81-419e-91b6-da19fd8f89a1.png",
+        "media_video": "shopify://files/videos/Video 1.1.mp4",
         "media_video_url": "",
         "media_video_alt": "",
         "color_scheme": "scheme-1"
@@ -573,6 +576,7 @@
     },
     "blog_carousel_Aurora": {
       "type": "blog-carousel",
+      "disabled": true,
       "settings": {
         "heading": "Artículos del blog",
         "blog": "",

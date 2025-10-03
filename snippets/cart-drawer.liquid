@@ -4,6 +4,7 @@
   @param {object} [settings] - An object containing theme settings.
   @param {boolean} [settings.auto_open_cart_drawer] - If `true`, the cart drawer opens automatically after an item is added.
   @param {string} [settings.drawer_color_scheme] - The color scheme for the drawer.
+  @param {string} [section_id] - The section ID to use for cart updates.
 {%- enddoc -%}
 
 <script
@@ -35,7 +36,7 @@
     <div class="cart-drawer__inner">
       <cart-items-component
         class="cart-items-component"
-        data-section-id="{{ section.id }}"
+        data-section-id="{{ section_id }}"
       >
         {%- if cart.empty? -%}
           <div class="cart-drawer__header">
@@ -297,6 +298,7 @@
       document.addEventListener('cart:updated', refreshCartDrawer);
       document.addEventListener('cart:added', refreshCartDrawer);
       document.addEventListener('cart:change', refreshCartDrawer);
+      document.addEventListener('cart:update', refreshCartDrawer);
       
       const originalFetch = window.fetch;
       window.fetch = function(...args) {

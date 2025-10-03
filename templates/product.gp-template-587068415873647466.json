@@ -9,9 +9,9 @@
  */
 {
   "sections": {
-    "gp_section_585902042342490819": {
+    "gp_section_587068416041419626": {
       "settings": {
-        "checksum": "f4cb8dcc886a425491d2509a10fd1224fa50b4cedaee495460ff75fab5623926_1_1_1_0__1",
+        "checksum": "a834f0129a30f62ea201a1156c8f7b7611eacf0243e817854b6a32fac1f3435e_1_1_1_0__1",
         "gg1vEPndFUk_text": "<p>Alto</p>",
         "gg3CIWKAB42_text": "<p>Menos Residuos</p>",
         "gg4Ezadat3B_text": "<p>Otros</p>",
@@ -37,20 +37,39 @@
         "gguh3YkD5WK_text": "<p>Café en 1 toque</p>",
         "ggxb0kGllf6_text": "<span style=\"color:#967854;\"><i>Nosotros</i> </span>Vs Ellos"
       },
-      "type": "gp-section-585902042342490819"
+      "type": "gp-section-587068416041419626"
     },
-    "gp_section_585902916183786331": {
+    "gp_section_587068416041485162": {
       "settings": {
-        "checksum": "ccc886d0e55d3e6fb8122b16ce7d0d8316faf3e3dd1a6592769383feb372bef7_1_1_1_0__1",
+        "checksum": "ca5e3c53b460cc44d06ac1e6d4d961300357e0707904460289173c91f5f02fcf_1_1_1_0__1",
         "ggDwGbgyJI-_text": "<p>Prepara hasta 50 tazas/día</p>",
         "ggLl23guCOp_text": "<p>6 meses de garantía</p>",
         "ggls4uUnhCr_text": "<p>Compatible con cualquier café y leche</p>"
       },
-      "type": "gp-section-585902916183786331"
+      "type": "gp-section-587068416041485162"
     },
-    "gp_section_585902981447156419": {
+    "gp_section_587068416041550698": {
       "settings": {
-        "checksum": "2d1d8cd16cec5b5a47b015a1b5e34cdca723b8e1d50ece5051385921d678e29f_1_1_1_0__1",
+        "checksum": "5f396c6a44d3ecdcc872a523cb054fb56c218cdaf3ae7c9cb738fe67f462efcf_1_1_1_0__1",
+        "gg9wEWQHibF_text": "<p>Numero de bebidas</p>",
+        "ggHFUpf2yIh_text": "Replace this text with your content",
+        "ggNg8zuCOhg_text": "Replace this text with your content",
+        "ggarToWhgwP_text": "<p>Numero de bebidas</p>",
+        "ggqN60S1-di_label": "<p>Conócela</p>",
+        "ggt4pwRrrgq_label": "<p>Conócela</p>",
+        "gguVm5U0iAe_label": "<p>Comprar Ahora</p>"
+      },
+      "type": "gp-section-587068416041550698"
+    },
+    "gp_section_587068416041616234": {
+      "settings": {
+        "checksum": "bec21f10b3a8f770ea340598fdc4f4894db4b41302e103a7c44dbf88ce1acfb2_1_1_1_0__1"
+      },
+      "type": "gp-section-587068416041616234"
+    },
+    "gp_section_587068416041681770": {
+      "settings": {
+        "checksum": "68dd03d53c8e2bf9bb22aad746b9a1a645cbb822cec129f57a2b50109ffc4938_1_1_1_0__1",
         "gg2Z0oPvopN_text": "<p>Tienes garantía de 6 meses por defectos de fábrica. Contamos con repuestos y taller especializado. La garantía no cubre mal uso.</p>",
         "gg2_q2NNOP__label": "<p><u>Ver más preguntas frecuentes</u></p>",
         "gg431A5BeFK_text": "<p>¿Puedo personalizar las bebidas?</p>",
@@ -100,11 +119,26 @@
         "ggyq65CGp8S_text": "<p>Aún disponibles</p>",
         "section_preload": "true"
       },
-      "type": "gp-section-585902981447156419"
+      "type": "gp-section-587068416041681770"
     },
-    "gp_section_586478415561884355": {
+    "gp_section_587068416041747306": {
       "settings": {
-        "checksum": "b29ed8b39aa82a68aa8a4f7ef26177a228d30984d49b7dc1bfff36a9a6231e48_1_1_1_0__1",
+        "checksum": "1d082227fdd54801b6d4e53fce3b756babaa74dfbb8e560f6a8ab0dd26866b9b_1_1_1_0__1",
+        "gg5P6155pUt_text": "<p>Disfruta café de calidad sin gastar en cápsulas.</p>",
+        "gg9vYdhASQD_text": "<p>Tu bebida lista en 2–3 minutos</p>",
+        "ggF0lyuLpMV_text": "<p>Tu café de calidad superior está a un toque de distancia,</p><p>con la libertad de un menú personal y sin complicaciones.</p>",
+        "ggJ12X850F7_text": "<p>Bebidas como de barista, listas en minutos.</p>",
+        "ggJqi1H44WJ_text": "Disfruta los beneficios<br>de la máxima comodidad",
+        "ggOk3886gTP_text": "<p>Funciona con cualquier café y leche, incluso vegetal.</p>",
+        "ggVPJjxQnLQ_text": "<p>Autolimpieza que mantiene todo listo en minutos.</p>",
+        "ggVaGCruC-5_text": "<p>Solo un botón y tu bebida está lista.</p>",
+        "ggk0YF3fr1g_label": "<p>Comprar Ahora</p>"
+      },
+      "type": "gp-section-587068416041747306"
+    },
+    "gp_section_587068416041812842": {
+      "settings": {
+        "checksum": "ff68ac581405626d3eb397b58b19e6ab5e91dc623bcd2b88d4031bc5f7523983_1_1_1_0__1",
         "gg1ORbhzSUM_text": "<p>Prepara hasta 50 bebidas al día sin intervención, con consistencia profesional.</p>",
         "gg2iNG8t7NQ_text": "<p>Preparación rápida y consistente</p>",
         "gg4vKEveULo_text": "<p>Descubre lo que hace tu Aurora la elección perfecta para tu hogar.</p>",
@@ -122,26 +156,11 @@
         "ggxO9sHx74c_text": "<p><strong>Menú multilenguaje</strong></p>",
         "ggzeA2L3sY3_text": "<p>Personaliza fuerza, espuma, volumen y temperatura para cada bebida.</p>"
       },
-      "type": "gp-section-586478415561884355"
+      "type": "gp-section-587068416041812842"
     },
-    "gp_section_586480038589760285": {
+    "gp_section_587068416041878378": {
       "settings": {
-        "checksum": "8a46a22307b1143d72e7bc7c637ce0b310057d2416358e6cc48bd5cb5fccaec5_1_1_1_0__1",
-        "gg5P6155pUt_text": "<p>Disfruta café de calidad sin gastar en cápsulas.</p>",
-        "gg9vYdhASQD_text": "<p>Tu bebida lista en 2–3 minutos</p>",
-        "ggF0lyuLpMV_text": "<p>Tu café de calidad superior está a un toque de distancia,</p><p>con la libertad de un menú personal y sin complicaciones.</p>",
-        "ggJ12X850F7_text": "<p>Bebidas como de barista, listas en minutos.</p>",
-        "ggJqi1H44WJ_text": "Disfruta los beneficios<br>de la máxima comodidad",
-        "ggOk3886gTP_text": "<p>Funciona con cualquier café y leche, incluso vegetal.</p>",
-        "ggVPJjxQnLQ_text": "<p>Autolimpieza que mantiene todo listo en minutos.</p>",
-        "ggVaGCruC-5_text": "<p>Solo un botón y tu bebida está lista.</p>",
-        "ggk0YF3fr1g_label": "<p>Comprar Ahora</p>"
-      },
-      "type": "gp-section-586480038589760285"
-    },
-    "gp_section_586482738144477891": {
-      "settings": {
-        "checksum": "b466fbe6cce11d7d8a7bd7bdafa614c598e384262a95b49b234fdcadd942d43f_1_1_1_0__1",
+        "checksum": "adda8cbd88c962e4bc2accc794d29dd4c45899919e202adaf49dcf3efa661f07_1_1_1_0__1",
         "gg3VlTmE4oH_text": "<p>Ayuda profesional</p>",
         "ggNs7gCysII_text": "<p>Servicio técnico y repuestos disponibles para mantener tu máquina siempre lista.</p>",
         "ggP8RtlinPz_text": "<p>Paga fácil</p>",
@@ -151,11 +170,11 @@
         "ggfcWM-9PC-_text": "<p>6 meses de garantía por defectos de fábrica, para que disfrutes tu Aurora sin preocupaciones.</p>",
         "ggiDviQ5ZkR_text": "<p>Recibe tu cafetera en 24–72 horas en cualquier lugar de Guatemala, con mensajería confiable.</p>"
       },
-      "type": "gp-section-586482738144477891"
+      "type": "gp-section-587068416041878378"
     },
-    "gp_section_586500427269276445": {
+    "gp_section_587068416041943914": {
       "settings": {
-        "checksum": "aa6f1fd55f305c51e56606c379f36bed5fafadec7eba07e24d2b539a9e890475_1_1_1_0__1",
+        "checksum": "0f8926d610ce03e732c58469d171173a461375bdf02dbe7abccfb72a167836ce_1_1_1_0__1",
         "gg2GVdXOlxd_text": "<p>Dependiendo del modelo, hasta 25 tazas por hora. Ideal para familias grandes, oficinas o cafeterías pequeñas. Tu máquina siempre rinde a tu ritmo.</p>",
         "gg5UeDZcacT_text": "<p>Tu café de calidad superior está a un toque de distancia, con la libertad de un menú personal y sin complicaciones.</p>",
         "ggB5KYTM77g_text": "<p>Aunque parece más cara al inicio, Aurora te ahorra dinero a largo plazo. No necesitas cápsulas, solo café en grano normal, y cada taza siempre sale perfecta, como de barista. Una inversión que vale cada quetzal.</p>",
@@ -178,37 +197,18 @@
         "ggvVt8ugPPx_text": "<p>Para nada. La pantalla táctil te guía paso a paso y con un solo toque preparas cualquier bebida. Incluso si no sabes nada de tecnología, tendrás café profesional en minutos sin complicaciones.</p>",
         "ggwHi5lXC3S_text": "<p>Sí, hasta 12 cuotas con tarjetas VISA sin recargo. Disfruta tu café hoy y paga cómodamente a tu ritmo.</p>"
       },
-      "type": "gp-section-586500427269276445"
-    },
-    "gp_section_587060255268012601": {
-      "settings": {
-        "checksum": "fa4e7e705cae5e9891f640a4654bd534c65f7d062e404ec5b584ec1ae4efd002_1_1_1_0__1",
-        "gg9wEWQHibF_text": "<p>Numero de bebidas</p>",
-        "ggHFUpf2yIh_text": "Replace this text with your content",
-        "ggNg8zuCOhg_text": "Replace this text with your content",
-        "ggarToWhgwP_text": "<p>Numero de bebidas</p>",
-        "ggqN60S1-di_label": "<p>Conócela</p>",
-        "ggt4pwRrrgq_label": "<p>Conócela</p>",
-        "gguVm5U0iAe_label": "<p>Comprar Ahora</p>"
-      },
-      "type": "gp-section-587060255268012601"
-    },
-    "gp_section_587063900101411690": {
-      "settings": {
-        "checksum": "1571f316e12d794bee005cc0451df6a8917c461eab493473f7a8b7596e3535bd_1_1_1_0__1"
-      },
-      "type": "gp-section-587063900101411690"
+      "type": "gp-section-587068416041943914"
     }
   },
   "order": [
-    "gp_section_585902981447156419",
-    "gp_section_585902916183786331",
-    "gp_section_586478415561884355",
-    "gp_section_586480038589760285",
-    "gp_section_587060255268012601",
-    "gp_section_586482738144477891",
-    "gp_section_585902042342490819",
-    "gp_section_587063900101411690",
-    "gp_section_586500427269276445"
+    "gp_section_587068416041681770",
+    "gp_section_587068416041485162",
+    "gp_section_587068416041812842",
+    "gp_section_587068416041747306",
+    "gp_section_587068416041550698",
+    "gp_section_587068416041878378",
+    "gp_section_587068416041419626",
+    "gp_section_587068416041616234",
+    "gp_section_587068416041943914"
   ]
 }

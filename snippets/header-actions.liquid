@@ -8,6 +8,7 @@
   {{- block.shopify_attributes -}}
 >
   {% liquid
+    assign show_quiz_button = section.settings.show_quiz_button
     assign quiz_label = section.settings.quiz_button_label | default: 'Toma el quiz'
     assign quiz_link = section.settings.quiz_button_link | default: '/pages/quiz'
     assign question_link = section.settings.question_link | default: '/pages/faq'
@@ -18,13 +19,15 @@
       assign question_link = '/pages/faq'
     endif
   %}
-  <a
-    href="{{ quiz_link }}"
-    class="header-actions__quiz button button--quiz"
-  >
-    {{ quiz_label }}
-  </a>
-  <span class="header-actions__divider" aria-hidden="true"></span>
+  {% if show_quiz_button %}
+    <a
+      href="{{ quiz_link }}"
+      class="header-actions__quiz button button--quiz"
+    >
+      {{ quiz_label }}
+    </a>
+    <span class="header-actions__divider" aria-hidden="true"></span>
+  {% endif %}
   <div class="header-actions__icon-stack">
     <a
       href="{{ question_link }}"
@@ -42,7 +45,7 @@
     {% endif %}
     {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
       <div class="header-actions__icon-link header-actions__icon-link--cart">
-        {% render 'cart-drawer' %}
+        {% render 'cart-drawer', section_id: section_id %}
       </div>
     {% else %}
       <a

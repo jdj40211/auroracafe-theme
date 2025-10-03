@@ -223,6 +223,7 @@ class CartItemsComponent extends Component {
     if (cartItemsHtml) {
       morphSection(this.sectionId, cartItemsHtml);
     } else {
+      // Always render the section when cart is updated to ensure drawer shows correct state
       sectionRenderer.renderSection(this.sectionId, { cache: false });
     }
   };

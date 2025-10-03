@@ -10,6 +10,8 @@ body {
   margin: 0;
   min-height: 100svh;
   font-variation-settings: 'slnt' 0;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 :root {
@@ -28,6 +30,8 @@ html {
   scrollbar-width: thin;
   scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40)) var(--color-background);
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 html[scroll-lock] {
@@ -1631,7 +1635,7 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container 
 }
 
 zoom-dialog dialog {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   border: none;
   margin: 0;
@@ -3984,6 +3988,8 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 .group-block-content {
   height: 100%;
   width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 48em) {
@@ -4004,10 +4010,12 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 
 .layout-panel-flex--row>.group-block--width-fill {
   flex: 1;
+  min-width: 0;
 }
 
 .layout-panel-flex--row>.group-block--width-custom {
   flex-basis: var(--size-style-width);
+  min-width: 0;
 }
 
 /* Dimension utilities - Height */
@@ -5054,5 +5062,58 @@ text-component {
   .header--aurora .header-logo,
   .header--aurora .header__logo {
     display: none;
+  }
+}
+
+/* Responsive fixes - Prevenir desbordamiento en mobile */
+* {
+  max-width: 100%;
+}
+
+*:not(html):not(body) {
+  box-sizing: border-box;
+}
+
+/* Asegurar que todos los contenedores respeten el ancho del viewport */
+section,
+div,
+article,
+main,
+header,
+footer,
+nav {
+  max-width: 100vw;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Prevenir que las imágenes causen scroll horizontal */
+img,
+video,
+picture,
+svg {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Ajustes específicos para mobile */
+@media (max-width: 47.999em) {
+  body {
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Asegurar que los flex containers no desborden */
+  [class*="flex"],
+  [style*="display: flex"] {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+  
+  /* Ajustar texto largo */
+  h1, h2, h3, h4, h5, h6, p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
