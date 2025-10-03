@@ -109,7 +109,7 @@
               aria-label="{{ shop.name }}"
             >
               <img
-                src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Blanco_-_Website.svg?v=1759104233"
+                src="https://cdn.shopify.com/s/files/1/0726/2679/8780/files/Aurora_Logo_Negro_-_Website_bd1c89d0-c17f-4803-996a-062c0cc0459c.svg?v=1759104347"
                 alt="{{ shop.name }}"
                 class="menu-drawer__logo-image"
                 loading="lazy"
@@ -1165,6 +1165,26 @@
   .menu-drawer__featured-collection-image,
   .menu-drawer__featured-collection-link::before {
     border-radius: var(--menu-image-border-radius);
+  }
+
+  .menu-drawer__list-item--logo {
+    padding-left: 0;
+  }
+
+  .menu-drawer__menu-item--logo {
+    padding-left: 15px;
+  }
+
+  .menu-drawer__logo-image {
+    width: 120px;
+    height: auto;
+  }
+
+  .menu-drawer__menu-item--mainlist {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    padding-left: 15px !important;
   }
 
   @keyframes menu-drawer-nav-open {

@@ -11,7 +11,7 @@
   "sections": {
     "gp_section_585902042342490819": {
       "settings": {
-        "checksum": "f4cb8dcc886a425491d2509a10fd1224fa50b4cedaee495460ff75fab5623926_1_1_1_0__1",
+        "checksum": "ba80b4457b534713e2c4bf97a263e7e6b630d17fb2d59f75a064b79c5ea937cb_1_1_1_0__1",
         "gg1vEPndFUk_text": "<p>Alto</p>",
         "gg3CIWKAB42_text": "<p>Menos Residuos</p>",
         "gg4Ezadat3B_text": "<p>Otros</p>",
@@ -50,7 +50,7 @@
     },
     "gp_section_585902981447156419": {
       "settings": {
-        "checksum": "2d1d8cd16cec5b5a47b015a1b5e34cdca723b8e1d50ece5051385921d678e29f_1_1_1_0__1",
+        "checksum": "3af7d3d74ed2783ce1406a534bcd95936fee70296efebbb6bcf0fa64e947c5f3_1_1_1_0__1",
         "gg2Z0oPvopN_text": "<p>Tienes garantía de 6 meses por defectos de fábrica. Contamos con repuestos y taller especializado. La garantía no cubre mal uso.</p>",
         "gg2_q2NNOP__label": "<p><u>Ver más preguntas frecuentes</u></p>",
         "gg431A5BeFK_text": "<p>¿Puedo personalizar las bebidas?</p>",
@@ -58,7 +58,6 @@
         "gg4jTz1Pv9G_viewMoreText": "Mostrar Más",
         "gg5SVLT1ttV_text": "<p>Sí, puedes hacer ajustes avanzados ademas de uso intensivo.</p>",
         "ggC37K5Y5qe_text": "<p>¿Cuántas tazas puedo preparar por día?</p>",
-        "ggDbSfDKWu3_text": "<p>ahorra $160</p>",
         "ggHWsTLaCyP_text": "<p>Entregamos tu cafetera en 24–72 horas hábiles en toda Guatemala mediante courier. Durante 2025, ofrecemos envío gratuito. Si no estás disponible, el courier intentará una nueva visita (en caso de reenvío, hay un costo adicional de Q150).</p>",
         "ggIedDfR9C-_text": "<p>Disponemos de taller propio y técnicos especializados en cafeteras Aurora. Tenemos stock de repuestos originales y atención rápida ante cualquier inconveniente.</p>",
         "ggLlEPnz2tq_text": "Despídete de las cápsulas y el café genérico. Dale la bienvenida al verdadero espresso.",
@@ -104,7 +103,7 @@
     },
     "gp_section_586478415561884355": {
       "settings": {
-        "checksum": "b29ed8b39aa82a68aa8a4f7ef26177a228d30984d49b7dc1bfff36a9a6231e48_1_1_1_0__1",
+        "checksum": "a153ffea85bdd5154694084900936fb0f04352be2440b8823f3c66c30fa8275e_1_1_1_0__1",
         "gg1ORbhzSUM_text": "<p>Prepara hasta 50 bebidas al día sin intervención, con consistencia profesional.</p>",
         "gg2iNG8t7NQ_text": "<p>Preparación rápida y consistente</p>",
         "gg4vKEveULo_text": "<p>Descubre lo que hace tu Aurora la elección perfecta para tu hogar.</p>",
@@ -117,7 +116,7 @@
         "gghTOvUR2RT_text": "<p>Cada bebida lista en pocos minutos, siempre con la misma calidad.</p>",
         "ggpX_R0HIuF_text": "<p>Conexión directa a agua o garrafón</p>",
         "ggrhG0LKTCG_text": "<p>Español, inglés, francés, alemán y holandés para facilidad de uso por cualquier persona.</p>",
-        "ggsMBOekEL3_text": "Facilidad e Innovación en Cada Detalle",
+        "ggsMBOekEL3_text": "Facilidad e Innovación en <span style=\"color:#967854;\"><i>Cada Detalle</i></span>",
         "ggwb9_ODi7W_text": "<p>Café usado y agua residual con gran capacidad, menos recargas y limpieza más fácil.</p>",
         "ggxO9sHx74c_text": "<p><strong>Menú multilenguaje</strong></p>",
         "ggzeA2L3sY3_text": "<p>Personaliza fuerza, espuma, volumen y temperatura para cada bebida.</p>"
@@ -126,7 +125,7 @@
     },
     "gp_section_586480038589760285": {
       "settings": {
-        "checksum": "8a46a22307b1143d72e7bc7c637ce0b310057d2416358e6cc48bd5cb5fccaec5_1_1_1_0__1",
+        "checksum": "85e6f400608e4bc38c4ec0d41872ec1816b9e54138f07703e9020feb193adb64_1_1_1_0__1",
         "gg5P6155pUt_text": "<p>Disfruta café de calidad sin gastar en cápsulas.</p>",
         "gg9vYdhASQD_text": "<p>Tu bebida lista en 2–3 minutos</p>",
         "ggF0lyuLpMV_text": "<p>Tu café de calidad superior está a un toque de distancia,</p><p>con la libertad de un menú personal y sin complicaciones.</p>",
@@ -155,12 +154,13 @@
     },
     "gp_section_586500427269276445": {
       "settings": {
-        "checksum": "aa6f1fd55f305c51e56606c379f36bed5fafadec7eba07e24d2b539a9e890475_1_1_1_0__1",
+        "checksum": "2ffa198b70c3fb7d250339ac7684db7d729603bd664f00b644a1d9ce09d83388_1_1_1_0__1",
         "gg2GVdXOlxd_text": "<p>Dependiendo del modelo, hasta 25 tazas por hora. Ideal para familias grandes, oficinas o cafeterías pequeñas. Tu máquina siempre rinde a tu ritmo.</p>",
+        "gg5GvW3SrjR_label": "<p>Comprar Ahora</p>",
         "gg5UeDZcacT_text": "<p>Tu café de calidad superior está a un toque de distancia, con la libertad de un menú personal y sin complicaciones.</p>",
         "ggB5KYTM77g_text": "<p>Aunque parece más cara al inicio, Aurora te ahorra dinero a largo plazo. No necesitas cápsulas, solo café en grano normal, y cada taza siempre sale perfecta, como de barista. Una inversión que vale cada quetzal.</p>",
         "ggN3DhUlEbf_text": "<p>Aurora ofrece café en grano fresco y personalizado, bebidas rápidas y profesionales, limpieza sencilla y libertad de elección. Todo en una máquina que combina diseño elegante y tecnología confiable.</p>",
-        "ggPvtYKa9O8_label": "<p>Comprar Ahora</p>",
+        "ggaR9AYBUTu_label": "<p>Contáctanos</p>",
         "gggC7zfXrIQ_text": "<p>Nada complicado. Gracias al sistema de autolimpieza y depósitos accesibles, mantener tu Aurora lista toma minutos. Así podrás disfrutar café profesional todos los días sin esfuerzo.</p>",
         "ggh9Sp50BKT_text": "<p>Sí, Aurora es flexible. Funciona con cualquier café en grano y todo tipo de leche, incluso vegetal. Ajusta automáticamente la molienda y la espuma para que tu bebida quede exactamente como te gusta.</p>",
         "gghVdUT_TRT_text": "Disfruta los beneficios de la máxima comodidad",
@@ -182,14 +182,47 @@
     },
     "gp_section_587060255268012601": {
       "settings": {
-        "checksum": "fa4e7e705cae5e9891f640a4654bd534c65f7d062e404ec5b584ec1ae4efd002_1_1_1_0__1",
-        "gg9wEWQHibF_text": "<p>Numero de bebidas</p>",
+        "checksum": "e883a138c49f2da964fc0bb9e2d65623582c7c321f74dab0bd07490a0303b115_1_1_1_0__1",
+        "gg5NB70_IuM_text": "<p>19 Bares</p>",
+        "gg8HwhB5omF_text": "<p>Sistema Automático</p>",
+        "gg9wEWQHibF_text": "<p>Uso Ideal</p>",
+        "ggDCLw-bCJD_text": "<p>Robustez (Durabilidad 1-5)</p>",
+        "ggEeABY66b__text": "<p><strong>Sí</strong> (Ajuste Preciso y Consistente)</p>",
+        "ggGk_GVrbld_text": "<p>19 Bares</p>",
         "ggHFUpf2yIh_text": "Replace this text with your content",
+        "ggKvwTrB16f_text": "<p><strong>Sí</strong> (Ajuste Fino para Sabor Personalizado)</p>",
+        "ggN6l2NQ6AJ_text": "<p>250 gramos</p>",
+        "ggNCb9p7dPu_text": "<p>1.8 Litros</p>",
+        "ggNO05TpSWO_text": "<p>Facilidad de Uso (1-5)</p>",
+        "ggNbEHxcTgm_text": "<p>2.0 Litros</p>",
         "ggNg8zuCOhg_text": "Replace this text with your content",
-        "ggarToWhgwP_text": "<p>Numero de bebidas</p>",
+        "ggRVHkhbvSN_text": "<p>Manuales (Espresso/Americano)</p>",
+        "ggSDie1oQbf_text": "<p>Pantalla Táctil Digital</p>",
+        "ggTIr6_Jc3X_text": "<p>19</p>",
+        "ggTKAk_b2hp_text": "¿Cual Aurora es la <span style=\"color:#967854;\"><i>correcta para mi</i>?</span>",
+        "ggUhVGjyG4T_text": "<p>Interfaz / Control</p>",
+        "ggVNUqv2VuU_text": "<p>Uso Diario / Espacios Reducidos</p>",
+        "ggWR6Jk5YML_text": "<p><strong>500 gramos</strong> (Estimado por alto uso)</p>",
+        "ggWSTtQSpLA_text": "<p><strong>Presión de Bomba</strong></p>",
+        "ggYPanGoIWp_text": "<p>7+ Opciones Programadas</p>",
+        "ggZxgUVMx_f_text": "<p>Pantalla Táctil de 1 Botón</p>",
+        "gg_6YQO-Ksd_text": "<p><strong>No</strong> (Utiliza café molido o grano)</p>",
+        "ggarToWhgwP_text": "<p>Molinillo Integrado</p>",
+        "ggb9t2IBTl9_text": "<p>Vaporizador de Leche</p>",
+        "ggbLjpWCpg1_text": "<p>N/A (Usa Café Molido/Grano Externo)</p>",
+        "ggch517lGd-_text": "<p>Variedades de Bebidas</p>",
+        "ggkTvx1ts0h_text": "<p>19 Bares</p>",
+        "gglHGJwrTMQ_text": "<p>Capacidad de Agua</p>",
+        "ggob6PByqA1_text": "<p>Pantalla Táctil Intuitiva</p>",
+        "ggp8GQJjRf0_text": "<p>7 Opciones Programadas</p>",
         "ggqN60S1-di_label": "<p>Conócela</p>",
+        "ggr5qFUJskA_text": "<p><strong>Capacidad de Granos</strong></p>",
+        "ggrS8MqQOrc_text": "<p><strong>Manual</strong> (Control total de espuma)</p>",
         "ggt4pwRrrgq_label": "<p>Conócela</p>",
-        "gguVm5U0iAe_label": "<p>Comprar Ahora</p>"
+        "ggtYJeZcKEu_text": "<p>2.5 Litros (Mayor Capacidad)</p>",
+        "gguVm5U0iAe_label": "<p>Comprar Ahora</p>",
+        "ggxz8nJHUj0_text": "<p>Uso Familiar / Amantes del Café</p>",
+        "ggy2gQdxJ7z_text": "<p>Sistema Automático</p>"
       },
       "type": "gp-section-587060255268012601"
     },

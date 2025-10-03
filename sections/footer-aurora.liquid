@@ -64,51 +64,26 @@
 
       {%- comment -%} Navigation Columns {%- endcomment -%}
       <nav class="aurora-footer__navigation" aria-label="Footer navigation">
-        <details class="aurora-footer__column aurora-footer__column--collapsible">
-          <summary class="aurora-footer__column-heading">
-            Productos
-            <svg class="aurora-footer__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </summary>
-          <ul class="aurora-footer__links">
-            <li><a href="/collections/cafe-en-grano">Café en grano</a></li>
-            <li><a href="/collections/cafe-molido">Café molido</a></li>
-            <li><a href="/collections/capsulas">Cápsulas</a></li>
-            <li><a href="/collections/maquinas">Máquinas</a></li>
-            <li><a href="/collections/accesorios">Accesorios</a></li>
-          </ul>
-        </details>
-
-        <details class="aurora-footer__column aurora-footer__column--collapsible">
-          <summary class="aurora-footer__column-heading">
-            Empresa
-            <svg class="aurora-footer__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </summary>
-          <ul class="aurora-footer__links">
-            <li><a href="/pages/sobre-nosotros">Sobre nosotros</a></li>
-            <li><a href="/pages/faqs">FAQs</a></li>
-            <li><a href="/pages/envios-y-devoluciones">Envíos y devoluciones</a></li>
-            <li><a href="/policies/terms-of-service">Términos y condiciones</a></li>
-            <li><a href="/policies/privacy-policy">Política de privacidad</a></li>
-          </ul>
-        </details>
-
-        <details class="aurora-footer__column aurora-footer__column--collapsible">
-          <summary class="aurora-footer__column-heading">
-            Soporte
-            <svg class="aurora-footer__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </summary>
-          <ul class="aurora-footer__links">
-            <li><a href="/pages/contacto">Contacto</a></li>
-            <li><a href="/pages/atencion-al-cliente">Atención al cliente</a></li>
-            <li><a href="/pages/localiza-tu-tienda">Localiza tu tienda</a></li>
-          </ul>
-        </details>
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'menu_column' -%}
+              <details class="aurora-footer__column aurora-footer__column--collapsible" {{ block.shopify_attributes }}>
+                <summary class="aurora-footer__column-heading">
+                  {{ block.settings.title }}
+                  <svg class="aurora-footer__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </summary>
+                {%- if block.settings.menu != blank -%}
+                  <ul class="aurora-footer__links">
+                    {%- for link in linklists[block.settings.menu].links -%}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </details>
+          {%- endcase -%}
+        {%- endfor -%}
       </nav>
     </div>
   </div>
@@ -362,7 +337,8 @@
     border-radius: 999px;
     background-color: #ffffff;
     color: #111111;
-    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     font-size: 1rem;
     border: none;
     cursor: pointer;
@@ -461,7 +437,7 @@
   .aurora-footer__utility-inner {
     display: grid;
     gap: 2rem;
-    padding: 2rem clamp(1.25rem, 5vw, 2.5rem);
+    padding: 2rem 50px;
     text-align: center;
   }
 
@@ -531,6 +507,14 @@
   .aurora-footer__brand-logo {
     max-width: 120px;
     height: auto;
+  }
+
+  @media (min-width: 900px) {
+    .aurora-footer__brand-logo {
+      width: 136px;
+      height: 31px;
+      max-width: none;
+    }
   }
 
   .aurora-footer__social {
@@ -621,6 +605,10 @@
   "name": "Aurora Footer",
   "settings": [
     {
+      "type": "header",
+      "content": "Configuración de fondo"
+    },
+    {
       "type": "image_picker",
       "id": "background_image",
       "label": "Imagen de fondo"
@@ -640,6 +628,10 @@
       "step": 5,
       "unit": "%",
       "default": 75
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
     },
     {
       "type": "text",
@@ -672,6 +664,10 @@
       "default": "¡Gracias por suscribirte!"
     },
     {
+      "type": "header",
+      "content": "Redes sociales"
+    },
+    {
       "type": "url",
       "id": "youtube_url",
       "label": "URL de YouTube"
@@ -702,9 +698,52 @@
       "label": "URL de Instagram"
     }
   ],
+  "blocks": [
+    {
+      "type": "menu_column",
+      "name": "Columna de menú",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Enlaces"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menú",
+          "info": "Selecciona un menú de navegación desde Configuración > Menús"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Aurora Footer"
+      "name": "Aurora Footer",
+      "blocks": [
+        {
+          "type": "menu_column",
+          "settings": {
+            "title": "Productos",
+            "menu": "footer"
+          }
+        },
+        {
+          "type": "menu_column",
+          "settings": {
+            "title": "Empresa",
+            "menu": "footer"
+          }
+        },
+        {
+          "type": "menu_column",
+          "settings": {
+            "title": "Soporte",
+            "menu": "footer"
+          }
+        }
+      ]
     }
   ]
 }

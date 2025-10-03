@@ -50,7 +50,7 @@
     },
     "gp_section_586950507193631289": {
       "settings": {
-        "checksum": "43a08c818a8d19e0a93c40c8d2b9a551cefb3a589158fc85862955ef95695070_1_1_1_0__1",
+        "checksum": "348497e0878d470faf250f2eff4efe6f55603a7a3cd61f2772a229d47db84277_1_1_1_0__1",
         "gg2Z0oPvopN_text": "<p>Sí, 6 meses por defectos de fábrica. No cubre mal uso.</p>",
         "gg2_q2NNOP__label": "<p><u>Ver más preguntas frecuentes</u></p>",
         "gg431A5BeFK_text": "<p>¿Qué métodos de pago aceptan?</p>",
@@ -94,7 +94,6 @@
         "ggm06D2saq5_text": "<p>Autolimpieza, siempre lista para tu próxima taza.</p>",
         "ggmLgVwjRR2_text": "<p>¿Es fácil de limpiar?</p>",
         "ggoCq18X-CA_text": "<p>¿Qué tipo de café puedo usar?</p>",
-        "ggq41fO-kc2_text": "<p><a href=\"#gXsgWRf3kq\"><u>Amado por +1.000 Clientes</u></a></p>",
         "ggqKdyNAeFM_text": "<p>6 meses de garantía por defectos</p>",
         "ggw4NY8vAzR_text": "<p>Todas las cafeteras Aurora cuentan con 6 meses de garantía por defectos de fábrica. La garantía cubre fallas técnicas y daños durante envío (previa evaluación). No aplica por mal uso o manipulaciones no autorizadas.</p>",
         "ggwP6YvO1hU_text": "<p>Bebidas como de barista, listas en minutos.</p>",
@@ -106,22 +105,22 @@
     },
     "gp_section_586950507193696825": {
       "settings": {
-        "checksum": "570956a85c644da12b1e4f4bfc011def06f5fca9bd54c6f40a0f553e20d10199_1_1_1_0__1",
+        "checksum": "20414daa7fc9ef2b293ee77954c640a407e960cbe3d39e81594f943e6b62bed6_1_1_1_0__1",
         "gg5P6155pUt_text": "<p>Disfruta café de calidad sin gastar en cápsulas.</p>",
         "gg9vYdhASQD_text": "<p>Tu bebida lista en 2–3 minutos</p>",
-        "ggF0lyuLpMV_text": "<p>Tu café de calidad superior está a un toque de distancia,</p><p>con la libertad de un menú personal y sin complicaciones.</p>",
+        "ggF0lyuLpMV_text": "<p>Tu café de calidad superior está a un toque de distancia, con la libertad de un menú personal y sin complicaciones.</p>",
         "ggJ12X850F7_text": "<p>Bebidas como de barista, listas en minutos.</p>",
-        "ggJqi1H44WJ_text": "Disfruta los beneficios<br>de la máxima comodidad",
+        "ggJqi1H44WJ_text": "Disfruta los beneficios<br>de la <span style=\"color:#967854;\"><i>máxima comodidad</i></span>",
         "ggOk3886gTP_text": "<p>Funciona con cualquier café y leche, incluso vegetal.</p>",
-        "ggRA7W59JsQ_label": "<p>Comprar Ahora</p>",
         "ggVPJjxQnLQ_text": "<p>Autolimpieza que mantiene todo listo en minutos.</p>",
-        "ggVaGCruC-5_text": "<p>Solo un botón y tu bebida está lista.</p>"
+        "ggVaGCruC-5_text": "<p>Solo un botón y tu bebida está lista.</p>",
+        "ggZD441SsP__label": "<p>Comprar Ahora</p>"
       },
       "type": "gp-section-586950507193696825"
     },
     "gp_section_586950507193762361": {
       "settings": {
-        "checksum": "acfaa31eefb4c658fc9d5b4d176f9c369cb8953addf769c5aba267a361e5555c_1_1_1_0__1",
+        "checksum": "9f288cd496905caafa88368eebcb1f35e0a48832483899b1fd93270c52308f56_1_1_1_0__1",
         "gg1ORbhzSUM_text": "<p>Estilo contemporáneo y facilidad de uso con una interfaz intuitiva.</p>",
         "gg2iNG8t7NQ_text": "<p>Tanque de Agua Removible de 1.8 Litros</p>",
         "gg4vKEveULo_text": "<p>Descubre lo que hace tu Aurora la elección perfecta para tu hogar.</p>",
@@ -135,7 +134,7 @@
         "gghTOvUR2RT_text": "<p>Facilita la recarga y limpieza del depósito de agua.</p>",
         "ggpX_R0HIuF_text": "<p>Molinillo de Granos Integrado con Personalización Fina</p>",
         "ggrhG0LKTCG_text": "<p>Asegura una extracción de café óptima y de calidad profesional.</p>",
-        "ggsMBOekEL3_text": "Facilidad e Innovación en Cada Detalle",
+        "ggsMBOekEL3_text": "Facilidad e Innovación en <span style=\"color:#967854;\"><i>Cada Detalle</i></span>",
         "ggwb9_ODi7W_text": "<p>Permite ajustar el volumen de café (8-12g) y la molienda para un sabor a medida.</p>",
         "ggxO9sHx74c_text": "<p>Bomba de Alta Presión (19 Bares)</p>"
       },
@@ -157,15 +156,15 @@
     },
     "gp_section_586950507193958969": {
       "settings": {
-        "checksum": "75e23310acc3b90844b285bbc88f07ad5431cf3487d664670b837f42ac9307e8_1_1_1_0__1",
+        "checksum": "d5d9e25849fb221d6ea0dc1b7a34e68a6800e001dec7cabf0124d06cbf39f101_1_1_1_0__1",
         "gg2GVdXOlxd_text": "<p>2–3 minutos por taza, dependiendo del tipo de café seleccionado.</p>",
-        "gg5UeDZcacT_text": "<p>Tu café de calidad superior está a un toque de distancia, con la libertad de un menú personal y sin complicaciones.</p>",
+        "gg5UeDZcacT_text": "<p>Aquí resolvemos las dudas más comunes. Si aún tienes preguntas, escríbenos por WhatsApp y te ayudamos al instante.</p>",
         "ggB5KYTM77g_text": "<p>Sí, acepta café en grano o molido. La leche se prepara automáticamente. Incluso funciona con leche vegetal (la espuma puede ser ligeramente diferente).</p>",
+        "ggN2cbz2dML_label": "<p>Contáctanos</p>",
         "ggN3DhUlEbf_text": "<p>Actualmente solo en Guatemala, con envíos a todo el país mediante courier confiable.</p>",
-        "ggPvtYKa9O8_label": "<p>Comprar Ahora</p>",
         "gggC7zfXrIQ_text": "<p>Sí. Cuenta con <strong>autolimpieza y grupo extraíble</strong>, lo que facilita la limpieza profunda y reduce el mantenimiento diario.</p>",
         "ggh9Sp50BKT_text": "<p>Garantía de 6 meses por defectos de fábrica. Contamos con repuestos y taller especializado. La garantía no cubre mal uso o manipulación no autorizada.</p>",
-        "gghVdUT_TRT_text": "Disfruta los beneficios de la máxima comodidad",
+        "gghVdUT_TRT_text": "Preguntas frecuentes<br><span style=\"color:#967854;\"><i>sobre tu Aurora</i></span>",
         "ggoG3-3omab_text": "<p>Efectivo, transferencia bancaria o tarjeta de crédito/débito. Puedes pagar al contado o en hasta 12 cuotas sin recargo.</p>",
         "ggqIp1NemEQ_childItem_0": "<p>¿Puedo usar cualquier café o leche?</p>",
         "ggqIp1NemEQ_childItem_1": "<p>¿Cuántas tazas puedo preparar por día?</p>",
@@ -181,6 +180,12 @@
         "ggwHi5lXC3S_text": "<p>No garantizamos horarios exactos; los envíos normalmente se realizan en <strong>24–72 horas hábiles</strong> tras confirmar el pago.</p>"
       },
       "type": "gp-section-586950507193958969"
+    },
+    "gp_section_587161043386499946": {
+      "settings": {
+        "checksum": "16f97903a6760927929b9842308c52994eacccbc13818cdc517f0543129c0540_1_1_1_0__1"
+      },
+      "type": "gp-section-587161043386499946"
     }
   },
   "order": [
@@ -190,6 +195,7 @@
     "gp_section_586950507193696825",
     "gp_section_586950507193893433",
     "gp_section_586950507193500217",
+    "gp_section_587161043386499946",
     "gp_section_586950507193958969"
   ]
 }

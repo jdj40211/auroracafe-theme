@@ -306,6 +306,13 @@
     }
   }
 
+  /* Reducir padding-top en mobile para el hero del home */
+  @media screen and (max-width: 749px) {
+    .hero__container {
+      --padding-block-start: calc(var(--padding-block-start, 32px) / 2) !important;
+    }
+  }
+
   .hero__content-wrapper.page-width {
     grid-column: 2 / 3;
   }
